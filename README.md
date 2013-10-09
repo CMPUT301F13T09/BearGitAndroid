@@ -16,7 +16,11 @@ Trello -
 Authors
 -------
 Kyle Richelhoff 
+
 Shuxiao Miao
+
 Weiyu Yang
+
 Tianyi Wu
+
 Zili Liu
