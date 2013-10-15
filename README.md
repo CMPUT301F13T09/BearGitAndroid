@@ -11,7 +11,7 @@ Or in docs/ as a PNG.
 
 Development Board
 -----------------
-Trello - 
+Trello - https://trello.com/b/VyQPAs7Z/cmput301f13t09
 
 Authors
 -------
