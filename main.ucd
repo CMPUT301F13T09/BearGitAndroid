@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="main" size="1382,504" id="cs.ualberta.ca.beargitandroid" metadata="uml2-1.0" initialized="true" tag="1000" key="32303037303533312D313030302042656172476974416E64726F69642F7A6C697531">
+  <children xsi:type="editmodel:ClassEditModel" name="localDBAdapter" location="165,255" size="165,229" id="cs.ualberta.ca.beargitandroid/localDBAdapter" runTimeClassModel="query(Ljava.lang.String;),update(Lcs.ualberta.ca.beargitandroid.Entry;),dATABASE_TABLE,localDBAdapter(Landroid.content.Context;),finalize(J),fetch(J),dATABASE_NAME,cxt,create(Lcs.ualberta.ca.beargitandroid.Entry;),remove(J)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="142,54">
+      <children xsi:type="editmodel:AttributeEditModel" name="cxt" id="cs.ualberta.ca.beargitandroid/localDBAdapter#cxt"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="dATABASE_NAME" id="cs.ualberta.ca.beargitandroid/localDBAdapter#dATABASE_NAME"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="dATABASE_TABLE" id="cs.ualberta.ca.beargitandroid/localDBAdapter#dATABASE_TABLE"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="108,126">
+      <children xsi:type="editmodel:MethodEditModel" name="create" id="cs.ualberta.ca.beargitandroid/localDBAdapter#create(Lcs.ualberta.ca.beargitandroid.Entry;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="fetch" id="cs.ualberta.ca.beargitandroid/localDBAdapter#fetch(J)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="finalize" id="cs.ualberta.ca.beargitandroid/localDBAdapter#finalize(J)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="localDBAdapter" id="cs.ualberta.ca.beargitandroid/localDBAdapter#localDBAdapter(Landroid.content.Context;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="query" id="cs.ualberta.ca.beargitandroid/localDBAdapter#query(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="remove" id="cs.ualberta.ca.beargitandroid/localDBAdapter#remove(J)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="update" id="cs.ualberta.ca.beargitandroid/localDBAdapter#update(Lcs.ualberta.ca.beargitandroid.Entry;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="Entry" location="675,105" size="80,67" id="cs.ualberta.ca.beargitandroid/Entry" runTimeClassModel="Entry()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="56,18">
+      <children xsi:type="editmodel:MethodEditModel" name="Entry" id="cs.ualberta.ca.beargitandroid/Entry#Entry()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="remoteDBAdapter" location="495,255" size="174,175" id="cs.ualberta.ca.beargitandroid/remoteDBAdapter" runTimeClassModel="fetchSotry(J),dATA_PATH,update(Lcs.ualberta.ca.beargitandroid.Entry;),bSAR_URL,create(Lcs.ualberta.ca.beargitandroid.Entry;),remove(J),fetchEntry(J)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="110,36">
+      <children xsi:type="editmodel:AttributeEditModel" name="bSAR_URL" id="cs.ualberta.ca.beargitandroid/remoteDBAdapter#bSAR_URL"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="dATA_PATH" id="cs.ualberta.ca.beargitandroid/remoteDBAdapter#dATA_PATH"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="82,90">
+      <children xsi:type="editmodel:MethodEditModel" name="create" id="cs.ualberta.ca.beargitandroid/remoteDBAdapter#create(Lcs.ualberta.ca.beargitandroid.Entry;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="fetchEntry" id="cs.ualberta.ca.beargitandroid/remoteDBAdapter#fetchEntry(J)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="fetchSotry" id="cs.ualberta.ca.beargitandroid/remoteDBAdapter#fetchSotry(J)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="remove" id="cs.ualberta.ca.beargitandroid/remoteDBAdapter#remove(J)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="update" id="cs.ualberta.ca.beargitandroid/remoteDBAdapter#update(Lcs.ualberta.ca.beargitandroid.Entry;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="DBAdapter" location="345,15" size="145,211" id="cs.ualberta.ca.beargitandroid/DBAdapter" runTimeClassModel="fetchIndexLocal(),upload(Lcs.ualberta.ca.beargitandroid.Entry;),loadStory(J),download(J),fetch(J),fetchIndexRemote(),modify(Lcs.ualberta.ca.beargitandroid.Entry;),create(Lcs.ualberta.ca.beargitandroid.Entry;),remove(J)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="122,162">
+      <children xsi:type="editmodel:MethodEditModel" name="create" id="cs.ualberta.ca.beargitandroid/DBAdapter#create(Lcs.ualberta.ca.beargitandroid.Entry;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="download" id="cs.ualberta.ca.beargitandroid/DBAdapter#download(J)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="fetch" id="cs.ualberta.ca.beargitandroid/DBAdapter#fetch(J)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="fetchIndexRemote" location="10,89" id="cs.ualberta.ca.beargitandroid/DBAdapter#fetchIndexRemote()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="fetchIndexLocal" id="cs.ualberta.ca.beargitandroid/DBAdapter#fetchIndexLocal()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="loadStory" id="cs.ualberta.ca.beargitandroid/DBAdapter#loadStory(J)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="modify" id="cs.ualberta.ca.beargitandroid/DBAdapter#modify(Lcs.ualberta.ca.beargitandroid.Entry;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="remove" id="cs.ualberta.ca.beargitandroid/DBAdapter#remove(J)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="upload" id="cs.ualberta.ca.beargitandroid/DBAdapter#upload(Lcs.ualberta.ca.beargitandroid.Entry;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" properties="wireOptions=1;Product=eUML2" autoName="false"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="15,15" gridOrigin="0,0" rulerUnit="pixel" gridVisibility="false">
+    <leftRuler/>
+    <topRuler>
+      <guides position="860"/>
+    </topRuler>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" showPopupBars="true" showConnectionHandles="true" attributeSorter="Natural" methodSorter="Natural" showClassStereotype="true" showPackageStereotype="true" showDependencyStereotype="true" showInterfaceStereotype="true" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+</editmodel:ClassDiagramEditModel>
