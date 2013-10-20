@@ -31,11 +31,17 @@ public class Editorview extends Activity {
 	public void delete(){		
 	}
 	/**
-	 * The function Editchapter() will call to the else class.
+	 * The function editChapter() will call to the else class.
 	 */
-	public void Editchapter(){
+	public void editChapter(){
 		/**
 		 * Chapter = chapterEditor(Story story)
+		 */
+	}
+	
+	public void getChapterList(){
+		/**
+		 * return the exist chapters
 		 */
 	}
 
