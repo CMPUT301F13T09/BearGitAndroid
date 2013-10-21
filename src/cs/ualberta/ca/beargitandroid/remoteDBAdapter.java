@@ -44,5 +44,55 @@ public class remoteDBAdapter {
 					public void remove(long id){
 					}
 
+					/**
+					 * @uml.property  name="dBAdapter"
+					 * @uml.associationEnd  aggregation="composite" inverse="remoteDBAdapter:cs.ualberta.ca.beargitandroid.DBAdapter"
+					 */
+					private DBAdapter dbAdapter;
+
+					/**
+					 * Getter of the property <tt>dBAdapter</tt>
+					 * @return  Returns the dbAdapter.
+					 * @uml.property  name="dBAdapter"
+					 */
+					public DBAdapter getDBAdapter() {
+						return dbAdapter;
+					}
+
+
+					/**
+					 * Setter of the property <tt>dBAdapter</tt>
+					 * @param dBAdapter  The dbAdapter to set.
+					 * @uml.property  name="dBAdapter"
+					 */
+					public void setDBAdapter(DBAdapter dbAdapter) {
+						this.dbAdapter = dbAdapter;
+					}
+
+					/**
+					 * @uml.property  name="dBAdapter1"
+					 * @uml.associationEnd  inverse="remoteDBAdapter1:cs.ualberta.ca.beargitandroid.DBAdapter"
+					 */
+					private DBAdapter dbAdapter1;
+
+					/**
+					 * Getter of the property <tt>dBAdapter1</tt>
+					 * @return  Returns the dbAdapter1.
+					 * @uml.property  name="dBAdapter1"
+					 */
+					public DBAdapter getDBAdapter1() {
+						return dbAdapter1;
+					}
+
+
+					/**
+					 * Setter of the property <tt>dBAdapter1</tt>
+					 * @param dBAdapter1  The dbAdapter1 to set.
+					 * @uml.property  name="dBAdapter1"
+					 */
+					public void setDBAdapter1(DBAdapter dbAdapter1) {
+						this.dbAdapter1 = dbAdapter1;
+					}
+
 		
 }

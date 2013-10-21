@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="main-Miao" size="1043,612" id="cs.ualberta.ca.beargitandroid" metadata="uml2-1.0" initialized="true" scrolledX="168" scrolledY="195" tag="1000" key="32303037303533312D313030302042656172476974416E64726F69642F7368757869616F">
-  <children xsi:type="editmodel:ClassEditModel" name="localDBAdapter" location="60,300" size="157,229" id="cs.ualberta.ca.beargitandroid/localDBAdapter" runTimeClassModel="query(Ljava.lang.String;),update(Lcs.ualberta.ca.beargitandroid.Entry;),dATABASE_TABLE,localDBAdapter(Landroid.content.Context;),finalize(J),fetch(J),dATABASE_NAME,cxt,create(Lcs.ualberta.ca.beargitandroid.Entry;),remove(J)">
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="main-Miao" size="1223,876" id="cs.ualberta.ca.beargitandroid" metadata="uml2-1.0" initialized="true" scrolledX="21" scrolledY="2" tag="1000" key="32303037303533312D313030302042656172476974416E64726F69642F7368757869616F">
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.3/@sourceConnections.0" name="localDBAdapter" location="75,564" size="157,229" id="cs.ualberta.ca.beargitandroid/localDBAdapter" runTimeClassModel="query(Ljava.lang.String;),update(Lcs.ualberta.ca.beargitandroid.Entry;),dATABASE_TABLE,localDBAdapter(Landroid.content.Context;),finalize(J),fetch(J),dATABASE_NAME,cxt,create(Lcs.ualberta.ca.beargitandroid.Entry;),remove(J)">
     <children xsi:type="editmodel:CompartmentEditModel" size="134,54">
       <children xsi:type="editmodel:AttributeEditModel" name="cxt" id="cs.ualberta.ca.beargitandroid/localDBAdapter#cxt"/>
       <children xsi:type="editmodel:AttributeEditModel" name="dATABASE_NAME" id="cs.ualberta.ca.beargitandroid/localDBAdapter#dATABASE_NAME"/>
@@ -10,7 +10,7 @@
       <children xsi:type="editmodel:MethodEditModel" name="create" id="cs.ualberta.ca.beargitandroid/localDBAdapter#create(Lcs.ualberta.ca.beargitandroid.Entry;)"/>
       <children xsi:type="editmodel:MethodEditModel" name="fetch" id="cs.ualberta.ca.beargitandroid/localDBAdapter#fetch(J)"/>
       <children xsi:type="editmodel:MethodEditModel" name="finalize" id="cs.ualberta.ca.beargitandroid/localDBAdapter#finalize(J)"/>
-      <children xsi:type="editmodel:MethodEditModel" name="localDBAdapter" id="cs.ualberta.ca.beargitandroid/localDBAdapter#localDBAdapter(Landroid.content.Context;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="localDBAdapter" location="5,148" id="cs.ualberta.ca.beargitandroid/localDBAdapter#localDBAdapter(Landroid.content.Context;)"/>
       <children xsi:type="editmodel:MethodEditModel" name="query" id="cs.ualberta.ca.beargitandroid/localDBAdapter#query(Ljava.lang.String;)"/>
       <children xsi:type="editmodel:MethodEditModel" name="remove" id="cs.ualberta.ca.beargitandroid/localDBAdapter#remove(J)"/>
       <children xsi:type="editmodel:MethodEditModel" name="update" id="cs.ualberta.ca.beargitandroid/localDBAdapter#update(Lcs.ualberta.ca.beargitandroid.Entry;)"/>
@@ -18,7 +18,7 @@
     <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
     <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
   </children>
-  <children xsi:type="editmodel:ClassEditModel" name="Entry" location="675,105" size="119,147" id="cs.ualberta.ca.beargitandroid/Entry" runTimeClassModel="id,author,title,destribe,filename,date">
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.9/@sourceConnections.1" name="Entry" location="315,15" size="119,147" id="cs.ualberta.ca.beargitandroid/Entry" runTimeClassModel="id,author,title,destribe,filename,date">
     <children xsi:type="editmodel:CompartmentEditModel" size="96,108">
       <children xsi:type="editmodel:AttributeEditModel" name="id" id="cs.ualberta.ca.beargitandroid/Entry#id"/>
       <children xsi:type="editmodel:AttributeEditModel" name="author" id="cs.ualberta.ca.beargitandroid/Entry#author"/>
@@ -31,7 +31,7 @@
     <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
     <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
   </children>
-  <children xsi:type="editmodel:ClassEditModel" name="remoteDBAdapter" location="615,210" size="165,175" id="cs.ualberta.ca.beargitandroid/remoteDBAdapter" runTimeClassModel="fetchSotry(J),dATA_PATH,update(Lcs.ualberta.ca.beargitandroid.Entry;),bSAR_URL,create(Lcs.ualberta.ca.beargitandroid.Entry;),remove(J),fetchEntry(J)">
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.3/@sourceConnections.1" name="remoteDBAdapter" location="269,618" size="165,175" id="cs.ualberta.ca.beargitandroid/remoteDBAdapter" runTimeClassModel="fetchSotry(J),dATA_PATH,update(Lcs.ualberta.ca.beargitandroid.Entry;),bSAR_URL,create(Lcs.ualberta.ca.beargitandroid.Entry;),remove(J),fetchEntry(J)">
     <children xsi:type="editmodel:CompartmentEditModel" size="104,36">
       <children xsi:type="editmodel:AttributeEditModel" name="bSAR_URL" id="cs.ualberta.ca.beargitandroid/remoteDBAdapter#bSAR_URL"/>
       <children xsi:type="editmodel:AttributeEditModel" name="dATA_PATH" id="cs.ualberta.ca.beargitandroid/remoteDBAdapter#dATA_PATH"/>
@@ -46,7 +46,7 @@
     <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
     <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
   </children>
-  <children xsi:type="editmodel:ClassEditModel" name="DBAdapter" location="345,15" size="140,211" id="cs.ualberta.ca.beargitandroid/DBAdapter" runTimeClassModel="upload(Lcs.ualberta.ca.beargitandroid.Entry;),fetchIndexLocal(),download(J),loadStory(J),fetch(J),fetchIndexRemote(),modify(Lcs.ualberta.ca.beargitandroid.Entry;),create(Lcs.ualberta.ca.beargitandroid.Entry;),remove(J)">
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.8/@sourceConnections.0" name="DBAdapter" location="150,165" size="140,211" id="cs.ualberta.ca.beargitandroid/DBAdapter" runTimeClassModel="upload(Lcs.ualberta.ca.beargitandroid.Entry;),fetchIndexLocal(),download(J),loadStory(J),fetch(J),fetchIndexRemote(),modify(Lcs.ualberta.ca.beargitandroid.Entry;),create(Lcs.ualberta.ca.beargitandroid.Entry;),remove(J)">
     <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
     <children xsi:type="editmodel:CompartmentEditModel" size="117,162">
       <children xsi:type="editmodel:MethodEditModel" name="create" id="cs.ualberta.ca.beargitandroid/DBAdapter#create(Lcs.ualberta.ca.beargitandroid.Entry;)"/>
@@ -60,35 +60,134 @@
       <children xsi:type="editmodel:MethodEditModel" name="upload" id="cs.ualberta.ca.beargitandroid/DBAdapter#upload(Lcs.ualberta.ca.beargitandroid.Entry;)"/>
     </children>
     <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="cs.ualberta.ca.beargitandroid/localDBAdapter@localDBAdapter+cs.ualberta.ca.beargitandroid/DBAdapter@dBAdapter" source="//@children.3" target="//@children.0" targetEnd="//@children.3/@sourceConnections.0/@children.1" label="//@children.3/@sourceConnections.0/@children.2" sourceEnd="//@children.3/@sourceConnections.0/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="dBAdapter" location="40,211" id="cs.ualberta.ca.beargitandroid/localDBAdapter@localDBAdapter+cs.ualberta.ca.beargitandroid/DBAdapter@dBAdapter|cs.ualberta.ca.beargitandroid/DBAdapter#dBAdapter" attachSource="true" multiplicityLabel="//@children.3/@sourceConnections.0/@children.0/@children.1" roleLabel="//@children.3/@sourceConnections.0/@children.0/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - dBAdapter" location="197,428" size="59,12" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="165,428" size="18,12" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="localDBAdapter" location="115,0" id="cs.ualberta.ca.beargitandroid/localDBAdapter@localDBAdapter+cs.ualberta.ca.beargitandroid/DBAdapter@dBAdapter|cs.ualberta.ca.beargitandroid/localDBAdapter#localDBAdapter" multiplicityLabel="//@children.3/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.3/@sourceConnections.0/@children.1/@children.0" aggregationKind="Composition" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - localDBAdapter" location="197,545" size="83,12" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="165,545" size="18,12" anchorKind="LastPart"/>
+      </children>
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,12" anchorKind="MiddlePart"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="cs.ualberta.ca.beargitandroid/remoteDBAdapter@remoteDBAdapter1+cs.ualberta.ca.beargitandroid/DBAdapter@dBAdapter1" source="//@children.3" target="//@children.2" targetEnd="//@children.3/@sourceConnections.1/@children.1" label="//@children.3/@sourceConnections.1/@children.2" sourceEnd="//@children.3/@sourceConnections.1/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="dBAdapter1" location="129,211" id="cs.ualberta.ca.beargitandroid/remoteDBAdapter@remoteDBAdapter1+cs.ualberta.ca.beargitandroid/DBAdapter@dBAdapter1|cs.ualberta.ca.beargitandroid/DBAdapter#dBAdapter1" attachSource="true" multiplicityLabel="//@children.3/@sourceConnections.1/@children.0/@children.1" roleLabel="//@children.3/@sourceConnections.1/@children.0/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - dBAdapter1" location="286,428" size="65,12" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="254,428" size="18,12" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="remoteDBAdapter1" location="10,0" id="cs.ualberta.ca.beargitandroid/remoteDBAdapter@remoteDBAdapter1+cs.ualberta.ca.beargitandroid/DBAdapter@dBAdapter1|cs.ualberta.ca.beargitandroid/remoteDBAdapter#remoteDBAdapter1" multiplicityLabel="//@children.3/@sourceConnections.1/@children.1/@children.1" roleLabel="//@children.3/@sourceConnections.1/@children.1/@children.0" aggregationKind="Composition" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - remoteDBAdapter1" location="286,599" size="101,12" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="254,599" size="18,12" anchorKind="LastPart"/>
+      </children>
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,12" anchorKind="MiddlePart"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="cs.ualberta.ca.beargitandroid/HomeScreen@homeScreen+cs.ualberta.ca.beargitandroid/DBAdapter@dBAdapter" source="//@children.3" target="//@children.6" targetEnd="//@children.3/@sourceConnections.2/@children.1" label="//@children.3/@sourceConnections.2/@children.2" sourceEnd="//@children.3/@sourceConnections.2/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="dBAdapter" location="140,201" id="cs.ualberta.ca.beargitandroid/HomeScreen@homeScreen+cs.ualberta.ca.beargitandroid/DBAdapter@dBAdapter|cs.ualberta.ca.beargitandroid/DBAdapter#dBAdapter" attachSource="true" multiplicityLabel="//@children.3/@sourceConnections.2/@children.0/@children.1" roleLabel="//@children.3/@sourceConnections.2/@children.0/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - dBAdapter" location="297,392" size="59,12" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="297,418" size="18,12" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="homeScreen" location="10,0" id="cs.ualberta.ca.beargitandroid/HomeScreen@homeScreen+cs.ualberta.ca.beargitandroid/DBAdapter@dBAdapter|cs.ualberta.ca.beargitandroid/HomeScreen#homeScreen" multiplicityLabel="//@children.3/@sourceConnections.2/@children.1/@children.1" roleLabel="//@children.3/@sourceConnections.2/@children.1/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - homeScreen" location="512,716" size="69,12" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="480,716" size="18,12" anchorKind="LastPart"/>
+      </children>
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,12" anchorKind="MiddlePart"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="cs.ualberta.ca.beargitandroid/EditorView@editorView+cs.ualberta.ca.beargitandroid/DBAdapter@dBAdapter" source="//@children.3" target="//@children.4" targetEnd="//@children.3/@sourceConnections.3/@children.1" label="//@children.3/@sourceConnections.3/@children.2" sourceEnd="//@children.3/@sourceConnections.3/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="dBAdapter" location="140,128" id="cs.ualberta.ca.beargitandroid/EditorView@editorView+cs.ualberta.ca.beargitandroid/DBAdapter@dBAdapter|cs.ualberta.ca.beargitandroid/DBAdapter#dBAdapter" attachSource="true" multiplicityLabel="//@children.3/@sourceConnections.3/@children.0/@children.1" roleLabel="//@children.3/@sourceConnections.3/@children.0/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - dBAdapter" location="297,345" size="59,12" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="297,319" size="18,12" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="editorView" location="0,83" id="cs.ualberta.ca.beargitandroid/EditorView@editorView+cs.ualberta.ca.beargitandroid/DBAdapter@dBAdapter|cs.ualberta.ca.beargitandroid/EditorView#editorView" multiplicityLabel="//@children.3/@sourceConnections.3/@children.1/@children.1" roleLabel="//@children.3/@sourceConnections.3/@children.1/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - editorView" location="458,274" size="60,12" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="500,300" size="18,12" anchorKind="LastPart"/>
+      </children>
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,12" anchorKind="MiddlePart"/>
+    </sourceConnections>
     <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
   </children>
-  <children xsi:type="editmodel:ClassEditModel" name="Editorview" location="90,60" size="124,211" id="cs.ualberta.ca.beargitandroid/Editorview" runTimeClassModel="save(),story,create(),delete(),read(),editChapter(),Editor(J),getChapterList(),iD">
-    <children xsi:type="editmodel:CompartmentEditModel" size="56,36">
-      <children xsi:type="editmodel:AttributeEditModel" name="iD" id="cs.ualberta.ca.beargitandroid/Editorview#iD"/>
-      <children xsi:type="editmodel:AttributeEditModel" name="story" id="cs.ualberta.ca.beargitandroid/Editorview#story"/>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.3/@sourceConnections.3" name="EditorView" location="525,210" size="124,211" id="cs.ualberta.ca.beargitandroid/EditorView" runTimeClassModel="save(),story,delete(),create(),read(),editChapter(),Editor(J),getChapterList(),iD">
+    <children xsi:type="editmodel:CompartmentEditModel" size="73,36">
+      <children xsi:type="editmodel:AttributeEditModel" name="iD" id="cs.ualberta.ca.beargitandroid/EditorView#iD"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="story" id="cs.ualberta.ca.beargitandroid/EditorView#story"/>
     </children>
     <children xsi:type="editmodel:CompartmentEditModel" size="101,126">
-      <children xsi:type="editmodel:MethodEditModel" name="Editor" id="cs.ualberta.ca.beargitandroid/Editorview#Editor(J)"/>
-      <children xsi:type="editmodel:MethodEditModel" name="create" id="cs.ualberta.ca.beargitandroid/Editorview#create()"/>
-      <children xsi:type="editmodel:MethodEditModel" name="delete" id="cs.ualberta.ca.beargitandroid/Editorview#delete()"/>
-      <children xsi:type="editmodel:MethodEditModel" name="read" id="cs.ualberta.ca.beargitandroid/Editorview#read()"/>
-      <children xsi:type="editmodel:MethodEditModel" name="save" id="cs.ualberta.ca.beargitandroid/Editorview#save()"/>
-      <children xsi:type="editmodel:MethodEditModel" name="editChapter" id="cs.ualberta.ca.beargitandroid/Editorview#editChapter()"/>
-      <children xsi:type="editmodel:MethodEditModel" name="getChapterList" id="cs.ualberta.ca.beargitandroid/Editorview#getChapterList()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="Editor" id="cs.ualberta.ca.beargitandroid/EditorView#Editor(J)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="create" id="cs.ualberta.ca.beargitandroid/EditorView#create()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="delete" id="cs.ualberta.ca.beargitandroid/EditorView#delete()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="read" id="cs.ualberta.ca.beargitandroid/EditorView#read()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="save" id="cs.ualberta.ca.beargitandroid/EditorView#save()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="editChapter" id="cs.ualberta.ca.beargitandroid/EditorView#editChapter()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getChapterList" id="cs.ualberta.ca.beargitandroid/EditorView#getChapterList()"/>
     </children>
     <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="cs.ualberta.ca.beargitandroid/Story@story1+cs.ualberta.ca.beargitandroid/EditorView@editorView" source="//@children.4" target="//@children.9" targetEnd="//@children.4/@sourceConnections.0/@children.1" label="//@children.4/@sourceConnections.0/@children.2" sourceEnd="//@children.4/@sourceConnections.0/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="editorView" location="61,0" id="cs.ualberta.ca.beargitandroid/Story@story1+cs.ualberta.ca.beargitandroid/EditorView@editorView|cs.ualberta.ca.beargitandroid/EditorView#editorView" attachSource="true" multiplicityLabel="//@children.4/@sourceConnections.0/@children.0/@children.1" roleLabel="//@children.4/@sourceConnections.0/@children.0/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - editorView" location="519,191" size="60,12" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="593,191" size="18,12" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="story1" location="136,75" id="cs.ualberta.ca.beargitandroid/Story@story1+cs.ualberta.ca.beargitandroid/EditorView@editorView|cs.ualberta.ca.beargitandroid/Story#story1" multiplicityLabel="//@children.4/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.4/@sourceConnections.0/@children.1/@children.0" aggregationKind="Aggregration" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - story1" location="611,97" size="39,12" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="579,97" size="18,12" anchorKind="LastPart"/>
+      </children>
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,12" anchorKind="MiddlePart"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="cs.ualberta.ca.beargitandroid/Json@json+cs.ualberta.ca.beargitandroid/EditorView@editorView" source="//@children.4" target="//@children.5" targetEnd="//@children.4/@sourceConnections.1/@children.1" label="//@children.4/@sourceConnections.1/@children.2" sourceEnd="//@children.4/@sourceConnections.1/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="editorView" location="124,117" id="cs.ualberta.ca.beargitandroid/Json@json+cs.ualberta.ca.beargitandroid/EditorView@editorView|cs.ualberta.ca.beargitandroid/EditorView#editorView" attachSource="true" multiplicityLabel="//@children.4/@sourceConnections.1/@children.0/@children.1" roleLabel="//@children.4/@sourceConnections.1/@children.0/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - editorView" location="656,308" size="60,12" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="656,334" size="18,12" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="json" location="0,42" id="cs.ualberta.ca.beargitandroid/Json@json+cs.ualberta.ca.beargitandroid/EditorView@editorView|cs.ualberta.ca.beargitandroid/Json#json" multiplicityLabel="//@children.4/@sourceConnections.1/@children.1/@children.1" roleLabel="//@children.4/@sourceConnections.1/@children.1/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - json" location="669,308" size="29,12" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="680,334" size="18,12" anchorKind="LastPart"/>
+      </children>
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,12" anchorKind="MiddlePart"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="cs.ualberta.ca.beargitandroid/HomeScreen@homeScreen+cs.ualberta.ca.beargitandroid/EditorView@editorView" source="//@children.4" target="//@children.6" targetEnd="//@children.4/@sourceConnections.2/@children.1" label="//@children.4/@sourceConnections.2/@children.2" sourceEnd="//@children.4/@sourceConnections.2/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="editorView" location="48,211" id="cs.ualberta.ca.beargitandroid/HomeScreen@homeScreen+cs.ualberta.ca.beargitandroid/EditorView@editorView|cs.ualberta.ca.beargitandroid/EditorView#editorView" attachSource="true" multiplicityLabel="//@children.4/@sourceConnections.2/@children.0/@children.1" roleLabel="//@children.4/@sourceConnections.2/@children.0/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - editorView" location="580,428" size="60,12" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="548,428" size="18,12" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="homeScreen" location="78,0" id="cs.ualberta.ca.beargitandroid/HomeScreen@homeScreen+cs.ualberta.ca.beargitandroid/EditorView@editorView|cs.ualberta.ca.beargitandroid/HomeScreen#homeScreen" multiplicityLabel="//@children.4/@sourceConnections.2/@children.1/@children.1" roleLabel="//@children.4/@sourceConnections.2/@children.1/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - homeScreen" location="580,716" size="69,12" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="548,716" size="18,12" anchorKind="LastPart"/>
+      </children>
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,12" anchorKind="MiddlePart"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="cs.ualberta.ca.beargitandroid/chapterEditer@chapterEditer+cs.ualberta.ca.beargitandroid/EditorView@editorView" source="//@children.4" target="//@children.11" targetEnd="//@children.4/@sourceConnections.3/@children.1" label="//@children.4/@sourceConnections.3/@children.2" sourceEnd="//@children.4/@sourceConnections.3/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="editorView" location="124,88" id="cs.ualberta.ca.beargitandroid/chapterEditer@chapterEditer+cs.ualberta.ca.beargitandroid/EditorView@editorView|cs.ualberta.ca.beargitandroid/EditorView#editorView" attachSource="true" multiplicityLabel="//@children.4/@sourceConnections.3/@children.0/@children.1" roleLabel="//@children.4/@sourceConnections.3/@children.0/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - editorView" location="656,279" size="60,12" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="656,305" size="18,12" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="chapterEditer" location="0,103" id="cs.ualberta.ca.beargitandroid/chapterEditer@chapterEditer+cs.ualberta.ca.beargitandroid/EditorView@editorView|cs.ualberta.ca.beargitandroid/chapterEditer#chapterEditer" multiplicityLabel="//@children.4/@sourceConnections.3/@children.1/@children.1" roleLabel="//@children.4/@sourceConnections.3/@children.1/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - chapterEditer" location="743,279" size="75,12" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="800,305" size="18,12" anchorKind="LastPart"/>
+      </children>
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,12" anchorKind="MiddlePart"/>
+    </sourceConnections>
     <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
   </children>
-  <children xsi:type="editmodel:ClassEditModel" name="Json" location="555,60" size="72,85" id="cs.ualberta.ca.beargitandroid/Json" runTimeClassModel="JtoS(),StoJ()">
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.4/@sourceConnections.1" name="Json" location="705,285" size="72,85" id="cs.ualberta.ca.beargitandroid/Json" runTimeClassModel="JtoS(),StoJ()">
     <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
     <children xsi:type="editmodel:CompartmentEditModel" size="49,36">
       <children xsi:type="editmodel:MethodEditModel" name="JtoS" id="cs.ualberta.ca.beargitandroid/Json#JtoS()"/>
       <children xsi:type="editmodel:MethodEditModel" name="StoJ" id="cs.ualberta.ca.beargitandroid/Json#StoJ()"/>
     </children>
     <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="cs.ualberta.ca.beargitandroid/ViewStory@viewStory+cs.ualberta.ca.beargitandroid/Json@json" source="//@children.5" target="//@children.7" targetEnd="//@children.5/@sourceConnections.0/@children.1" label="//@children.5/@sourceConnections.0/@children.2" sourceEnd="//@children.5/@sourceConnections.0/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="json" location="50,85" id="cs.ualberta.ca.beargitandroid/ViewStory@viewStory+cs.ualberta.ca.beargitandroid/Json@json|cs.ualberta.ca.beargitandroid/Json#json" attachSource="true" multiplicityLabel="//@children.5/@sourceConnections.0/@children.0/@children.1" roleLabel="//@children.5/@sourceConnections.0/@children.0/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - json" location="762,377" size="29,12" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="730,377" size="18,12" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="viewStory" location="20,0" id="cs.ualberta.ca.beargitandroid/ViewStory@viewStory+cs.ualberta.ca.beargitandroid/Json@json|cs.ualberta.ca.beargitandroid/ViewStory#viewStory" multiplicityLabel="//@children.5/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.5/@sourceConnections.0/@children.1/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - viewStory" location="762,425" size="55,12" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="730,425" size="18,12" anchorKind="LastPart"/>
+      </children>
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,12" anchorKind="MiddlePart"/>
+    </sourceConnections>
     <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
   </children>
-  <children xsi:type="editmodel:ClassEditModel" name="HomeScreen" location="280,272" size="128,121" id="cs.ualberta.ca.beargitandroid/HomeScreen" runTimeClassModel="showLocal(),showCreate(),search(),showRemote()">
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.4/@sourceConnections.2 //@children.7/@sourceConnections.0 //@children.3/@sourceConnections.2" name="HomeScreen" location="495,735" size="128,121" id="cs.ualberta.ca.beargitandroid/HomeScreen" runTimeClassModel="showLocal(),showCreate(),search(),showRemote()">
     <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
     <children xsi:type="editmodel:CompartmentEditModel" size="91,72">
       <children xsi:type="editmodel:MethodEditModel" name="search" id="cs.ualberta.ca.beargitandroid/HomeScreen#search()"/>
@@ -99,17 +198,40 @@
     <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
     <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
   </children>
-  <children xsi:type="editmodel:ClassEditModel" name="ViewStory" location="450,255" size="125,103" id="cs.ualberta.ca.beargitandroid/ViewStory" runTimeClassModel="startGame,loadSave(),loadExistGame(),showView()">
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.5/@sourceConnections.0" name="ViewStory" location="735,444" size="125,121" id="cs.ualberta.ca.beargitandroid/ViewStory" runTimeClassModel="startGame(Lcs.ualberta.ca.beargitandroid.Story;J),loadSave(),json,loadExistGame(),showView(),homeScreen1,gameVIew,homeScreen">
     <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
-    <children xsi:type="editmodel:CompartmentEditModel" size="102,54">
+    <children xsi:type="editmodel:CompartmentEditModel" size="102,72">
       <children xsi:type="editmodel:MethodEditModel" name="loadExistGame" id="cs.ualberta.ca.beargitandroid/ViewStory#loadExistGame()"/>
       <children xsi:type="editmodel:MethodEditModel" name="loadSave" id="cs.ualberta.ca.beargitandroid/ViewStory#loadSave()"/>
       <children xsi:type="editmodel:MethodEditModel" name="showView" id="cs.ualberta.ca.beargitandroid/ViewStory#showView()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="startGame" id="cs.ualberta.ca.beargitandroid/ViewStory#startGame(Lcs.ualberta.ca.beargitandroid.Story;J)"/>
     </children>
     <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="cs.ualberta.ca.beargitandroid/HomeScreen@homeScreen1+cs.ualberta.ca.beargitandroid/ViewStory@viewStory1" source="//@children.7" target="//@children.6" targetEnd="//@children.7/@sourceConnections.0/@children.1" label="//@children.7/@sourceConnections.0/@children.2" sourceEnd="//@children.7/@sourceConnections.0/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="viewStory1" location="0,111" id="cs.ualberta.ca.beargitandroid/HomeScreen@homeScreen1+cs.ualberta.ca.beargitandroid/ViewStory@viewStory1|cs.ualberta.ca.beargitandroid/ViewStory#viewStory1" attachSource="true" multiplicityLabel="//@children.7/@sourceConnections.0/@children.0/@children.1" roleLabel="//@children.7/@sourceConnections.0/@children.0/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - viewStory1" location="667,536" size="61,12" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="710,562" size="18,12" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="homeScreen1" location="118,0" id="cs.ualberta.ca.beargitandroid/HomeScreen@homeScreen1+cs.ualberta.ca.beargitandroid/ViewStory@viewStory1|cs.ualberta.ca.beargitandroid/HomeScreen#homeScreen1" multiplicityLabel="//@children.7/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.7/@sourceConnections.0/@children.1/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - homeScreen1" location="531,716" size="75,12" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="620,716" size="18,12" anchorKind="LastPart"/>
+      </children>
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,12" anchorKind="MiddlePart"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="cs.ualberta.ca.beargitandroid/GameVIew@gameVIew+cs.ualberta.ca.beargitandroid/ViewStory@viewStory" source="//@children.7" target="//@children.8" targetEnd="//@children.7/@sourceConnections.1/@children.1" label="//@children.7/@sourceConnections.1/@children.2" sourceEnd="//@children.7/@sourceConnections.1/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="viewStory" location="125,111" id="cs.ualberta.ca.beargitandroid/GameVIew@gameVIew+cs.ualberta.ca.beargitandroid/ViewStory@viewStory|cs.ualberta.ca.beargitandroid/ViewStory#viewStory" attachSource="true" multiplicityLabel="//@children.7/@sourceConnections.1/@children.0/@children.1" roleLabel="//@children.7/@sourceConnections.1/@children.0/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - viewStory" location="867,536" size="55,12" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="867,562" size="18,12" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="gameVIew" location="10,0" id="cs.ualberta.ca.beargitandroid/GameVIew@gameVIew+cs.ualberta.ca.beargitandroid/ViewStory@viewStory|cs.ualberta.ca.beargitandroid/GameVIew#gameVIew" multiplicityLabel="//@children.7/@sourceConnections.1/@children.1/@children.1" roleLabel="//@children.7/@sourceConnections.1/@children.1/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - gameVIew" location="902,581" size="58,12" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="870,581" size="18,12" anchorKind="LastPart"/>
+      </children>
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,12" anchorKind="MiddlePart"/>
+    </sourceConnections>
     <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true" showAssociationMember="true"/>
   </children>
-  <children xsi:type="editmodel:ClassEditModel" name="GameVIew" location="465,435" size="186,157" id="cs.ualberta.ca.beargitandroid/GameVIew" runTimeClassModel="story,showSotry(),next(),gameInfo,saveProgress(),readProgress()">
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.7/@sourceConnections.1 //@children.9/@sourceConnections.2" name="GameVIew" location="885,600" size="186,157" id="cs.ualberta.ca.beargitandroid/GameVIew" runTimeClassModel="story,showSotry(),next(),gameInfo,saveProgress(),readProgress()">
     <children xsi:type="editmodel:CompartmentEditModel" size="163,36">
       <children xsi:type="editmodel:AttributeEditModel" name="gameInfo" id="cs.ualberta.ca.beargitandroid/GameVIew#gameInfo"/>
       <children xsi:type="editmodel:AttributeEditModel" name="story" id="cs.ualberta.ca.beargitandroid/GameVIew#story"/>
@@ -121,32 +243,117 @@
       <children xsi:type="editmodel:MethodEditModel" name="showSotry" id="cs.ualberta.ca.beargitandroid/GameVIew#showSotry()"/>
     </children>
     <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="cs.ualberta.ca.beargitandroid/DBAdapter@dBAdapter+cs.ualberta.ca.beargitandroid/GameVIew@gameVIew" source="//@children.8" target="//@children.3" targetEnd="//@children.8/@sourceConnections.0/@children.1" label="//@children.8/@sourceConnections.0/@children.2" sourceEnd="//@children.8/@sourceConnections.0/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="gameVIew" location="10,0" id="cs.ualberta.ca.beargitandroid/DBAdapter@dBAdapter+cs.ualberta.ca.beargitandroid/GameVIew@gameVIew|cs.ualberta.ca.beargitandroid/GameVIew#gameVIew" attachSource="true" multiplicityLabel="//@children.8/@sourceConnections.0/@children.0/@children.1" roleLabel="//@children.8/@sourceConnections.0/@children.0/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - gameVIew" location="902,581" size="58,12" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="870,581" size="18,12" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="dBAdapter" location="140,201" id="cs.ualberta.ca.beargitandroid/DBAdapter@dBAdapter+cs.ualberta.ca.beargitandroid/GameVIew@gameVIew|cs.ualberta.ca.beargitandroid/DBAdapter#dBAdapter" multiplicityLabel="//@children.8/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.8/@sourceConnections.0/@children.1/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - dBAdapter" location="297,392" size="59,12" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="297,418" size="18,12" anchorKind="LastPart"/>
+      </children>
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,12" anchorKind="MiddlePart"/>
+    </sourceConnections>
     <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
   </children>
-  <children xsi:type="editmodel:ClassEditModel" name="Story" location="650,30" size="238,75" id="cs.ualberta.ca.beargitandroid/Story" runTimeClassModel="entry,chapterList">
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.4/@sourceConnections.0" name="Story" location="450,15" size="238,75" id="cs.ualberta.ca.beargitandroid/Story" runTimeClassModel="editorView,chapter,entry,chapterList,entry1,gameVIew">
     <children xsi:type="editmodel:CompartmentEditModel" size="215,36">
-      <children xsi:type="editmodel:AttributeEditModel" name="chapterList" id="cs.ualberta.ca.beargitandroid/Story#chapterList"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="chapterList" location="-38,18" id="cs.ualberta.ca.beargitandroid/Story#chapterList"/>
       <children xsi:type="editmodel:AttributeEditModel" name="entry" id="cs.ualberta.ca.beargitandroid/Story#entry"/>
     </children>
     <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
     <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="cs.ualberta.ca.beargitandroid/Chapter@chapter+cs.ualberta.ca.beargitandroid/Story@story" source="//@children.9" target="//@children.10" targetEnd="//@children.9/@sourceConnections.0/@children.1" label="//@children.9/@sourceConnections.0/@children.2" sourceEnd="//@children.9/@sourceConnections.0/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="story" location="238,37" id="cs.ualberta.ca.beargitandroid/Chapter@chapter+cs.ualberta.ca.beargitandroid/Story@story|cs.ualberta.ca.beargitandroid/Story#story" attachSource="true" multiplicityLabel="//@children.9/@sourceConnections.0/@children.0/@children.1" roleLabel="//@children.9/@sourceConnections.0/@children.0/@children.0" navigable="true" orderingKind="1">
+        <children xsi:type="editmodel:LabelEditModel" name=" - story" location="713,33" size="33,12" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="*" location="713,59" size="5,12" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="chapter" location="0,37" id="cs.ualberta.ca.beargitandroid/Chapter@chapter+cs.ualberta.ca.beargitandroid/Story@story|cs.ualberta.ca.beargitandroid/Chapter#chapter" multiplicityLabel="//@children.9/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.9/@sourceConnections.0/@children.1/@children.0" aggregationKind="Composition" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - chapter" location="892,33" size="46,12" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="920,59" size="18,12" anchorKind="LastPart"/>
+      </children>
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,12" anchorKind="MiddlePart"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="cs.ualberta.ca.beargitandroid/Entry@entry1+cs.ualberta.ca.beargitandroid/Story@story" source="//@children.9" target="//@children.1" targetEnd="//@children.9/@sourceConnections.1/@children.1" label="//@children.9/@sourceConnections.1/@children.2" sourceEnd="//@children.9/@sourceConnections.1/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="story" location="0,37" id="cs.ualberta.ca.beargitandroid/Entry@entry1+cs.ualberta.ca.beargitandroid/Story@story|cs.ualberta.ca.beargitandroid/Story#story" attachSource="true" multiplicityLabel="//@children.9/@sourceConnections.1/@children.0/@children.1" roleLabel="//@children.9/@sourceConnections.1/@children.0/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - story" location="428,33" size="33,12" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="443,59" size="18,12" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="entry1" location="119,37" id="cs.ualberta.ca.beargitandroid/Entry@entry1+cs.ualberta.ca.beargitandroid/Story@story|cs.ualberta.ca.beargitandroid/Entry#entry1" multiplicityLabel="//@children.9/@sourceConnections.1/@children.1/@children.1" roleLabel="//@children.9/@sourceConnections.1/@children.1/@children.0" aggregationKind="Aggregration" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - entry1" location="468,33" size="40,12" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="468,59" size="18,12" anchorKind="LastPart"/>
+      </children>
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,12" anchorKind="MiddlePart"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="cs.ualberta.ca.beargitandroid/GameVIew@gameVIew+cs.ualberta.ca.beargitandroid/Story@story1" source="//@children.9" target="//@children.8" targetEnd="//@children.9/@sourceConnections.2/@children.1" label="//@children.9/@sourceConnections.2/@children.2" sourceEnd="//@children.9/@sourceConnections.2/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="story1" location="228,75" id="cs.ualberta.ca.beargitandroid/GameVIew@gameVIew+cs.ualberta.ca.beargitandroid/Story@story1|cs.ualberta.ca.beargitandroid/Story#story1" attachSource="true" multiplicityLabel="//@children.9/@sourceConnections.2/@children.0/@children.1" roleLabel="//@children.9/@sourceConnections.2/@children.0/@children.0" aggregationKind="Aggregration" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - story1" location="650,97" size="39,12" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="703,97" size="18,12" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="gameVIew" location="0,10" id="cs.ualberta.ca.beargitandroid/GameVIew@gameVIew+cs.ualberta.ca.beargitandroid/Story@story1|cs.ualberta.ca.beargitandroid/GameVIew#gameVIew" multiplicityLabel="//@children.9/@sourceConnections.2/@children.1/@children.1" roleLabel="//@children.9/@sourceConnections.2/@children.1/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - gameVIew" location="820,617" size="58,12" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="860,591" size="18,12" anchorKind="LastPart"/>
+      </children>
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,12" anchorKind="MiddlePart"/>
+    </sourceConnections>
     <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true" showAssociationMember="true"/>
   </children>
-  <children xsi:type="editmodel:ClassEditModel" verticalGuide="//@boardSetting/@topRuler/@guides.0" name="MainActivity" location="701,405" size="160,67" id="cs.ualberta.ca.beargitandroid/MainActivity" runTimeClassModel="onCreateOptionsMenu(Landroid.view.Menu;)">
-    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
-    <children xsi:type="editmodel:CompartmentEditModel" size="137,18">
-      <children xsi:type="editmodel:MethodEditModel" name="onCreateOptionsMenu" id="cs.ualberta.ca.beargitandroid/MainActivity#onCreateOptionsMenu(Landroid.view.Menu;)"/>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.9/@sourceConnections.0" name="Chapter" location="945,15" size="258,129" id="cs.ualberta.ca.beargitandroid/Chapter" runTimeClassModel="id,name,context,media,option">
+    <children xsi:type="editmodel:CompartmentEditModel" size="235,90">
+      <children xsi:type="editmodel:AttributeEditModel" name="context" id="cs.ualberta.ca.beargitandroid/Chapter#context"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="id" id="cs.ualberta.ca.beargitandroid/Chapter#id"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="media" id="cs.ualberta.ca.beargitandroid/Chapter#media"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="name" id="cs.ualberta.ca.beargitandroid/Chapter#name"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="option" id="cs.ualberta.ca.beargitandroid/Chapter#option"/>
     </children>
     <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
     <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.4/@sourceConnections.3" name="chapterEditer" location="825,195" size="159,193" id="cs.ualberta.ca.beargitandroid/chapterEditer" runTimeClassModel="save(),addMedia(),delete(),chapter,editOption(),chapter(),chapterShow(),iD">
+    <children xsi:type="editmodel:CompartmentEditModel" size="136,36">
+      <children xsi:type="editmodel:AttributeEditModel" name="chapter" id="cs.ualberta.ca.beargitandroid/chapterEditer#chapter"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="iD" id="cs.ualberta.ca.beargitandroid/chapterEditer#iD"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="92,108">
+      <children xsi:type="editmodel:MethodEditModel" name="addMedia" id="cs.ualberta.ca.beargitandroid/chapterEditer#addMedia()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="chapter" id="cs.ualberta.ca.beargitandroid/chapterEditer#chapter()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="chapterShow" id="cs.ualberta.ca.beargitandroid/chapterEditer#chapterShow()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="delete" id="cs.ualberta.ca.beargitandroid/chapterEditer#delete()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="editOption" id="cs.ualberta.ca.beargitandroid/chapterEditer#editOption()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="save" id="cs.ualberta.ca.beargitandroid/chapterEditer#save()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="cs.ualberta.ca.beargitandroid/editOption@editOption1+cs.ualberta.ca.beargitandroid/chapterEditer@chapterEditer" source="//@children.11" target="//@children.12" targetEnd="//@children.11/@sourceConnections.0/@children.1" label="//@children.11/@sourceConnections.0/@children.2" sourceEnd="//@children.11/@sourceConnections.0/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="chapterEditer" location="159,66" id="cs.ualberta.ca.beargitandroid/editOption@editOption1+cs.ualberta.ca.beargitandroid/chapterEditer@chapterEditer|cs.ualberta.ca.beargitandroid/chapterEditer#chapterEditer" attachSource="true" multiplicityLabel="//@children.11/@sourceConnections.0/@children.0/@children.1" roleLabel="//@children.11/@sourceConnections.0/@children.0/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name="- chapterEditer" location="991,242" size="72,12" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="991,268" size="18,12" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="editOption1" location="0,51" id="cs.ualberta.ca.beargitandroid/editOption@editOption1+cs.ualberta.ca.beargitandroid/chapterEditer@chapterEditer|cs.ualberta.ca.beargitandroid/editOption#editOption1" multiplicityLabel="//@children.11/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.11/@sourceConnections.0/@children.1/@children.0" aggregationKind="Composition" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - editOption1" location="962,242" size="66,12" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="1010,268" size="18,12" anchorKind="LastPart"/>
+      </children>
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,12" anchorKind="MiddlePart"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.11/@sourceConnections.0" name="editOption" location="1035,210" size="115,103" id="cs.ualberta.ca.beargitandroid/editOption" runTimeClassModel="save(),delete(),showLink()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="73,54">
+      <children xsi:type="editmodel:MethodEditModel" name="delete" id="cs.ualberta.ca.beargitandroid/editOption#delete()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="save" id="cs.ualberta.ca.beargitandroid/editOption#save()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="showLink" id="cs.ualberta.ca.beargitandroid/editOption#showLink()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
   </children>
   <diagramOptions xsi:type="options:ClassDiagramOptions" properties="wireOptions=1;Product=eUML2" autoName="false"/>
   <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="15,15" gridOrigin="0,0" rulerUnit="pixel" gridVisibility="false">
     <leftRuler/>
     <topRuler>
-      <guides position="860">
-        <entries element="//@children.10" alignment="1"/>
-      </guides>
+      <guides position="860"/>
+      <guides position="106"/>
+      <guides position="82"/>
     </topRuler>
   </boardSetting>
   <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" showPopupBars="true" showConnectionHandles="true" attributeSorter="Natural" methodSorter="Natural" showClassStereotype="true" showPackageStereotype="true" showDependencyStereotype="true" showInterfaceStereotype="true" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
