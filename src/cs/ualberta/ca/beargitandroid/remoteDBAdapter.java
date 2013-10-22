@@ -2,7 +2,7 @@ package cs.ualberta.ca.beargitandroid;
 
 
 public class remoteDBAdapter {
-
+	
 		private final static String BSAR_URL = "http://cmput301.softwareprocess.es:8080/cmput301f13t09/";
 		private final static String DATA_PATH = "data";
 		
@@ -92,6 +92,31 @@ public class remoteDBAdapter {
 					 */
 					public void setDBAdapter1(DBAdapter dbAdapter1) {
 						this.dbAdapter1 = dbAdapter1;
+					}
+
+					/**
+					 * @uml.property  name="dBAdapter2"
+					 * @uml.associationEnd  inverse="remoteDBAdapter2:cs.ualberta.ca.beargitandroid.DBAdapter"
+					 */
+					private DBAdapter dbAdapter2;
+
+					/**
+					 * Getter of the property <tt>dBAdapter2</tt>
+					 * @return  Returns the dbAdapter2.
+					 * @uml.property  name="dBAdapter2"
+					 */
+					public DBAdapter getDBAdapter2() {
+						return dbAdapter2;
+					}
+
+
+					/**
+					 * Setter of the property <tt>dBAdapter2</tt>
+					 * @param dBAdapter2  The dbAdapter2 to set.
+					 * @uml.property  name="dBAdapter2"
+					 */
+					public void setDBAdapter2(DBAdapter dbAdapter2) {
+						this.dbAdapter2 = dbAdapter2;
 					}
 
 		

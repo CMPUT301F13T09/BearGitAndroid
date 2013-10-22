@@ -2,12 +2,22 @@ package cs.ualberta.ca.beargitandroid;
 
 import java.util.List;
 
+import android.content.Context;
+
 
 
 
 public class DBAdapter {
 
+		private localDBAdapter localdb;
+		private remoteDBAdapter remotedb;
+		private Context cxt;
 		
+		public DBAdapter(Context context){
+			this.cxt = context;
+			this.localdb = new localDBAdapter(this.cxt);
+			this.remotedb = new remoteDBAdapter();
+		}
 		/**
 		 *  create a store save in local database
 		 */
@@ -103,100 +113,36 @@ public class DBAdapter {
 
 
 
-		/** 
-		 * @uml.property name="localDBAdapter"
-		 * @uml.associationEnd aggregation="composite" inverse="dBAdapter:cs.ualberta.ca.beargitandroid.localDBAdapter"
+		/**
+		 * @uml.property  name="entry"
+		 * @uml.associationEnd  inverse="dBAdapter:cs.ualberta.ca.beargitandroid.Entry"
 		 */
-		private localDBAdapter localDBAdapter;
+		private Entry entry;
 
-
-
-		/** 
-		 * Getter of the property <tt>localDBAdapter</tt>
-		 * @return  Returns the localDBAdapter.
-		 * @uml.property  name="localDBAdapter"
+		/**
+		 * Getter of the property <tt>entry</tt>
+		 * @return  Returns the entry.
+		 * @uml.property  name="entry"
 		 */
-		public localDBAdapter getLocalDBAdapter() {
-			return localDBAdapter;
+		public Entry getEntry() {
+			return entry;
 		}
-
-
-		/** 
-		 * Setter of the property <tt>localDBAdapter</tt>
-		 * @param localDBAdapter  The localDBAdapter to set.
-		 * @uml.property  name="localDBAdapter"
-		 */
-		public void setLocalDBAdapter(localDBAdapter localDBAdapter) {
-			this.localDBAdapter = localDBAdapter;
-		}
-
-
-
 		/**
-		 * @uml.property  name="remoteDBAdapter"
-		 * @uml.associationEnd  inverse="dBAdapter:cs.ualberta.ca.beargitandroid.remoteDBAdapter"
+		 * Setter of the property <tt>entry</tt>
+		 * @param entry  The entry to set.
+		 * @uml.property  name="entry"
 		 */
-		private remoteDBAdapter remoteDBAdapter;
-
-
-
-		/**
-		 * Getter of the property <tt>remoteDBAdapter</tt>
-		 * @return  Returns the remoteDBAdapter.
-		 * @uml.property  name="remoteDBAdapter"
-		 */
-		public remoteDBAdapter getRemoteDBAdapter() {
-			return remoteDBAdapter;
-		}
-
-
-		/**
-		 * Setter of the property <tt>remoteDBAdapter</tt>
-		 * @param remoteDBAdapter  The remoteDBAdapter to set.
-		 * @uml.property  name="remoteDBAdapter"
-		 */
-		public void setRemoteDBAdapter(remoteDBAdapter remoteDBAdapter) {
-			this.remoteDBAdapter = remoteDBAdapter;
-		}
-
-
-
-		/**
-		 * @uml.property  name="remoteDBAdapter1"
-		 * @uml.associationEnd  aggregation="composite" inverse="dBAdapter1:cs.ualberta.ca.beargitandroid.remoteDBAdapter"
-		 */
-		private remoteDBAdapter remoteDBAdapter1;
-
-
-
-		/**
-		 * Getter of the property <tt>remoteDBAdapter1</tt>
-		 * @return  Returns the remoteDBAdapter1.
-		 * @uml.property  name="remoteDBAdapter1"
-		 */
-		public remoteDBAdapter getRemoteDBAdapter1() {
-			return remoteDBAdapter1;
-		}
-
-
-		/**
-		 * Setter of the property <tt>remoteDBAdapter1</tt>
-		 * @param remoteDBAdapter1  The remoteDBAdapter1 to set.
-		 * @uml.property  name="remoteDBAdapter1"
-		 */
-		public void setRemoteDBAdapter1(remoteDBAdapter remoteDBAdapter1) {
-			this.remoteDBAdapter1 = remoteDBAdapter1;
+		public void setEntry(Entry entry) {
+			this.entry = entry;
 		}
 
 
 
 		/**
 		 * @uml.property  name="homeScreen"
-		 * @uml.associationEnd  inverse="dBAdapter:cs.ualberta.ca.beargitandroid.HomeScreen"
+		 * @uml.associationEnd  inverse="dBAdapter1:cs.ualberta.ca.beargitandroid.HomeScreen"
 		 */
 		private HomeScreen homeScreen;
-
-
 
 		/**
 		 * Getter of the property <tt>homeScreen</tt>
@@ -206,8 +152,6 @@ public class DBAdapter {
 		public HomeScreen getHomeScreen() {
 			return homeScreen;
 		}
-
-
 		/**
 		 * Setter of the property <tt>homeScreen</tt>
 		 * @param homeScreen  The homeScreen to set.
@@ -221,11 +165,9 @@ public class DBAdapter {
 
 		/**
 		 * @uml.property  name="gameVIew"
-		 * @uml.associationEnd  inverse="dBAdapter:cs.ualberta.ca.beargitandroid.GameVIew"
+		 * @uml.associationEnd  inverse="dBAdapter1:cs.ualberta.ca.beargitandroid.GameVIew"
 		 */
 		private GameVIew gameVIew;
-
-
 
 		/**
 		 * Getter of the property <tt>gameVIew</tt>
@@ -235,8 +177,6 @@ public class DBAdapter {
 		public GameVIew getGameVIew() {
 			return gameVIew;
 		}
-
-
 		/**
 		 * Setter of the property <tt>gameVIew</tt>
 		 * @param gameVIew  The gameVIew to set.
@@ -246,37 +186,4 @@ public class DBAdapter {
 			this.gameVIew = gameVIew;
 		}
 
-
-
-		/**
-		 * @uml.property  name="editorView"
-		 * @uml.associationEnd  inverse="dBAdapter:cs.ualberta.ca.beargitandroid.EditorView"
-		 */
-		private EditorView editorView;
-
-
-
-		/**
-		 * Getter of the property <tt>editorView</tt>
-		 * @return  Returns the editorView.
-		 * @uml.property  name="editorView"
-		 */
-		public EditorView getEditorView() {
-			return editorView;
-		}
-
-
-		/**
-		 * Setter of the property <tt>editorView</tt>
-		 * @param editorView  The editorView to set.
-		 * @uml.property  name="editorView"
-		 */
-		public void setEditorView(EditorView editorView) {
-			this.editorView = editorView;
-		}
-		
-		
-		
-		
-		
 }

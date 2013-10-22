@@ -95,4 +95,32 @@ public class localDBAdapter extends DatabaseUtils {
 							this.dbAdapter = dbAdapter;
 						}
 
+
+
+						/**
+						 * @uml.property  name="dBAdapter1"
+						 * @uml.associationEnd  inverse="localDBAdapter1:cs.ualberta.ca.beargitandroid.DBAdapter"
+						 */
+						private DBAdapter dbAdapter1;
+
+
+						/**
+						 * Getter of the property <tt>dBAdapter1</tt>
+						 * @return  Returns the dbAdapter1.
+						 * @uml.property  name="dBAdapter1"
+						 */
+						public DBAdapter getDBAdapter1() {
+							return dbAdapter1;
+						}
+
+
+						/**
+						 * Setter of the property <tt>dBAdapter1</tt>
+						 * @param dBAdapter1  The dbAdapter1 to set.
+						 * @uml.property  name="dBAdapter1"
+						 */
+						public void setDBAdapter1(DBAdapter dbAdapter1) {
+							this.dbAdapter1 = dbAdapter1;
+						}
+
 }
