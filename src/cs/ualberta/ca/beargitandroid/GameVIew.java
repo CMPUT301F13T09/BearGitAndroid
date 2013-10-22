@@ -6,8 +6,12 @@ import android.app.Activity;
 
 
 public class GameVIew extends Activity {
-	Story story;
+	private Story story;
+	private DBAdapter dbhelper;
 	ArrayList<Integer> gameInfo;
+	
+	
+	
 	
 	public void showSotry(){
 		
@@ -24,6 +28,5 @@ public class GameVIew extends Activity {
 	public void saveProgress(){
 	}
 
-	
 };
 

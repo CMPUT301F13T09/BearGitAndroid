@@ -10,12 +10,13 @@ public class Chapter {
 	private String context;
 	private ArrayList< HashMap<String,String> > option;
 	private String media;
+	private Story story;
 
-	public Chapter(){
+	public Chapter(Story story){
 		
 	}
 	
-	public Chapter(long id, String name, String context, 
+	public Chapter(Story story, long id, String name, String context, 
 			ArrayList< HashMap<String,String>> option, String media){
 		this.id = id;
 		this.name = name;
@@ -55,28 +56,5 @@ public class Chapter {
 	public void modifyOption(long id, String context, long chapterId){
 		
 	}
-
-	/**
-	 * @uml.property  name="story"
-	 * @uml.associationEnd  inverse="chapter1:cs.ualberta.ca.beargitandroid.Story"
-	 */
-	private Story story;
-
-	/**
-	 * Getter of the property <tt>story</tt>
-	 * @return  Returns the story.
-	 * @uml.property  name="story"
-	 */
-	public Story getStory() {
-		return story;
-	}
-
-	/**
-	 * Setter of the property <tt>story</tt>
-	 * @param story  The story to set.
-	 * @uml.property  name="story"
-	 */
-	public void setStory(Story story) {
-		this.story = story;
-	}
+	
 }
