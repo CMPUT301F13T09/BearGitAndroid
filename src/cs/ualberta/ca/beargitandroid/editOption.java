@@ -1,8 +1,10 @@
 package cs.ualberta.ca.beargitandroid;
 
 
-public class editOption {
-	
+public class EditOption {
+
+    private Chapter chapter;
+
 	private void showLink(){
 		
 	}

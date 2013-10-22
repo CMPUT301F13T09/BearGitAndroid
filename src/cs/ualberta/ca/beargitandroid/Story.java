@@ -5,7 +5,8 @@ import java.util.HashMap;
 public class Story {
 
 	private Entry entry;
-	private HashMap<Integer, Chapter> chapterList;
+	//private HashMap<Integer, Chapter> chapterList;
+    private Chapter[] chapterList;
 
 	public Story(Entry entry){
 		if (entry == null)
@@ -19,13 +20,13 @@ public class Story {
 		
 	}
 	
-	public void getfromJson(){
+	public void getFromJson(){
 		
 	}
 	
 
 	public Chapter getChapter(long id) {
-		return chapterList.get(id);
+		return chapterList[(int)id];
 	}
 
 
