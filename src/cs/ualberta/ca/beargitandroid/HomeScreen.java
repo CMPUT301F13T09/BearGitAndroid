@@ -5,7 +5,7 @@ import android.app.Activity;
 
 public class HomeScreen extends Activity {
 	
-	private DBAdapter dbhelper;
+	private DBAdapter dbHelper;
 	
 	public void showLocal(){
 		

@@ -1,10 +1,13 @@
 package cs.ualberta.ca.beargitandroid;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Story {
 
 	private Entry entry;
+    private DBAdapter dbHelper;
+    private ArrayList<Integer> gameInfo;
 	//private HashMap<Integer, Chapter> chapterList;
     private Chapter[] chapterList;
 

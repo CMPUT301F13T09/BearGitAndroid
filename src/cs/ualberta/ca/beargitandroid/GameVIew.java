@@ -7,8 +7,7 @@ import android.app.Activity;
 
 public class GameVIew extends Activity {
 	private Story story;
-	private DBAdapter dbhelper;
-	ArrayList<Integer> gameInfo;
+
 	
 	
 	
