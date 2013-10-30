@@ -7,7 +7,7 @@
       <children xsi:type="editmodel:AttributeEditModel" name="dATABASE_TABLE" id="cs.ualberta.ca.beargitandroid/localDBAdapter#dATABASE_TABLE"/>
     </children>
     <children xsi:type="editmodel:CompartmentEditModel" size="108,126">
-      <children xsi:type="editmodel:MethodEditModel" name="create" id="cs.ualberta.ca.beargitandroid/localDBAdapter#create(Lcs.ualberta.ca.beargitandroid.Entry;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="create" id="cs.ualberta.ca.beargitandroid/localDBAdapter#createNote(Ljava.lang.String;Ljava.lang.String;Ljava.lang.String;Ljava.lang.String;Ljava.lang.String;)"/>
       <children xsi:type="editmodel:MethodEditModel" name="fetch" id="cs.ualberta.ca.beargitandroid/localDBAdapter#fetch(J)"/>
       <children xsi:type="editmodel:MethodEditModel" name="finalize" id="cs.ualberta.ca.beargitandroid/localDBAdapter#finalize(J)"/>
       <children xsi:type="editmodel:MethodEditModel" name="localDBAdapter" location="5,148" id="cs.ualberta.ca.beargitandroid/localDBAdapter#localDBAdapter(Landroid.content.Context;)"/>
@@ -23,7 +23,7 @@
       <children xsi:type="editmodel:AttributeEditModel" name="id" id="cs.ualberta.ca.beargitandroid/Entry#id"/>
       <children xsi:type="editmodel:AttributeEditModel" name="author" id="cs.ualberta.ca.beargitandroid/Entry#author"/>
       <children xsi:type="editmodel:AttributeEditModel" name="title" id="cs.ualberta.ca.beargitandroid/Entry#title"/>
-      <children xsi:type="editmodel:AttributeEditModel" name="destribe" id="cs.ualberta.ca.beargitandroid/Entry#destribe"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="destribe" id="cs.ualberta.ca.beargitandroid/Entry#destri"/>
       <children xsi:type="editmodel:AttributeEditModel" name="filename" id="cs.ualberta.ca.beargitandroid/Entry#filename"/>
       <children xsi:type="editmodel:AttributeEditModel" name="date" id="cs.ualberta.ca.beargitandroid/Entry#date"/>
     </children>
