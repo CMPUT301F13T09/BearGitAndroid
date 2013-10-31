@@ -22,6 +22,8 @@ public class DBAdapter {
 		 *  create a store save in local database
 		 */
 		public void create(Entry entry){
+
+
 		}
 
 		
