@@ -24,7 +24,9 @@ desc: use this value to identify story Status.
 
 **value:**
 1 :  Story body not download yet
+
 2 :  Story already downloaded
+
 3 :  Story is create by user and not upload. PS: after upload, this change to 2.
 
 ##CODE
