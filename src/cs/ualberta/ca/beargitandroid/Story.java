@@ -1,137 +1,107 @@
 package cs.ualberta.ca.beargitandroid;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.sql.Timestamp;
 import java.util.HashMap;
+import java.security.MessageDigest;
 
 public class Story {
 
-	private Entry entry;
-	private HashMap<Integer, Chapter> chapterList;
+    private DBAdapter dbHelper;
+    private ArrayList<Integer> gameInfo;
+    //private HashMap<Integer, Chapter> chapterList;
+    private Chapter[] chapterList;
+    private long id;
+    private String title;
+    private String filename;
+    private String describe;
+    private Timestamp date;
+    private String author;
+    private int status;
 
-	public Story(Entry entry){
-		if (entry == null)
-			this.entry = new Entry();
-		else
-			this.entry = entry;
-	}
-	
-	
-	public void toJson(){
-		
-	}
-	
-	public void getfromJson(){
-		
-	}
-	
+    public Story(long id) {
+        if (id != 0)
+            this.id = id;
+    }
 
-	public Chapter getChapter(long id) {
-		return chapterList.get(id);
-	}
+    /**
+     * create a new story
+     *
+     * @param title
+     * @param describe
+     * @param author
+     */
+    public void createNewStory(String title, String describe, String author) {
+        Date date = new Date();
+        this.title = title;
+        this.describe = describe;
+        this.author = author;
+        this.date = new Timestamp(date.getTime());
+        this.filename = generateFilename();
+        this.status = 3;
 
-	public Entry getEntry(){
-		return this.entry;
-	}
+        //insert it in to db
 
-	/**
-	 * @uml.property  name="chapter1"
-	 * @uml.associationEnd  inverse="story:cs.ualberta.ca.beargitandroid.Chapter"
-	 */
-	private Chapter chapter1;
+        //get item id from insert, and set it to this.id
+    }
 
-	/**
-	 * Getter of the property <tt>chapter1</tt>
-	 * @return  Returns the chapter1.
-	 * @uml.property  name="chapter1"
-	 */
-	public Chapter getChapter1() {
-		return chapter1;
-	}
-
-
-	/**
-	 * Setter of the property <tt>chapter1</tt>
-	 * @param chapter1  The chapter1 to set.
-	 * @uml.property  name="chapter1"
-	 */
-	public void setChapter1(Chapter chapter1) {
-		this.chapter1 = chapter1;
-	}
-
-	/**
-	 * @uml.property  name="entry1"
-	 * @uml.associationEnd  inverse="story:cs.ualberta.ca.beargitandroid.Entry"
-	 */
-	private Entry entry1;
-
-	/**
-	 * Getter of the property <tt>entry1</tt>
-	 * @return  Returns the entry1.
-	 * @uml.property  name="entry1"
-	 */
-	public Entry getEntry1() {
-		return entry1;
-	}
+    /**
+     * generate Filename of story
+     *
+     * @return story name = md5(author + Title + Description + timestamp)
+     */
+    private String generateFilename() {
 
 
-	/**
-	 * Setter of the property <tt>entry1</tt>
-	 * @param entry1  The entry1 to set.
-	 * @uml.property  name="entry1"
-	 */
-	public void setEntry1(Entry entry1) {
-		this.entry1 = entry1;
-	}
+        MessageDigest md5 = null;
+        try {
+            md5 = MessageDigest.getInstance("MD5");
 
-	/**
-	 * @uml.property  name="gameVIew"
-	 * @uml.associationEnd  inverse="story2:cs.ualberta.ca.beargitandroid.GameVIew"
-	 */
-	private GameVIew gameVIew;
-
-	/**
-	 * Getter of the property <tt>gameVIew</tt>
-	 * @return  Returns the gameVIew.
-	 * @uml.property  name="gameVIew"
-	 */
-	public GameVIew getGameVIew() {
-		return gameVIew;
-	}
+        } catch (Exception e) {
+            System.out.println(e.toString());
+            e.printStackTrace();
+            return "";
+        }
 
 
-	/**
-	 * Setter of the property <tt>gameVIew</tt>
-	 * @param gameVIew  The gameVIew to set.
-	 * @uml.property  name="gameVIew"
-	 */
-	public void setGameVIew(GameVIew gameVIew) {
-		this.gameVIew = gameVIew;
-	}
+        String inStr = this.author + this.title + this.describe + this.date.toString();
 
-	/**
-	 * @uml.property  name="viewStory"
-	 * @uml.associationEnd  inverse="story:cs.ualberta.ca.beargitandroid.ViewStory"
-	 */
-	private ViewStory viewStory;
+        char[] charArray = inStr.toCharArray();
+        byte[] byteArray = new byte[charArray.length];
 
-	/**
-	 * Getter of the property <tt>viewStory</tt>
-	 * @return  Returns the viewStory.
-	 * @uml.property  name="viewStory"
-	 */
-	public ViewStory getViewStory() {
-		return viewStory;
-	}
+        for (int i = 0; i < charArray.length; i++)
+            byteArray[i] = (byte) charArray[i];
+
+        byte[] md5Bytes = md5.digest(byteArray);
+        StringBuilder hexValue = new StringBuilder();
+        for (byte i : md5Bytes) {
+            int val = ((int) i) & 0xff;
+            if (val < 16)
+                hexValue.append("0");
+            hexValue.append(Integer.toHexString(val));
+        }
+
+        return hexValue.toString();
+    }
+
+    public void toJson() {
+
+    }
+
+    public void getFromJson() {
+
+    }
 
 
-	/**
-	 * Setter of the property <tt>viewStory</tt>
-	 * @param viewStory  The viewStory to set.
-	 * @uml.property  name="viewStory"
-	 */
-	public void setViewStory(ViewStory viewStory) {
-		this.viewStory = viewStory;
-	}
-	
+    public Chapter getChapter(long id) {
+        return chapterList[(int) id];
+    }
 
-	
+    /**
+     *  upload Story to the internet
+     */
+    public void uploadStory(){
+
+    }
 }

@@ -1,5 +1,7 @@
 package cs.ualberta.ca.beargitandroid;
 
+import com.example.note.NotesDbAdapter.DatabaseHelper;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -15,9 +17,9 @@ import android.database.DatabaseUtils;
 public class localDBAdapter extends DatabaseUtils {
 	
 		private final Context cxt;
-		private static final String DATABASE_NAME = "story_db";
-		private static final String DATABASE_TABLE = "entry";
-		
+		private static final String DATABASE_NAME = "Story_db";
+		private static final String DATABASE_TABLE = "STORY_INFO";
+	    private SQLiteDatabase mDb;
 		
 		public localDBAdapter (Context context){
 			this.cxt = context;
@@ -26,9 +28,17 @@ public class localDBAdapter extends DatabaseUtils {
 		
 		/**
 		 */
-		public void create(Entry entry){
-		}
+	    public long createEntry(initialValues)
+		   {
+		        ContentValues initialValues = new ContentValues();
+		        initialValues.put(KEY_TITLE, title);
+		        initialValues.put(KEY_FILENAME, filename);
+		        initialValues.put(KEY_DATE, date);
+		        initialValues.put(KEY_DESCRIPTION, description);
+		        initialValues.put(KEY_AUTHOR,author);
 
+		        return mDb.insert(DATABASE_TABLE, null, initialValues);
+		   }
 		
 		/**
 		 * set the story to final version which can not be modify 
@@ -36,26 +46,29 @@ public class localDBAdapter extends DatabaseUtils {
 		 */
 		public void finalize(long id){
 			
+		        	
 		}
 		
 			
 		/**
 		 */
-		public void remove(long id){
+		public boolen remove(long id){
+			 
+			return mDb.delete(DATABASE_TABLE, KEY_ROWID + "=" + rowId, null) > 0;
 		}
 
 
 				
 				/**
 				 */
-				public void update(Entry entry){
-				}
+	    public void update(Entry entry){
+		}
 
 
 					
 					/**
 					 */
-					public Entry fetch(long id){
+     	public Entry fetch(long id){
 						return null;
 					}
 
@@ -63,64 +76,12 @@ public class localDBAdapter extends DatabaseUtils {
 						
 						/**
 						 */
-						public Cursor query(String sql){
+		public Cursor query(String sql){
 							return null;
 						}
 
 
 
-						/** 
-						 * @uml.property name="dBAdapter"
-						 * @uml.associationEnd inverse="localDBAdapter:cs.ualberta.ca.beargitandroid.DBAdapter"
-						 */
-						private DBAdapter dbAdapter;
-
-
-						/** 
-						 * Getter of the property <tt>dBAdapter</tt>
-						 * @return  Returns the dbAdapter.
-						 * @uml.property  name="dBAdapter"
-						 */
-						public DBAdapter getDBAdapter() {
-							return dbAdapter;
-						}
-
-
-						/** 
-						 * Setter of the property <tt>dBAdapter</tt>
-						 * @param dBAdapter  The dbAdapter to set.
-						 * @uml.property  name="dBAdapter"
-						 */
-						public void setDBAdapter(DBAdapter dbAdapter) {
-							this.dbAdapter = dbAdapter;
-						}
-
-
-
-						/**
-						 * @uml.property  name="dBAdapter1"
-						 * @uml.associationEnd  inverse="localDBAdapter1:cs.ualberta.ca.beargitandroid.DBAdapter"
-						 */
-						private DBAdapter dbAdapter1;
-
-
-						/**
-						 * Getter of the property <tt>dBAdapter1</tt>
-						 * @return  Returns the dbAdapter1.
-						 * @uml.property  name="dBAdapter1"
-						 */
-						public DBAdapter getDBAdapter1() {
-							return dbAdapter1;
-						}
-
-
-						/**
-						 * Setter of the property <tt>dBAdapter1</tt>
-						 * @param dBAdapter1  The dbAdapter1 to set.
-						 * @uml.property  name="dBAdapter1"
-						 */
-						public void setDBAdapter1(DBAdapter dbAdapter1) {
-							this.dbAdapter1 = dbAdapter1;
-						}
+					
 
 }

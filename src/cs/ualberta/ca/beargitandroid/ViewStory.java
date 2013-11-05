@@ -2,7 +2,6 @@ package cs.ualberta.ca.beargitandroid;
 
 import android.app.Activity;
 
-
 public class ViewStory extends Activity {	
 	private Story story;
 	

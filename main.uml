@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>cs.ualberta.ca.beargitandroid</OriginalElement>
+  <nodes>
+    <node x="-176.80780970493265" y="-6.470161036015384">cs.ualberta.ca.beargitandroid.DBAdapter</node>
+    <node x="-298.8439111678853" y="-125.45805704689516">cs.ualberta.ca.beargitandroid.remoteDBAdapter</node>
+    <node x="421.4826860339514" y="179.60246289870565">cs.ualberta.ca.beargitandroid.EditOption</node>
+    <node x="-121.12103989120158" y="-125.45805704689519">cs.ualberta.ca.beargitandroid.localDBAdapter</node>
+    <node x="40.02357646501662" y="275.98789601087987">cs.ualberta.ca.beargitandroid.Entry</node>
+    <node x="-40.446374066590806" y="105.18050731476308">cs.ualberta.ca.beargitandroid.ViewStory</node>
+    <node x="177.61477739223352" y="53.02378696942458">cs.ualberta.ca.beargitandroid.EditorView</node>
+    <node x="4.035890958544769" y="53.02378696942458">cs.ualberta.ca.beargitandroid.GameVIew</node>
+    <node x="1.3009156927408867" y="-6.759183244044067">cs.ualberta.ca.beargitandroid.HomeScreen</node>
+    <node x="327.03673297617627" y="342.28923271243656">cs.ualberta.ca.beargitandroid.Chapter</node>
+    <node x="213.62646037253808" y="270.3975371012944">cs.ualberta.ca.beargitandroid.Story</node>
+    <node x="304.4824755295433" y="110.2410272603639">cs.ualberta.ca.beargitandroid.chapterEditer</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="cs.ualberta.ca.beargitandroid.GameVIew" target="cs.ualberta.ca.beargitandroid.Story">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="cs.ualberta.ca.beargitandroid.Story" target="cs.ualberta.ca.beargitandroid.Entry">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="cs.ualberta.ca.beargitandroid.DBAdapter" target="cs.ualberta.ca.beargitandroid.localDBAdapter">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="cs.ualberta.ca.beargitandroid.EditOption" target="cs.ualberta.ca.beargitandroid.Chapter">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="cs.ualberta.ca.beargitandroid.chapterEditer" target="cs.ualberta.ca.beargitandroid.Story">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="cs.ualberta.ca.beargitandroid.ViewStory" target="cs.ualberta.ca.beargitandroid.Story">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="cs.ualberta.ca.beargitandroid.DBAdapter" target="cs.ualberta.ca.beargitandroid.remoteDBAdapter">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="cs.ualberta.ca.beargitandroid.EditorView" target="cs.ualberta.ca.beargitandroid.Story">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="cs.ualberta.ca.beargitandroid.chapterEditer" target="cs.ualberta.ca.beargitandroid.Chapter">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="cs.ualberta.ca.beargitandroid.Chapter" target="cs.ualberta.ca.beargitandroid.Story">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="cs.ualberta.ca.beargitandroid.HomeScreen" target="cs.ualberta.ca.beargitandroid.DBAdapter">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="cs.ualberta.ca.beargitandroid.GameVIew" target="cs.ualberta.ca.beargitandroid.DBAdapter">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="cs.ualberta.ca.beargitandroid.Story" target="cs.ualberta.ca.beargitandroid.Chapter">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="112.0" y="123.5" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

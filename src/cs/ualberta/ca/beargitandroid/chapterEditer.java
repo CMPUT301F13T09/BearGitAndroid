@@ -6,7 +6,6 @@ import android.app.Activity;
 public class chapterEditer extends Activity {
 	
 	static long ID;
-	private Story story[];
 	private Chapter chapter[];
 	
 	public void chapter(){
