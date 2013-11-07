@@ -2,48 +2,29 @@ package cs.ualberta.ca.beargitandroid.View;
 
 import cs.ualberta.ca.beargitandroid.Story;
 import android.app.Activity;
+import android.os.Bundle;
 
-public class EditorView extends Activity {
-	private Story story;
-	private long ID;
+public class EditorView extends Activity  {
 	
-	/**
-	 * if ID is null, then Editor will call the function create(). Or it will call the function read().
-	 * @param ID
-	 */
-	public void Editor(long ID){
-		/**
-		 * if (ID == NULL) then story = create();
-		 * else story = read();
-		 */
+	protected void onCreate(Bundle savedInstanceState){
+		
+		super.onCreate(savedInstanceState);
+		
+		setContentView(com.example.adventurebook.R.layout.edit_story);
+
+	}
+	public boolean onMenuItemClick(Menu menu) {
+		
 		
 	}
 	
-	private void create(){
+	private void Create(){
 		
 	}
 	
-	private void read(){	
+	private void Delete(){
+		
 	}
 	
-	public void save(){		
-	}
-	
-	public void delete(){		
-	}
-	/**
-	 * The function editChapter() will call to the else class.
-	 */
-	public void editChapter(){
-		/**
-		 * Chapter = chapterEditor(Story story)
-		 */
-	}
-	
-	public void getChapterList(){
-		/**
-		 * return the exist chapters
-		 */
-	}
-
 }
+
