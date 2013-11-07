@@ -8,24 +8,31 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 
-
+/**
+ * This class is a local db helper, to do local db query.
+ * @author Tianyi Wu < tywtyw2002@gmail.com >
+ * @version 1.0
+ */
 public class localDBAdapter extends SQLiteOpenHelper {
 
-    private Context cxt;
+    //private Context cxt;
     private static final String DATABASE_NAME = "Story_db";
     private static final int DATABASE_VERSION = 1;
 
-
+    /**
+     * Create a local db object
+     * @param context android context.
+     */
     public localDBAdapter (Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-        this.cxt = context;
+
     }
 
 
     /**
      * First time run app
      *
-     * @param db
+     * @param db database object
      */
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -83,7 +90,7 @@ public class localDBAdapter extends SQLiteOpenHelper {
 
     /**
      * Update a row by SQL Query.
-     * @param sql
+     * @param sql sql string
      */
     public void update(String sql){
         query(sql);
@@ -106,7 +113,7 @@ public class localDBAdapter extends SQLiteOpenHelper {
 
     /**
      *  Insert a row by SQL Query.
-     * @param sql
+     * @param sql sql string
      */
     public void insert(String sql){
         query(sql);
