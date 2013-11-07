@@ -1,7 +1,12 @@
 package cs.ualberta.ca.beargitandroid;
 
+
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
+
+import java.text.SimpleDateFormat;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -15,6 +20,7 @@ import android.database.Cursor;
 
 public class DBAdapter {
 
+    private static final String STORY_TABLE = "STORY_INFO";
     private localDBAdapter localdb;
     private remoteDBAdapter remotedb;
     private Context cxt;
@@ -40,7 +46,7 @@ public class DBAdapter {
      */
     public long create(ContentValues cv){
 
-        return localdb.insert("STORY_INFO", cv);
+        return localdb.insert(STORY_TABLE , cv);
 
     }
 
@@ -64,23 +70,64 @@ public class DBAdapter {
     public Cursor getStoryListWithRemote(){
         return null;
     }
+
+
+
     /**
-     * upload a store to remote DB
-     * @param entry
+     * modify story info.
+     * @param id story id.
+     * @param cv story cv object.
      */
-    public	void upload(Entry entry){
-        //story = load sotry
-        //remotedbadapter.create(entry, sotry)
+    public	void modify(long id, ContentValues cv){
 
+        String[] args = {String.valueOf(id)};
+        this.localdb.update(STORY_TABLE, cv, "ID=?", args);
 
-        //localDBAdaoter.finalize(id);
+    }
+
+    /**
+     * Read Story info from database
+     * @param id
+     * @return a hashmap of storyInfo.
+     */
+    public HashMap<String, Object> loadStoryInfo(long id){
+
+        HashMap<String, Object> r = new HashMap<String, Object>() ;
+        Cursor c = localdb.query("SELECT Title, Author, Filename, Date, Status from "+ STORY_TABLE + "where id = " +
+                                    String.valueOf(id));
+
+        //check cursor
+        if (c == null)
+            return null;
+
+        //map cursor to hashmap
+        r.put("title", c.getString(0));
+        r.put("author", c.getString(1));
+        r.put("filename", c.getString(2));
+        SimpleDateFormat datetime = new SimpleDateFormat("YYYY-MM-dd HH:mm:ss");
+        try{
+            r.put("date", datetime.parse(c.getString(3)));
+        }catch(java.text.ParseException e){
+            r.put("date", new Date());
+        }
+
+        r.put("status", c.getInt(4));
+
+        return r;
+
 
     }
 
 
-
+    /**
+     * DELETE a row of story
+     * @param id story id.
+     */
     public void remove(long id){
+        String sql = "DELETE from " + STORY_TABLE + "WHERE id = "
+                    + String.valueOf(id);
 
+        localdb.query(sql);
     }
 
 
