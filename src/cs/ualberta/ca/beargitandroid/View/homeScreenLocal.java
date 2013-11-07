@@ -1,9 +1,7 @@
 package cs.ualberta.ca.beargitandroid.View;
 
 
-import cs.ualberta.ca.beargitandroid.*;
 import android.app.TabActivity;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -16,8 +14,9 @@ public class homeScreenLocal extends TabActivity implements OnTabChangeListener 
 	private TabHost myTabhost;
 	protected int myMenuSettingTag=0;
 	protected Menu myMenu;
-	private static final int myMenuResources[] = { R.menu.a_menu,
-		R.menu.b_menu, R.menu.c_menu};
+	private static final int myMenuResources[] = { R.menu.main,
+		R.menu.main, R.menu.main};
+	@SuppressWarnings("deprecation")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -28,26 +27,23 @@ public class homeScreenLocal extends TabActivity implements OnTabChangeListener 
 		
 		myTabhost
 				.addTab(myTabhost.newTabSpec("One")// make a new Tab
-						.setIndicator("A",
-								getResources().getDrawable(R.drawable.gimp))
+						.setIndicator("Local")
 						// set the Title and Icon
-						.setContent(R.id.local));
+						.setContent(R.id.widget_layout_Blue));
 		// set the layout
 
 		myTabhost
 				.addTab(myTabhost.newTabSpec("Two")// make a new Tab
-						.setIndicator("B",
-								getResources().getDrawable(R.drawable.mumule))
+						.setIndicator("Remote")
 						// set the Title and Icon
-						.setContent(R.id.remote));
+						.setContent(R.id.widget_layout_red));
 		// set the layout
 
 		myTabhost
 				.addTab(myTabhost.newTabSpec("Three")// make a new Tab
-						.setIndicator("C",
-								getResources().getDrawable(R.drawable.notepad))
+						.setIndicator("My Story")
 						// set the Title and Icon
-						.setContent(R.id.mystory));
+						.setContent(R.id.widget_layout_green));
 		// set the layout
 		
 		myTabhost.setOnTabChangedListener(this);
@@ -95,4 +91,5 @@ public class homeScreenLocal extends TabActivity implements OnTabChangeListener 
 			onCreateOptionsMenu(myMenu);
 		}
 	}
+
 }
