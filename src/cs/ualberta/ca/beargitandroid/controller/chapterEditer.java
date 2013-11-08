@@ -9,6 +9,9 @@ public class chapterEditer extends Activity {
 	static long ID;
 	private Chapter chapter[];
 	
+	/**
+	 * Chapter.
+	 */
 	public void chapter(){
 		
 	}

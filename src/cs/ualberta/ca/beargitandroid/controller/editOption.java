@@ -7,6 +7,9 @@ public class editOption {
 
     private Chapter chapter;
 
+	/**
+	 * Show link.
+	 */
 	private void showLink(){
 		
 	}

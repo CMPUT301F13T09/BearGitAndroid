@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 
+// TODO: Auto-generated Javadoc
 /**
  * This class is a local db helper, to do local db query.
  * @author Tianyi Wu < tywtyw2002@gmail.com >
@@ -16,11 +17,15 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class localDBAdapter extends SQLiteOpenHelper {
 
     //private Context cxt;
+    /** The Constant DATABASE_NAME. */
     private static final String DATABASE_NAME = "Story_db";
+    
+    /** The Constant DATABASE_VERSION. */
     private static final int DATABASE_VERSION = 1;
 
     /**
-     * Create a local db object
+     * Create a local db object.
+     *
      * @param context android context.
      */
     public localDBAdapter (Context context) {
@@ -30,7 +35,7 @@ public class localDBAdapter extends SQLiteOpenHelper {
 
 
     /**
-     * First time run app
+     * First time run app.
      *
      * @param db database object
      */
@@ -126,7 +131,8 @@ public class localDBAdapter extends SQLiteOpenHelper {
 
 
     /**
-     * Insert a row by android method
+     * Insert a row by android method.
+     *
      * @param table  table name
      * @param values  values
      * @return row id, if meet error return -1.
@@ -140,11 +146,12 @@ public class localDBAdapter extends SQLiteOpenHelper {
 
     /**
      * delete rows from database.
-     * @param table
-     * @param whereClause
-     * @param whereArgs
+     *
+     * @param table the table
+     * @param whereClause the where clause
+     * @param whereArgs the where args
      * @return the number of rows affected if a whereClause is passed in,
-     *         0 otherwise. To remove all rows and get a count pass "1" as the whereClause.
+     * 0 otherwise. To remove all rows and get a count pass "1" as the whereClause.
      */
     public int delete (String table, String whereClause, String[] whereArgs){
         SQLiteDatabase db = this.getReadableDatabase();

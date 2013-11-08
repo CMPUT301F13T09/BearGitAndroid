@@ -21,6 +21,10 @@ public class ViewStory extends Activity {
 	private long ID;
 	private TextView TITLE;
 	private TextView Descrip;
+	
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onCreate(android.os.Bundle)
+	 */
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		//this will display the description of the story at the start

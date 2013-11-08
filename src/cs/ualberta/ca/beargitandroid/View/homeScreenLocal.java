@@ -27,6 +27,10 @@ public class homeScreenLocal extends TabActivity implements OnTabChangeListener 
 	private HomeScreen HSC;
 	private static final int myMenuResources[] = { R.menu.main,
 		R.menu.main, R.menu.main};
+	
+	/* (non-Javadoc)
+	 * @see android.app.ActivityGroup#onCreate(android.os.Bundle)
+	 */
 	@SuppressWarnings("deprecation")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

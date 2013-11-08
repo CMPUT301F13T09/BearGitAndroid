@@ -13,6 +13,9 @@ import android.widget.Button;
 
 public class Fragment extends Activity {
 	
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onCreate(android.os.Bundle)
+	 */
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.story_fragment);

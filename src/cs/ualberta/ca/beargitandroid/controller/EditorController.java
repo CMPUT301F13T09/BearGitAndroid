@@ -9,7 +9,8 @@ public class EditorController{
 	
 	/**
 	 * if ID is null, then Editor will call the function create(). Or it will call the function read().
-	 * @param ID
+	 *
+	 * @param ID the id
 	 */
 	public void Editor(long ID){
 		/**

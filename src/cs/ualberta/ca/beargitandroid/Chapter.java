@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 
+// TODO: Auto-generated Javadoc
 /**
  * Chapter class.
  * @author Tianyi Wu <tywtyw2002@gmail.com>
@@ -13,11 +14,22 @@ import java.util.HashMap;
 
 public class Chapter {
 	
+	/** The id. */
 	private static long id;
+	
+	/** The name. */
 	private String name;
+	
+	/** The context. */
 	private String context;
+	
+	/** The option. */
 	private ArrayList< HashMap<String,String> > option;
+	
+	/** The media. */
 	private String media;
+	
+	/** The story. */
 	private Story story;
 
 
@@ -33,12 +45,13 @@ public class Chapter {
 
     /**
      * Create Chapter object with old data.
-     * @param story
-     * @param id
-     * @param name
-     * @param context
-     * @param option
-     * @param media
+     *
+     * @param story the story
+     * @param id the id
+     * @param name the name
+     * @param context the context
+     * @param option the option
+     * @param media the media
      */
 	public Chapter(Story story, long id, String name, String context, 
 			ArrayList< HashMap<String,String>> option, String media){
@@ -51,6 +64,11 @@ public class Chapter {
 	}
 	
 	
+	/**
+	 * Gets the chapter to map.
+	 *
+	 * @return the chapter to map
+	 */
 	public HashMap<String, String> getChapterToMap() {
 		
 		HashMap<String, String> map = new HashMap<String, String>();
@@ -63,20 +81,44 @@ public class Chapter {
 		//return null;
 	}
 	
+	/**
+	 * Gets the optionby id.
+	 *
+	 * @param id the id
+	 * @return the optionby id
+	 */
 	public HashMap<String,String> getOptionbyId(long id){
 		HashMap<String,String> map = (HashMap<String,String>) option.get((int) id);
 		map.put("id", id+"");
 		return map;
 	}
 	
+	/**
+	 * Gets the option list.
+	 *
+	 * @return the option list
+	 */
 	public ArrayList< HashMap<String,String>> getOptionList(){
 		return this.option;
 	}
 	
+	/**
+	 * Adds the option.
+	 *
+	 * @param context the context
+	 * @param chapterId the chapter id
+	 */
 	public void addOption(String context, long chapterId){
 		
 	}
 	
+	/**
+	 * Modify option.
+	 *
+	 * @param id the id
+	 * @param context the context
+	 * @param chapterId the chapter id
+	 */
 	public void modifyOption(long id, String context, long chapterId){
 		
 	}

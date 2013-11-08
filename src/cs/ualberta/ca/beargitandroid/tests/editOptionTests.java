@@ -12,6 +12,11 @@ import cs.ualberta.ca.beargitandroid.controller.*;
  */
 public class editOptionTests extends AndroidTestCase {
 	
+    /**
+     * Test_edit options.
+     *
+     * @throws Throwable the throwable
+     */
     public void test_editOptions() throws Throwable {
        Assert.assertTrue(true);
     }
