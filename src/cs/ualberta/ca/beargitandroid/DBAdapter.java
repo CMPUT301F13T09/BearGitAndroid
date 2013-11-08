@@ -140,18 +140,20 @@ public class DBAdapter {
         HashMap<String, Object> r = new HashMap<String, Object>() ;
 
         //map cursor to hashmap
-        r.put("title", c.getString(0));
-        r.put("author", c.getString(1));
-        r.put("filename", c.getString(2));
-        r.put("description", c.getString(3));
+        r.put("id",c.getLong(0));
+        r.put("uuid",c.getString(1));
+        r.put("title", c.getString(2));
+        r.put("author", c.getString(3));
+        r.put("filename", c.getString(4));
+        r.put("description", c.getString(5));
         SimpleDateFormat datetime = new SimpleDateFormat("YYYY-MM-dd HH:mm:ss");
         try{
-            r.put("date", datetime.parse(c.getString(4)));
+            r.put("date", datetime.parse(c.getString(6)));
         }catch(java.text.ParseException e){
             r.put("date", new Date());
         }
 
-        r.put("status", c.getInt(5));
+        r.put("status", c.getInt(7));
 
         return r;
 
@@ -166,7 +168,7 @@ public class DBAdapter {
     public HashMap<String, Object> loadStoryInfo(long id){
 
 
-        Cursor c = localdb.query("SELECT Title, Author, Filename, Description, Date, Status from "+ STORY_TABLE + "where id = " +
+        Cursor c = localdb.query("SELECT * from "+ STORY_TABLE + "where id = " +
                                     String.valueOf(id));
 
 

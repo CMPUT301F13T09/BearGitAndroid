@@ -40,6 +40,7 @@ public class localDBAdapter extends SQLiteOpenHelper {
                 "    ID          INT          PRIMARY KEY\n" +
                 "                             NOT NULL\n" +
                 "                             UNIQUE,\n" +
+                "    UUID        CHAR(128)    UNIQUE,\n" +
                 "    Title       CHAR( 128 )  NOT NULL,\n" +
                 "    Author      CHAR( 128 )  NOT NULL,\n" +
                 "    Filename    CHAR( 32 )   NOT NULL\n" +
