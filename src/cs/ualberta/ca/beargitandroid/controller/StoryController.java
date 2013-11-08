@@ -37,6 +37,7 @@ public class StoryController {
 	private void loadSave(){
 		
 	}
+	//create a new story.
 	public long CreateStory(String title,String author,String descript){
 		story.createNewStory(title, descript, author);
 		return story.getStoryID();

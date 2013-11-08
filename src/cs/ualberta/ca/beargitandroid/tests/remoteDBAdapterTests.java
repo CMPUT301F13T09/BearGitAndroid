@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-//package cs.ualberta.ca.beargitandroid.tests;
-//
-//import junit.framework.Assert;
-//import android.test.AndroidTestCase;
-//import cs.ualberta.ca.beargitandroid.*;
-//
-//public class remoteDBAdapterTests extends AndroidTestCase {
-//	
-//    public void test_remoteDBAdapter() throws Throwable {
-//       Assert.assertTrue(true);
-//    }
-//}
-=======
 package cs.ualberta.ca.beargitandroid.tests;
 
 import junit.framework.Assert;
@@ -25,10 +11,9 @@ import cs.ualberta.ca.beargitandroid.*;
  * story functionality like publishing/any remote action.
  *
  */
-public class remoteDBAdapterTests extends AndroidTestCase {
-	
-    public void test_remoteDBAdapter() throws Throwable {
-       Assert.assertTrue(true);
-    }
-}
->>>>>>> b95822a9d1e60ad3a2b5bd24acf1f1b6b1db1a3d
+	public class remoteDBAdapterTests extends AndroidTestCase {
+		
+	    public void test_remoteDBAdapter() throws Throwable {
+	       Assert.assertTrue(true);
+	    }
+	}

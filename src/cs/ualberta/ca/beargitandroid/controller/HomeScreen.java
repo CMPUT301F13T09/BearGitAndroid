@@ -25,6 +25,7 @@ public class HomeScreen {
 		
 		
 	}
+	//display the list of the story in the local part
 	public SimpleAdapter showLocal(){
 		
 		ArrayList < HashMap<String ,Object>> l = dbHelper.getStoryListwithHashMap("Select * from STORY_INFO");

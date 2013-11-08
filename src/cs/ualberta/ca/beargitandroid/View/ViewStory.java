@@ -23,6 +23,8 @@ public class ViewStory extends Activity {
 	private TextView Descrip;
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		//this will display the description of the story at the start
+		//you can choose new game or load game
 		setContentView(R.layout.story_description);
 		Button newgameButton = (Button) findViewById(R.id.newgame);
 		ListView loadGameList = (ListView) findViewById(R.id.listView8);
@@ -35,6 +37,7 @@ public class ViewStory extends Activity {
 		HashMap <String,Object> current = sct.getStory();
 		TITLE.setText((String) current.get("title"));
 		Descrip.setText((String) current.get("description"));
+		//click NEWGAME button then go to the start of the story
 		newgameButton.setOnClickListener(new View.OnClickListener()
 		{
 			

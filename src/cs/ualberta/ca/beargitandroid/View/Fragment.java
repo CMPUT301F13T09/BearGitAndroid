@@ -16,7 +16,9 @@ public class Fragment extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.story_fragment);
+		//This will display the story fragment and the list of their options.
 		Button nextButton = (Button) findViewById(R.id.next);
+		//Click next
 		nextButton.setOnClickListener(new View.OnClickListener()
 		{
 			
