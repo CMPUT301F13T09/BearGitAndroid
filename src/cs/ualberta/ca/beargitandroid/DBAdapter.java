@@ -1,6 +1,7 @@
 package cs.ualberta.ca.beargitandroid;
 
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -50,24 +51,64 @@ public class DBAdapter {
 
     }
 
+    /**
+     * Resturn the story info list.
+     * @param sql sql
+     * @return a list of hashmap by give sql.
+     */
+    public List< HashMap<String ,Object>> getStoryListwithHashMap(String sql){
+        ArrayList < HashMap<String ,Object>> l = new ArrayList<HashMap<String, Object>>();
+
+        Cursor c = getStoryList(sql);
+
+        if (c == null)
+            return null;
+
+
+        while (c.moveToNext()) {
+            l.add(Cursor2HashMap(c));
+        }
+        return l;
+    }
 
 
     /**
      *  Return a cursor by given sql.
      * @param sql sql string
      * @return return a cursor, Return null if no row find.
+     *
      */
-    public Cursor getStoryList(String sql){
+    private Cursor getStoryList(String sql){
 
         return localdb.query(sql);
     }
 
 
+
+    /**
+     * Return a Story list with remote story(update remote Story)
+     * @return a list of hashmap of story
+     */
+    public List< HashMap<String ,Object>> getRemoteStoryListwithHashMap(){
+        ArrayList < HashMap<String ,Object>> l = new ArrayList<HashMap<String, Object>>();
+
+        Cursor c = getStoryListWithRemote();
+
+        if (c == null)
+            return null;
+
+
+        while (c.moveToNext()) {
+            l.add(Cursor2HashMap(c));
+        }
+        return l;
+    }
+
     /**
      * Return a Story list with remote story(update remote Story)
      * @return Cursor of story
      */
-    public Cursor getStoryListWithRemote(){
+    private Cursor getStoryListWithRemote(){
         return null;
     }
 
@@ -85,20 +126,18 @@ public class DBAdapter {
 
     }
 
+
     /**
-     * Read Story info from database
-     * @param id
-     * @return a hashmap of storyInfo.
+     * convser cursor to String-object hashmap
+     * @param c
+     * @return hashmap
      */
-    public HashMap<String, Object> loadStoryInfo(long id){
+    private HashMap<String, Object> Cursor2HashMap (Cursor c){
 
-        HashMap<String, Object> r = new HashMap<String, Object>() ;
-        Cursor c = localdb.query("SELECT Title, Author, Filename, Description, Date, Status from "+ STORY_TABLE + "where id = " +
-                                    String.valueOf(id));
-
-        //check cursor
         if (c == null)
             return null;
+
+        HashMap<String, Object> r = new HashMap<String, Object>() ;
 
         //map cursor to hashmap
         r.put("title", c.getString(0));
@@ -115,6 +154,23 @@ public class DBAdapter {
         r.put("status", c.getInt(5));
 
         return r;
+
+    }
+
+
+    /**
+     * Read Story info from database
+     * @param id
+     * @return a hashmap of storyInfo.
+     */
+    public HashMap<String, Object> loadStoryInfo(long id){
+
+
+        Cursor c = localdb.query("SELECT Title, Author, Filename, Description, Date, Status from "+ STORY_TABLE + "where id = " +
+                                    String.valueOf(id));
+
+
+        return Cursor2HashMap(c);
 
 
     }

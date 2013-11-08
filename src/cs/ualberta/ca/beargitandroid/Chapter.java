@@ -3,6 +3,14 @@ package cs.ualberta.ca.beargitandroid;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+
+/**
+ * Chapter class.
+ * @author Tianyi Wu <tywtyw2002@gmail.com>
+ *
+ */
+
+
 public class Chapter {
 	
 	private static long id;
@@ -12,10 +20,26 @@ public class Chapter {
 	private String media;
 	private Story story;
 
-	public Chapter(Story story){
-		
+
+    /**
+     * Create a new chapter.
+     * @param story story
+     * @param id  the new chapter id
+     */
+	public Chapter(Story story, long id){
+		this.id = id;
+        this.story = story;
 	}
-	
+
+    /**
+     * Create Chapter object with old data.
+     * @param story
+     * @param id
+     * @param name
+     * @param context
+     * @param option
+     * @param media
+     */
 	public Chapter(Story story, long id, String name, String context, 
 			ArrayList< HashMap<String,String>> option, String media){
 		this.id = id;
