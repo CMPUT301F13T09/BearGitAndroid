@@ -37,7 +37,8 @@ public class localDBAdapter extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String sql = "CREATE TABLE STORY_INFO ( \n" +
-                "    ID          INT          PRIMARY KEY\n" +
+                "    ID          integer          PRIMARY KEY\n" +             
+                "                             AUTOINCREMENT\n" +
                 "                             NOT NULL\n" +
                 "                             UNIQUE,\n" +
                 "    UUID        CHAR(128)    UNIQUE,\n" +
@@ -51,7 +52,7 @@ public class localDBAdapter extends SQLiteOpenHelper {
                 ");";
 
         sql += "CREATE TABLE READ_PROCESS ( \n" +
-                "    sid      INT       NOT NULL\n" +
+                "    sid      integer       NOT NULL\n" +
                 "                       REFERENCES STORY_INFO ( ID ),\n" +
                 "    Lasttime DATETIME  NOT NULL,\n" +
                 "    Data     TEXT      NOT NULL,\n" +
@@ -86,6 +87,9 @@ public class localDBAdapter extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(sql, null);
         if (cursor != null)
             cursor.moveToFirst();
+        
+        if(cursor.getCount() == 0)
+        	return null;
         return cursor;
     }
 

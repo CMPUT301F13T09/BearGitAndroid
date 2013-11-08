@@ -64,8 +64,9 @@ public class homeScreenLocal extends TabActivity implements OnTabChangeListener 
 		
 		
 		final SimpleAdapter adp = HSC.showLocal();
-		StoryList.setAdapter(adp);
-		
+		if(adp != null){
+			StoryList.setAdapter(adp);
+		}
 		createButton.setOnClickListener(new View.OnClickListener()
 		{
 			
@@ -74,10 +75,10 @@ public class homeScreenLocal extends TabActivity implements OnTabChangeListener 
 			{
 				Intent intent=new Intent(homeScreenLocal.this,CreateStory.class);
 				startActivity(intent);
+				if(adp != null)
+					adp.notifyDataSetChanged();
 			}
 		});
-		
-		
 		
 		
 		

@@ -94,12 +94,12 @@ public class Story {
     private ContentValues generateCV(){
         SimpleDateFormat datetime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         ContentValues cv = new ContentValues();
-        cv.put("title", this.title);
-        cv.put("describe", this.describe);
-        cv.put("author", this.author);
-        cv.put("date", datetime.format(this.date));
-        cv.put("filename",this.filename);
-        cv.put("status",this.status);
+        cv.put("Title", this.title);
+        cv.put("Description", this.describe);
+        cv.put("Author", this.author);
+        cv.put("Date", datetime.format(this.date));
+        cv.put("Filename",this.filename);
+        cv.put("Status",this.status);
 
         return cv;
     }

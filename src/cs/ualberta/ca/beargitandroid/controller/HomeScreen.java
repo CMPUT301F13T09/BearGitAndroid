@@ -27,13 +27,17 @@ public class HomeScreen {
 	}
 	public SimpleAdapter showLocal(){
 		
-		ArrayList < HashMap<String ,Object>> l = dbHelper.getStoryListwithHashMap("Select * from STORY_INFO");
+		ArrayList < HashMap<String ,Object>> l = dbHelper.getStoryListwithHashMap("Select * from STORY_INFO where Status = 2");
 		
 //		for (HashMap<String,Object> i: l){
 //			if( (Integer) i.get("status")== 2){
 //				
 //			}
 //		}
+		if(l == null){
+			return null;
+		}
+		
 		String[] from = new String[] {"title"};
 		int[] to = new int[] {R.id.title2};
 		SimpleAdapter ad = new SimpleAdapter(this.cxt,l,R.layout.story_list_elem,from,to);

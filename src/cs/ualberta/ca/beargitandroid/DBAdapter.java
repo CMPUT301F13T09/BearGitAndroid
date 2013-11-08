@@ -11,6 +11,7 @@ import java.text.SimpleDateFormat;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.util.Log;
 
 /**
  *  DB adapter, do all of the db operate in this class.
@@ -62,10 +63,10 @@ public class DBAdapter {
         ArrayList < HashMap<String ,Object>> l = new ArrayList<HashMap<String, Object>>();
 
         Cursor c = getStoryList(sql);
-
+        
         if (c == null)
             return null;
-
+        Log.v("xxx", c.toString());
         do {
             l.add(Cursor2HashMap(c));
         }while (c.moveToNext());
@@ -97,7 +98,7 @@ public class DBAdapter {
 
         if (c == null)
             return null;
-
+        
 
         while (c.moveToNext()) {
             l.add(Cursor2HashMap(c));
