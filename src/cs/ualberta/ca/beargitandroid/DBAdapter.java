@@ -169,7 +169,7 @@ public class DBAdapter {
     public HashMap<String, Object> loadStoryInfo(long id){
 
 
-        Cursor c = localdb.query("SELECT * from "+ STORY_TABLE + "where id = " +
+        Cursor c = localdb.query("SELECT * from "+ STORY_TABLE + " where id = " +
                                     String.valueOf(id));
 
 
@@ -184,7 +184,7 @@ public class DBAdapter {
      * @param id story id.
      */
     public void remove(long id){
-        String sql = "DELETE from " + STORY_TABLE + "WHERE id = "
+        String sql = "DELETE from " + STORY_TABLE + " WHERE id = "
                     + String.valueOf(id);
 
         localdb.query(sql);

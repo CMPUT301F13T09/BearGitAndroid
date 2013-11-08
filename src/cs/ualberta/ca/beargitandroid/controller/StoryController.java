@@ -1,5 +1,7 @@
 package cs.ualberta.ca.beargitandroid.controller;
 
+import java.util.HashMap;
+
 import cs.ualberta.ca.beargitandroid.Story;
 import android.app.Activity;
 import android.content.Context;
@@ -18,8 +20,9 @@ public class StoryController {
 	};
 	
 	
-	public void showView(){
-		HashMap <String,Object> temp = this.story.;
+	public HashMap<String,Object>  getStory(){
+		HashMap <String,Object> temp = this.story.getStoryItem();
+		return temp;
 		
 	};
 	
