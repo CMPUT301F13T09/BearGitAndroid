@@ -55,14 +55,14 @@
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <ListView
-        android:id="@+id/listView1"
+        android:id="@+id/listView9"
         android:layout_width="match_parent"
         android:layout_height="112dp"
         android:layout_weight="0.83" >
     </ListView>
 
     <Button
-        android:id="@+id/save"
+        android:id="@+id/save2"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
