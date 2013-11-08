@@ -19,7 +19,7 @@ public class HomeScreen {
 	public HomeScreen(Context context){
 		this.dbHelper = new DBAdapter(context);
 		this.cxt = context;
-		//String sql = "insert into STORY_INFO VALUES ('2','2323223', 'sb', 'laowai', '1asda23','asdasd','2010-01-01 10:10:10' ,'2')";
+		//String sql = "insert into STORY_INFO VALUES ('1','111111', 'TEST', 'TEST', 'TEST','TEST','2011-01-01 10:10:10' ,'3')";
 		//this.dbHelper.query(sql);
 		
 		
@@ -27,7 +27,7 @@ public class HomeScreen {
 	}
 	public SimpleAdapter showLocal(){
 		
-		ArrayList < HashMap<String ,Object>> l = dbHelper.getStoryListwithHashMap("Select * from STORY_INFO where Status = 2");
+		ArrayList < HashMap<String ,Object>> l = dbHelper.getStoryListwithHashMap("Select * from STORY_INFO");
 		
 //		for (HashMap<String,Object> i: l){
 //			if( (Integer) i.get("status")== 2){

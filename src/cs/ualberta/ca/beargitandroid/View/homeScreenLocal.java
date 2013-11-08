@@ -64,9 +64,9 @@ public class homeScreenLocal extends TabActivity implements OnTabChangeListener 
 		
 		
 		final SimpleAdapter adp = HSC.showLocal();
-		if(adp != null){
-			StoryList.setAdapter(adp);
-		}
+		StoryList.setAdapter(adp);
+		
+		
 		createButton.setOnClickListener(new View.OnClickListener()
 		{
 			
@@ -75,8 +75,6 @@ public class homeScreenLocal extends TabActivity implements OnTabChangeListener 
 			{
 				Intent intent=new Intent(homeScreenLocal.this,CreateStory.class);
 				startActivity(intent);
-				if(adp != null)
-					adp.notifyDataSetChanged();
 			}
 		});
 		
@@ -101,14 +99,12 @@ public class homeScreenLocal extends TabActivity implements OnTabChangeListener 
 		// TODO Auto-generated method stub
 		// Hold on to this
 		myMenu = menu;
-		myMenu.clear();//清空MENU菜单
+		myMenu.clear();
 		// Inflate the currently selected menu XML resource.
 		MenuInflater inflater = getMenuInflater();        
-        //从TabActivity这里获取一个MENU过滤器
 		switch (myMenuSettingTag) {
 		case 1:
 			inflater.inflate(myMenuResources[0], menu);
-            //动态加入数组中对应的XML MENU菜单
 			break;
 		case 2:
 			inflater.inflate(myMenuResources[1], menu);
