@@ -17,7 +17,7 @@ public class AddLink extends Activity {
 		setContentView(R.layout.add_link);
 		
 		Button saveButton = (Button) findViewById(R.id.save2);
-		
+		//have not done yet.
 		saveButton.setOnClickListener(new View.OnClickListener()
 		{
 			

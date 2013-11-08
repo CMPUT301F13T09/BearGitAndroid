@@ -33,6 +33,7 @@ public class CreateStory extends Activity {
 		TitleText = (EditText) findViewById(R.id.title6);
 		AuthorText = (EditText) findViewById(R.id.author6);
 		DescripText = (EditText) findViewById(R.id.descrip6);
+		//click ADDCHAPTER button then go to the add_link.xml
 		addButton.setOnClickListener(new View.OnClickListener()
 		{
 			

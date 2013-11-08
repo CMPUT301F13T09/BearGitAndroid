@@ -38,6 +38,7 @@ public class homeScreenLocal extends TabActivity implements OnTabChangeListener 
 		LayoutInflater.from(this).inflate(R.layout.home_screen_local, myTabhost.getTabContentView(), true);
 		Button createButton = (Button) findViewById(R.id.create);
 		ListView StoryList = (ListView) findViewById(R.id.listView1);
+		ListView CreateList = (ListView) findViewById(R.id.listView3);
 		
 		myTabhost
 				.addTab(myTabhost.newTabSpec("One")// make a new Tab
@@ -65,6 +66,7 @@ public class homeScreenLocal extends TabActivity implements OnTabChangeListener 
 		
 		final SimpleAdapter adp = HSC.showLocal();
 		StoryList.setAdapter(adp);
+		CreateList.setAdapter(adp);
 		
 		
 		createButton.setOnClickListener(new View.OnClickListener()
@@ -81,6 +83,19 @@ public class homeScreenLocal extends TabActivity implements OnTabChangeListener 
 		
 		
 		StoryList.setOnItemClickListener(new OnItemClickListener(){
+			public void onItemClick(AdapterView<?> l,View v, int pos, long id){
+			//The place you add the code that get the story info from the database
+				HashMap <String, Object> r = (HashMap<String, Object>) adp.getItem(pos);
+				long Bid = (Long) r.get("id");
+				Bundle bundle = new Bundle();
+				bundle.putLong("id", Bid);
+				Intent intent = new Intent(homeScreenLocal.this,ViewStory.class);
+				intent.putExtras(bundle);
+				startActivity(intent);
+			}
+		});
+		
+		CreateList.setOnItemClickListener(new OnItemClickListener(){
 			public void onItemClick(AdapterView<?> l,View v, int pos, long id){
 			//The place you add the code that get the story info from the database
 				HashMap <String, Object> r = (HashMap<String, Object>) adp.getItem(pos);

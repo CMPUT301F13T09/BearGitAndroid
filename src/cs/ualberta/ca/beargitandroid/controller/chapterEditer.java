@@ -26,7 +26,6 @@ public class chapterEditer extends Activity {
     }
     public void delete(){
     	
-    	
     }
 	
     
