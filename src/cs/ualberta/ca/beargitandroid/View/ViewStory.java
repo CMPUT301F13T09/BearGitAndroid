@@ -13,11 +13,15 @@ import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
 
 public class ViewStory extends Activity {	
+	private long ID;
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.story_description);
 		Button newgameButton = (Button) findViewById(R.id.newgame);
 		ListView loadGameList = (ListView) findViewById(R.id.listView8);
+		Intent intent=getIntent();
+		Bundle bundle = intent.getExtras();
+		ID = bundle.getLong("id");
 		newgameButton.setOnClickListener(new View.OnClickListener()
 		{
 			

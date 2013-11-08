@@ -1,6 +1,8 @@
 package cs.ualberta.ca.beargitandroid.View;
 
 
+import java.util.HashMap;
+
 import cs.ualberta.ca.beargitandroid.controller.HomeScreen;
 import android.app.TabActivity;
 import android.content.Intent;
@@ -12,6 +14,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TabHost;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.TabHost.OnTabChangeListener;
@@ -60,8 +63,8 @@ public class homeScreenLocal extends TabActivity implements OnTabChangeListener 
 		myTabhost.setOnTabChangedListener(this);
 		
 		
-		
-		StoryList.setAdapter(HSC.showLocal());
+		final SimpleAdapter adp = HSC.showLocal();
+		StoryList.setAdapter(adp);
 		
 		createButton.setOnClickListener(new View.OnClickListener()
 		{
@@ -73,10 +76,20 @@ public class homeScreenLocal extends TabActivity implements OnTabChangeListener 
 				startActivity(intent);
 			}
 		});
+		
+		
+		
+		
+		
 		StoryList.setOnItemClickListener(new OnItemClickListener(){
-			public void onItemClick(AdapterView<?> parent,View arg1, int pos, long id){
+			public void onItemClick(AdapterView<?> l,View v, int pos, long id){
 			//The place you add the code that get the story info from the database
+				HashMap <String, Object> r = (HashMap<String, Object>) adp.getItem(pos);
+				long Bid = (Long) r.get("id");
+				Bundle bundle = new Bundle();
+				bundle.putLong("id", Bid);
 				Intent intent = new Intent(homeScreenLocal.this,ViewStory.class);
+				intent.putExtras(bundle);
 				startActivity(intent);
 			}
 		});
