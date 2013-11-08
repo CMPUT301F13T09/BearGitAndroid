@@ -23,7 +23,7 @@ public class Story {
     private Date date;
     private String author;
     private int status;
-
+    private HashMap<String, Object> dict;
 
 
     /**
@@ -51,12 +51,12 @@ public class Story {
      * load story info from database.
      */
     private void loadOldStory(){
-        HashMap<String, Object> c = this.dbHelper.loadStoryInfo(this.id);
-        this.title = (String) c.get("title");
-        this.filename = (String) c.get("filename");
-        this.describe = (String) c.get("describe");
-        this.date = (Date) c.get("date");
-        this.status = (Integer) c.get("status");
+        this.dict = this.dbHelper.loadStoryInfo(this.id);
+        this.title = (String) dict.get("title");
+        this.filename = (String) dict.get("filename");
+        this.describe = (String) dict.get("describe");
+        this.date = (Date) dict.get("date");
+        this.status = (Integer) dict.get("status");
 
     }
 
@@ -142,7 +142,13 @@ public class Story {
         return hexValue.toString();
     }
 
-
+    /**
+     * return a dict of story info
+     * @return ignore
+     */
+    public HashMap<String, Object> getStoryItem(){
+        return this.dict;
+    }
 
     public long getStoryID(){
         return this.id;
