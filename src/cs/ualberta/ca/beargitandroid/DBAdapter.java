@@ -147,7 +147,7 @@ public class DBAdapter {
         r.put("author", c.getString(3));
         r.put("filename", c.getString(4));
         r.put("description", c.getString(5));
-        SimpleDateFormat datetime = new SimpleDateFormat("YYYY-MM-dd HH:mm:ss");
+        SimpleDateFormat datetime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         try{
             r.put("date", datetime.parse(c.getString(6)));
         }catch(java.text.ParseException e){
