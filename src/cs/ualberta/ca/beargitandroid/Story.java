@@ -1,5 +1,9 @@
 package cs.ualberta.ca.beargitandroid;
 
+import android.content.ContentValues;
+import android.content.Context;
+
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.sql.Timestamp;
@@ -16,21 +20,53 @@ public class Story {
     private String title;
     private String filename;
     private String describe;
-    private Timestamp date;
+    private Date date;
     private String author;
     private int status;
 
-    public Story(long id) {
-        if (id != 0)
+
+
+    /**
+     * create a new story object by story id.
+     * If id == 0, will create a new empty story, otherwise, load story by id.
+     * @param context android context
+     * @param id story id
+     */
+    public Story(Context context, long id) {
+
+        this.dbHelper = new DBAdapter(context);
+
+        //load exist story
+        if (id != 0){
             this.id = id;
+            //load story
+            loadOldStory();
+        }else{
+            this.id = 0;
+        }
+
     }
+
+    /**
+     * load story info from database.
+     */
+    private void loadOldStory(){
+        HashMap<String, Object> c = this.dbHelper.loadStoryInfo(this.id);
+        this.title = (String) c.get("title");
+        this.filename = (String) c.get("filename");
+        this.describe = (String) c.get("describe");
+        this.date = (Date) c.get("date");
+        this.status = (Integer) c.get("status");
+
+    }
+
 
     /**
      * create a new story
      *
-     * @param title
-     * @param describe
-     * @param author
+     * @param title story title
+     * @param describe story describe
+     * @param author story author
      */
     public void createNewStory(String title, String describe, String author) {
         Date date = new Date();
@@ -42,10 +78,31 @@ public class Story {
         this.status = 3;
 
         //insert it in to db
+        long id = this.dbHelper.create(generateCV());
 
         //get item id from insert, and set it to this.id
+        if (id != -1)
+            this.id = id;
+
     }
 
+
+    /**
+     * Generate a new ContentValues.
+     * @return new ContentValues.
+     */
+    private ContentValues generateCV(){
+        SimpleDateFormat datetime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        ContentValues cv = new ContentValues();
+        cv.put("title", this.title);
+        cv.put("describe", this.describe);
+        cv.put("author", this.author);
+        cv.put("date", datetime.format(this.date));
+        cv.put("filename",this.filename);
+        cv.put("status",this.status);
+
+        return cv;
+    }
     /**
      * generate Filename of story
      *
@@ -84,6 +141,13 @@ public class Story {
 
         return hexValue.toString();
     }
+
+
+
+    public long getStoryID(){
+        return this.id;
+    }
+
 
     public void toJson() {
 
