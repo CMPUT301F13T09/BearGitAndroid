@@ -15,6 +15,7 @@ public class Story {
     private DBAdapter dbHelper;
     private ArrayList<Integer> gameInfo;
     //private HashMap<Integer, Chapter> chapterList;
+    /** The chapter list. */
     private Chapter[] chapterList;
     private long id;
     private String title;

@@ -13,6 +13,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.util.Log;
 
+// TODO: Auto-generated Javadoc
 /**
  *  DB adapter, do all of the db operate in this class.
  *  @author Tianyi Wu < tywtyw2002@gail.com >
@@ -22,9 +23,16 @@ import android.util.Log;
 
 public class DBAdapter {
 
+    /** The Constant STORY_TABLE. */
     private static final String STORY_TABLE = "STORY_INFO";
+    
+    /** The localdb. */
     private localDBAdapter localdb;
+    
+    /** The remotedb. */
     private remoteDBAdapter remotedb;
+    
+    /** The cxt. */
     private Context cxt;
 
     /**
@@ -38,15 +46,21 @@ public class DBAdapter {
     }
 
 
+    /**
+     * Query.
+     *
+     * @param sql the sql
+     */
     public void query(String sql){
     	this.localdb.query(sql);
     }
 
 
     /**
-     *  create a store save in local database
-     *  @param cv The Story cv object.
-     *  @return return the id of insert row, if failed return -1.
+     * create a store save in local database.
+     *
+     * @param cv The Story cv object.
+     * @return return the id of insert row, if failed return -1.
      */
     public long create(ContentValues cv){
 
@@ -88,7 +102,8 @@ public class DBAdapter {
 
 
     /**
-     * Return a Story list with remote story(update remote Story)
+     * Return a Story list with remote story(update remote Story).
+     *
      * @return a list of hashmap of story
      */
     public List< HashMap<String ,Object>> getRemoteStoryListwithHashMap(){
@@ -107,7 +122,8 @@ public class DBAdapter {
     }
 
     /**
-     * Return a Story list with remote story(update remote Story)
+     * Return a Story list with remote story(update remote Story).
+     *
      * @return Cursor of story
      */
     private Cursor getStoryListWithRemote(){
@@ -130,8 +146,9 @@ public class DBAdapter {
 
 
     /**
-     * convser cursor to String-object hashmap
-     * @param c
+     * convser cursor to String-object hashmap.
+     *
+     * @param c the c
      * @return hashmap
      */
     private HashMap<String, Object> Cursor2HashMap (Cursor c){
@@ -163,8 +180,9 @@ public class DBAdapter {
 
 
     /**
-     * Read Story info from database
-     * @param id
+     * Read Story info from database.
+     *
+     * @param id the id
      * @return a hashmap of storyInfo.
      */
     public HashMap<String, Object> loadStoryInfo(long id){
@@ -181,7 +199,8 @@ public class DBAdapter {
 
 
     /**
-     * DELETE a row of story
+     * DELETE a row of story.
+     *
      * @param id story id.
      */
     public void remove(long id){
@@ -209,10 +228,11 @@ public class DBAdapter {
 
 
     /**
-     * download a story from internet
-     * call remoteDBAdapter.fetchStory
-     * @param id
-     */
+ * download a story from internet
+ * call remoteDBAdapter.fetchStory
+ *
+ * @param id the id
+ */
     private void download(long id){
 
     }
@@ -222,8 +242,9 @@ public class DBAdapter {
     /**
      * load story from local file storage
      * if story not in the local storage,
-     * then download it from internet (call download)
-     * @param id
+     * then download it from internet (call download).
+     *
+     * @param id the id
      */
 
     public void loadStory(long id){

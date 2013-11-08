@@ -13,6 +13,12 @@ import android.test.suitebuilder.TestSuiteBuilder;
  * 	This is the entry point for Junit to begin the tests.
  */
 public class AndroidTestSuite extends TestSuite {
+    
+    /**
+     * Suite.
+     *
+     * @return the test
+     */
     public static Test suite() {
         return new TestSuiteBuilder(AndroidTestSuite.class).includeAllPackagesUnderHere().build();
     }

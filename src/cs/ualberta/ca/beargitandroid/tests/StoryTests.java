@@ -11,6 +11,11 @@ import cs.ualberta.ca.beargitandroid.*;
  */
 public class StoryTests extends AndroidTestCase {
 	
+    /**
+     * Test_ story.
+     *
+     * @throws Throwable the throwable
+     */
     public void test_Story() throws Throwable {
        Assert.assertTrue(true);
     }

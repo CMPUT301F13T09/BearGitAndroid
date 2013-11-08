@@ -21,6 +21,8 @@ public class CreateStory extends Activity {
 	private EditText TitleText;
 	private EditText AuthorText;
 	private EditText DescripText; 
+	
+	/** The text0. */
 	private String text0;
 	private String text1;
 	private String text2;

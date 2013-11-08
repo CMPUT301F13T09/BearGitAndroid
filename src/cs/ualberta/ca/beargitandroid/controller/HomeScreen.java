@@ -16,6 +16,12 @@ public class HomeScreen {
 	
 	private DBAdapter dbHelper;
 	private Context cxt;
+	
+	/**
+	 * Instantiates a new home screen.
+	 *
+	 * @param context the context
+	 */
 	public HomeScreen(Context context){
 		this.dbHelper = new DBAdapter(context);
 		this.cxt = context;
