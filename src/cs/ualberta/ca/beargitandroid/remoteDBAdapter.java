@@ -6,11 +6,7 @@ public class remoteDBAdapter {
 		private final static String BSAR_URL = "http://cmput301.softwareprocess.es:8080/cmput301f13t09/";
 		private final static String DATA_PATH = "data";
 		
-		/**
-		 */
-		public boolean update(Entry entry){
-			return false;	
-		}
+
 
 			
 			/**
@@ -28,12 +24,7 @@ public class remoteDBAdapter {
 				
 			}
 				
-				/**
-				 * create a new story to internet
-				 * @param entry
-				 */
-				public void create(Entry entry){
-				}
+
 
 					/**
 					 * remote story in the internet

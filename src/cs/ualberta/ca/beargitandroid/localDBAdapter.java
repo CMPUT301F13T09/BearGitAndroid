@@ -133,9 +133,18 @@ public class localDBAdapter extends SQLiteOpenHelper {
 
     }
 
-
-
-
+    /**
+     * delete rows from database.
+     * @param table
+     * @param whereClause
+     * @param whereArgs
+     * @return the number of rows affected if a whereClause is passed in,
+     *         0 otherwise. To remove all rows and get a count pass "1" as the whereClause.
+     */
+    public int delete (String table, String whereClause, String[] whereArgs){
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.delete(table, whereClause, whereArgs);
+    }
 
 
 }

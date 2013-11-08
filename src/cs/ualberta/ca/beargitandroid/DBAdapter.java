@@ -1,7 +1,12 @@
 package cs.ualberta.ca.beargitandroid;
 
+
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
+
+import java.text.SimpleDateFormat;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -15,6 +20,7 @@ import android.database.Cursor;
 
 public class DBAdapter {
 
+    private static final String STORY_TABLE = "STORY_INFO";
     private localDBAdapter localdb;
     private remoteDBAdapter remotedb;
     private Context cxt;
@@ -40,7 +46,7 @@ public class DBAdapter {
      */
     public long create(ContentValues cv){
 
-        return localdb.insert("STORY_INFO", cv);
+        return localdb.insert(STORY_TABLE , cv);
 
     }
 
@@ -64,37 +70,82 @@ public class DBAdapter {
     public Cursor getStoryListWithRemote(){
         return null;
     }
+
+
+
     /**
-     * upload a store to remote DB
-     * @param entry
+     * modify story info.
+     * @param id story id.
+     * @param cv story cv object.
      */
-    public	void upload(Entry entry){
-        //story = load sotry
-        //remotedbadapter.create(entry, sotry)
+    public	void modify(long id, ContentValues cv){
 
-
-        //localDBAdaoter.finalize(id);
+        String[] args = {String.valueOf(id)};
+        this.localdb.update(STORY_TABLE, cv, "ID=?", args);
 
     }
-
-
-
-    public void remove(long id){
-
-    }
-
 
     /**
-     * fetch a story
-     * if story not exist in localdb
-     * download it from internet.
+     * Read Story info from database
      * @param id
-     * @return
+     * @return a hashmap of storyInfo.
      */
-    public Entry fetch(long id){
+    public HashMap<String, Object> loadStoryInfo(long id){
 
-        return null;
+        HashMap<String, Object> r = new HashMap<String, Object>() ;
+        Cursor c = localdb.query("SELECT Title, Author, Filename, Description, Date, Status from "+ STORY_TABLE + "where id = " +
+                                    String.valueOf(id));
+
+        //check cursor
+        if (c == null)
+            return null;
+
+        //map cursor to hashmap
+        r.put("title", c.getString(0));
+        r.put("author", c.getString(1));
+        r.put("filename", c.getString(2));
+        r.put("description", c.getString(3));
+        SimpleDateFormat datetime = new SimpleDateFormat("YYYY-MM-dd HH:mm:ss");
+        try{
+            r.put("date", datetime.parse(c.getString(4)));
+        }catch(java.text.ParseException e){
+            r.put("date", new Date());
+        }
+
+        r.put("status", c.getInt(5));
+
+        return r;
+
+
     }
+
+
+    /**
+     * DELETE a row of story
+     * @param id story id.
+     */
+    public void remove(long id){
+        String sql = "DELETE from " + STORY_TABLE + "WHERE id = "
+                    + String.valueOf(id);
+
+        localdb.query(sql);
+    }
+
+
+
+
+
+//    /**
+//     * fetch a story
+//     * if story not exist in localdb
+//     * download it from internet.
+//     * @param id
+//     * @return
+//     */
+//    public Entry fetch(long id){
+//
+//        return null;
+//    }
 
 
     /**
@@ -122,33 +173,27 @@ public class DBAdapter {
 
 
 
-    /**
-     *  fetch all story information from local db
-     */
-    public List<Entry> fetchIndexLocal( ){
+//    /**
+//     *  fetch all story information from local db
+//     */
+//    public List<Entry> fetchIndexLocal( ){
+//
+//        return null;
+//    }
+//
+//    /**
+//     * fetch all story information from remote db
+//     * after fetch index, save these information to localdb
+//     * @return
+//     */
+//    public List<Entry> fetchIndexRemote(){
+//
+//        return null;
+//    }
 
-        return null;
-    }
-
-    /**
-     * fetch all story information from remote db
-     * after fetch index, save these information to localdb
-     * @return
-     */
-    public List<Entry> fetchIndexRemote(){
-
-        return null;
-    }
 
 
 
-    /**
-     * update local data when user modify story
-     * @param entry
-     */
-    public void modify(Entry entry){
-
-    }
 
 
 
