@@ -93,7 +93,7 @@ public class DBAdapter {
     public HashMap<String, Object> loadStoryInfo(long id){
 
         HashMap<String, Object> r = new HashMap<String, Object>() ;
-        Cursor c = localdb.query("SELECT Title, Author, Filename, Date, Status from "+ STORY_TABLE + "where id = " +
+        Cursor c = localdb.query("SELECT Title, Author, Filename, Description, Date, Status from "+ STORY_TABLE + "where id = " +
                                     String.valueOf(id));
 
         //check cursor
@@ -104,14 +104,15 @@ public class DBAdapter {
         r.put("title", c.getString(0));
         r.put("author", c.getString(1));
         r.put("filename", c.getString(2));
+        r.put("description", c.getString(3));
         SimpleDateFormat datetime = new SimpleDateFormat("YYYY-MM-dd HH:mm:ss");
         try{
-            r.put("date", datetime.parse(c.getString(3)));
+            r.put("date", datetime.parse(c.getString(4)));
         }catch(java.text.ParseException e){
             r.put("date", new Date());
         }
 
-        r.put("status", c.getInt(4));
+        r.put("status", c.getInt(5));
 
         return r;
 
@@ -131,17 +132,20 @@ public class DBAdapter {
     }
 
 
-    /**
-     * fetch a story
-     * if story not exist in localdb
-     * download it from internet.
-     * @param id
-     * @return
-     */
-    public Entry fetch(long id){
 
-        return null;
-    }
+
+
+//    /**
+//     * fetch a story
+//     * if story not exist in localdb
+//     * download it from internet.
+//     * @param id
+//     * @return
+//     */
+//    public Entry fetch(long id){
+//
+//        return null;
+//    }
 
 
     /**
@@ -169,33 +173,27 @@ public class DBAdapter {
 
 
 
-    /**
-     *  fetch all story information from local db
-     */
-    public List<Entry> fetchIndexLocal( ){
+//    /**
+//     *  fetch all story information from local db
+//     */
+//    public List<Entry> fetchIndexLocal( ){
+//
+//        return null;
+//    }
+//
+//    /**
+//     * fetch all story information from remote db
+//     * after fetch index, save these information to localdb
+//     * @return
+//     */
+//    public List<Entry> fetchIndexRemote(){
+//
+//        return null;
+//    }
 
-        return null;
-    }
-
-    /**
-     * fetch all story information from remote db
-     * after fetch index, save these information to localdb
-     * @return
-     */
-    public List<Entry> fetchIndexRemote(){
-
-        return null;
-    }
 
 
 
-    /**
-     * update local data when user modify story
-     * @param entry
-     */
-    public void modify(Entry entry){
-
-    }
 
 
 
