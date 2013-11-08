@@ -7,6 +7,7 @@
     <uses-sdk
         android:minSdkVersion="16"
         android:targetSdkVersion="18" />
+   
 
     <application
         android:allowBackup="true"
@@ -26,6 +27,10 @@
         <activity android:name="cs.ualberta.ca.beargitandroid.View.AddLink"></activity>
         <activity android:name="cs.ualberta.ca.beargitandroid.View.Fragment"></activity>
         <activity android:name="cs.ualberta.ca.beargitandroid.View.ViewStory"></activity>
+    	<uses-library android:name="android.test.runner" />
     </application>
+    <instrumentation android:name="android.test.InstrumentationTestRunner"
+    android:targetPackage="cs.ualberta.ca.beargitandroid.View"
+    android:label="AndroidTestSuite" />
 
 </manifest>

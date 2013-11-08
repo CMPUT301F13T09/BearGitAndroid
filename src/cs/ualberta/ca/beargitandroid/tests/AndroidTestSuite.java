@@ -7,7 +7,7 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import android.test.suitebuilder.TestSuiteBuilder;
 
-/*
+/**
  * Class: AndroidTestSuite
  * Description: Return a test suite for Junit to test all functions
  * 	This is the entry point for Junit to begin the tests.
