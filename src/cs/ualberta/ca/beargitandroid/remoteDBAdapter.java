@@ -12,10 +12,6 @@ public class remoteDBAdapter {
 			/**
 			 * fetch one entry from website
 			 */
-			public Entry fetchEntry(long id){
-				return null;
-			}
-
 			/**
 			 * fetch story from internet
 			 * @param id

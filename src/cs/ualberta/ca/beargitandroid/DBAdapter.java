@@ -37,7 +37,9 @@ public class DBAdapter {
     }
 
 
-
+    public void query(String sql){
+    	this.localdb.query(sql);
+    }
 
 
     /**
@@ -56,7 +58,7 @@ public class DBAdapter {
      * @param sql sql
      * @return a list of hashmap by give sql.
      */
-    public List< HashMap<String ,Object>> getStoryListwithHashMap(String sql){
+    public ArrayList< HashMap<String ,Object>> getStoryListwithHashMap(String sql){
         ArrayList < HashMap<String ,Object>> l = new ArrayList<HashMap<String, Object>>();
 
         Cursor c = getStoryList(sql);
@@ -64,10 +66,9 @@ public class DBAdapter {
         if (c == null)
             return null;
 
-
-        while (c.moveToNext()) {
+        do {
             l.add(Cursor2HashMap(c));
-        }
+        }while (c.moveToNext());
         return l;
     }
 

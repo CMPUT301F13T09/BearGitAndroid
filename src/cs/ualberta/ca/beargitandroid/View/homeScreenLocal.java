@@ -1,6 +1,7 @@
 package cs.ualberta.ca.beargitandroid.View;
 
 
+import cs.ualberta.ca.beargitandroid.controller.HomeScreen;
 import android.app.TabActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,6 +21,7 @@ public class homeScreenLocal extends TabActivity implements OnTabChangeListener 
 	private TabHost myTabhost;
 	protected int myMenuSettingTag=0;
 	protected Menu myMenu;
+	private HomeScreen HSC;
 	private static final int myMenuResources[] = { R.menu.main,
 		R.menu.main, R.menu.main};
 	@SuppressWarnings("deprecation")
@@ -27,11 +29,13 @@ public class homeScreenLocal extends TabActivity implements OnTabChangeListener 
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
+		this.HSC = new HomeScreen(this);
 		myTabhost=this.getTabHost();
 		//get Tabhost
 		LayoutInflater.from(this).inflate(R.layout.home_screen_local, myTabhost.getTabContentView(), true);
 		Button createButton = (Button) findViewById(R.id.create);
 		ListView StoryList = (ListView) findViewById(R.id.listView1);
+		
 		myTabhost
 				.addTab(myTabhost.newTabSpec("One")// make a new Tab
 						.setIndicator("Local")
@@ -55,6 +59,9 @@ public class homeScreenLocal extends TabActivity implements OnTabChangeListener 
 	
 		myTabhost.setOnTabChangedListener(this);
 		
+		
+		
+		StoryList.setAdapter(HSC.showLocal());
 		
 		createButton.setOnClickListener(new View.OnClickListener()
 		{
