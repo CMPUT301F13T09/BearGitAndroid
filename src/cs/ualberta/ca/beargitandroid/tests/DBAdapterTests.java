@@ -15,6 +15,6 @@ import cs.ualberta.ca.beargitandroid.*;
 public class DBAdapterTests extends AndroidTestCase {
 	
     public void test_DBAdapter() throws Throwable {
-       Assert.assertTrue(true);
+       assertEquals(DBAdapter, page.getDBAdapter());
     }
 }

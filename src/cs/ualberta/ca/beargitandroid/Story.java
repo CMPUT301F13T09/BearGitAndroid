@@ -2,6 +2,7 @@ package cs.ualberta.ca.beargitandroid;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -45,6 +46,82 @@ public class Story {
         }else{
             this.id = 0;
         }
+
+    }
+
+    /**
+     * Get a list of exists game process,
+     * @return a list of key (date, description, lastread) in object format. if no list, return null
+     */
+    public ArrayList<HashMap<String, Object>> getResumeList(){
+        Cursor c = dbHelper.getResumeList(this.id);
+        //check is empty or not
+        if (c == null){
+            return null;
+        }
+
+        SimpleDateFormat datetime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat To = new SimpleDateFormat("yyyy-MM-dd");
+        ArrayList<HashMap<String, Object>> l = new ArrayList<HashMap<String, Object>>();
+        do{
+            HashMap<String, Object> h = new HashMap<String, Object>();
+            Date update;
+            try{
+                update = datetime.parse(c.getString(1));
+            }catch (java.text.ParseException e){
+                update = null;
+            }
+
+            String desc = "Resume "  + To.format(update) + "process";
+            if (c.getInt(0) == 1){
+                desc += " (FINISHED)";
+            }
+            h.put("lastread",update);
+            h.put("describe", desc);
+            h.put("data", c.getString(2));
+            l.add(h);
+        }while(c.moveToNext());
+
+        return l;
+
+    }
+
+    /**
+     * load resume data of story.
+     * @param data resume data.
+     */
+    public void reloadResumeData(String data){
+        this.gameInfo = dataToArray(data);
+    }
+
+    /**
+     * converse resume String format data to ArrayList format.
+     * @param data String format data
+     * @return ArrayList format data.
+     */
+    private ArrayList<Integer> dataToArray(String data){
+        ArrayList<Integer>  l = new ArrayList<Integer> ();
+        String[] sarray = data.split(",");
+        for (String x: sarray){
+            l.add(Integer.parseInt(x));
+        }
+        return l;
+    }
+
+
+    /**
+     * converse resume ArrayListtring format data to String format.
+     * @param data
+     * @return
+     */
+    private String dataToString(ArrayList<Integer> data){
+        String r = "";
+        for (int x : data){
+            r += x;
+            r += ",";
+        }
+        //remove last ','
+        return r.substring(0, r.length() - 1);
 
     }
 

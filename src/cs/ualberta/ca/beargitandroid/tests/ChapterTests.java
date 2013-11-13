@@ -20,6 +20,6 @@ public class ChapterTests extends AndroidTestCase {
      * @throws Throwable the throwable
      */
     public void test_Chapter() throws Throwable {
-       Assert.assertTrue(true);
+       assertEquals(chapter,Chapter.getChapter());
     }
 }
