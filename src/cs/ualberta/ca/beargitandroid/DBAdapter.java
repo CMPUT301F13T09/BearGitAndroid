@@ -25,6 +25,7 @@ public class DBAdapter {
 
     /** The Constant STORY_TABLE. */
     private static final String STORY_TABLE = "STORY_INFO";
+    private static final String PROCESS_TABLE = "READ_PROCESS";
     
     /** The localdb. */
     private localDBAdapter localdb;
@@ -45,15 +46,16 @@ public class DBAdapter {
         this.remotedb = new remoteDBAdapter();
     }
 
-
-    /**
-     * Query.
-     *
-     * @param sql the sql
-     */
-    public void query(String sql){
-    	this.localdb.query(sql);
-    }
+//  I think we dont need this function in here, just remove it.
+//  commit on Nov 12, by @author Tianyi Wu <tywtyw2002@gmail.com>
+//    /**
+//     * Query.
+//     *
+//     * @param sql the sql
+//     */
+//    public Cursor query(String sql){
+//    	return localdb.query(sql);
+//    }
 
 
     /**
@@ -195,6 +197,16 @@ public class DBAdapter {
         return Cursor2HashMap(c);
 
 
+    }
+
+    /**
+     * Query and return a list of resume list.
+     * @param storyID
+     * @return
+     */
+    public Cursor getResumeList(long storyID){
+        String sql = "SELECT * FROM " + PROCESS_TABLE + " WHERE sid = " + storyID;
+        return localdb.query(sql);
     }
 
 
