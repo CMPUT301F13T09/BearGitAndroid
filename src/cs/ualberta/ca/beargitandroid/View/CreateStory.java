@@ -61,7 +61,8 @@ public class CreateStory extends Activity {
 				text2 = DescripText.getText().toString();
 				long x = sct.CreateStory(text0, text1, text2);
 				Log.v("kk", x+"");
-				finish();
+				Intent intent = new Intent(CreateStory.this,homeScreenLocal.class);
+				startActivity(intent);
 			}
 		});
 		
