@@ -86,9 +86,10 @@ public class Story {
             }
 
             String desc = "Resume "  + To.format(update) + "process";
-            if (c.getInt(0) == 1){
-                desc += " (FINISHED)";
-            }
+            //do not need this.
+//            if (c.getInt(0) == 1){
+//                desc += " (FINISHED)";
+//            }
             h.put("lastread",update);
             h.put("describe", desc);
             h.put("data", c.getString(2));
@@ -100,11 +101,24 @@ public class Story {
     }
 
     /**
+     * save this resume Data
+     */
+    public void saveResumeData(){
+        String s = dataToString(this.gameInfo);
+        dbHelper.createNewResumeLog(s, this.id);
+
+    }
+
+
+
+    /**
      * load resume data of story.
      * @param data resume data.
      */
     public void reloadResumeData(String data){
         this.gameInfo = dataToArray(data);
+        //after get resumedata, we delete this log in database
+        dbHelper.removeResumeLog(data);
     }
 
     /**
@@ -123,7 +137,7 @@ public class Story {
 
 
     /**
-     * converse resume ArrayListtring format data to String format.
+     * converse resume ArrayListing format data to String format.
      * @param data
      * @return
      */
@@ -176,6 +190,22 @@ public class Story {
             this.id = id;
 
     }
+
+    /**
+     * Modify story title, describe and author.
+     * After call this function, story automatic update database.
+     * @param title
+     * @param describe
+     * @param author
+     */
+    public void modifyStory(String title, String describe, String author){
+        this.title = title;
+        this.describe = describe;
+        this.author = author;
+
+        this.dbHelper.modify(this.id, generateCV());
+    }
+
 
 
     /**
@@ -234,12 +264,32 @@ public class Story {
     }
 
     /**
+     * get all chapter list with title and id.
+     * @param id the chapter id that will exclude.
+     * @return a chapter list without give chapter id.
+     */
+    public ArrayList<HashMap< String , String >> getChapterList(long id){
+        ArrayList<HashMap< String ,String >> l = new ArrayList<HashMap<String, String>>();
+        for (int x : this.chapterList.keySet()){
+            if (x != (int) id){
+                l.add(chapterList.get(x).getSummary());
+            }
+        }
+        return l;
+    }
+
+
+
+    /**
      * return a dict of story info
      * @return ignore
      */
     public HashMap<String, Object> getStoryItem(){
         return this.dict;
     }
+
+
+
 
     public long getStoryID(){
         return this.id;
@@ -255,6 +305,15 @@ public class Story {
     }
 
 
+    public void saveChapters(){
+
+    }
+
+    /**
+     * get Chapter by id.
+     * @param id chapter id
+     * @return chapter object
+     */
     public Chapter getChapter(long id) {
         return chapterList.get((int) id);
     }
