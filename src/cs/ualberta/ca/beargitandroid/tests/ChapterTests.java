@@ -14,11 +14,10 @@ import cs.ualberta.ca.beargitandroid.*;
  */
 public class ChapterTests extends AndroidTestCase {
 	
-    /**
-     * Test_ chapter.
-     *
-     * @throws Throwable the throwable
-     */
+	private Chapter chapter;
+	private String chapter = "some chapter";
+	private String context = "some context";
+	private String option = "some option";
     public void test_Chapter() throws Throwable {
        assertEquals(chapter,Chapter.getChapter());
     }
