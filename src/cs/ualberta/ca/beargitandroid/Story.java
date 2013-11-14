@@ -17,7 +17,7 @@ public class Story {
     private ArrayList<Integer> gameInfo;
     //private HashMap<Integer, Chapter> chapterList;
     /** The chapter list. */
-    private Chapter[] chapterList;
+    private HashMap<Integer, Chapter> chapterList;
     private long id;
     private String title;
     private String filename;
@@ -26,6 +26,7 @@ public class Story {
     private String author;
     private int status;
     private HashMap<String, Object> dict;
+    private int maxChapterID;
 
 
     /**
@@ -45,8 +46,20 @@ public class Story {
             loadOldStory();
         }else{
             this.id = 0;
+            this.chapterList = new HashMap<Integer, Chapter>();
+            this.maxChapterID = 1;
         }
 
+    }
+
+    /**
+     * create a new chapter
+     * @return a empty new chapter object.
+     */
+    public Chapter createNewChapter(){
+        Chapter c = new Chapter(this, this.maxChapterID);
+        this.maxChapterID ++;
+        return c;
     }
 
     /**
@@ -243,7 +256,7 @@ public class Story {
 
 
     public Chapter getChapter(long id) {
-        return chapterList[(int) id];
+        return chapterList.get((int) id);
     }
 
     /**

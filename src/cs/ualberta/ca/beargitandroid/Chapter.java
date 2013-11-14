@@ -17,8 +17,8 @@ public class Chapter {
 	/** The id. */
 	private static long id;
 	
-	/** The name. */
-	private String name;
+	/** The title. */
+	private String title;
 	
 	/** The context. */
 	private String context;
@@ -48,22 +48,40 @@ public class Chapter {
      *
      * @param story the story
      * @param id the id
-     * @param name the name
+     * @param title the name
      * @param context the context
      * @param option the option
      * @param media the media
      */
-	public Chapter(Story story, long id, String name, String context, 
+	public Chapter(Story story, long id, String title, String context,
 			ArrayList< HashMap<String,String>> option, String media){
 		this.id = id;
-		this.name = name;
+		this.title = title;
 		this.context = context;
 		this.option = option;
 		this.media = media;
 		
 	}
-	
-	
+
+    /**
+     * set a title and context to a new story
+     * @param title chapter title
+     * @param context chapter context
+     */
+    public void setContext(String title, String context ){
+        this.title = title;
+        this.context = context;
+    }
+
+    /**
+     * modify chapter title and context
+     * @param title
+     * @param context
+     */
+    public void modifyContext(String title, String context){
+        this.title = title;
+        this.context = context;
+    }
 	/**
 	 * Gets the chapter to map.
 	 *
@@ -73,7 +91,7 @@ public class Chapter {
 		
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("id", this.id+"");
-		map.put("name", this.name);
+		map.put("title", this.title);
 		map.put("context", this.context);
 		map.put("media", this.media);
 		
