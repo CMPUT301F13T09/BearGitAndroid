@@ -33,7 +33,10 @@ public class ChapterTests extends AndroidTestCase {
 	}
 	
 	
-    public void test_Chapter() throws Throwable {
-       assertEquals(chapter,Chapter.getChapter());
+    public void testmodifyContext(){
+    		assertEquals (context, chapter.modifyComment())
+    }
+    public void testmodifyOption(){
+    		assertEquals (option, chapter.modifyOption())	
     }
 }
