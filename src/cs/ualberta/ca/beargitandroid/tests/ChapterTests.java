@@ -15,22 +15,22 @@ import cs.ualberta.ca.beargitandroid.*;
 public class ChapterTests extends AndroidTestCase {
 	
 	private Chapter chapter;
-	private String context = "some context";
-	private String option = "some option";
-	public boid setUp() throws Exception{
-		chapter = new Chapter(context,option);
+	private ArrayList< HashMap<String,String>> optionList;
+	private long id = "23";
+	private String goToStoryTitle;
+	private String goToStoryDescription;
+	private String goToStoryAuther;
+	private String goToStoryData;
+	private String goToStoryImagePath;
+	private String goToStoryimageByte;
+	private Story goToStory;
+	
+	
+	protected void setUp() {
+		goToStory = new Story(goToStoryTitle,goToStoryDescription,goToStoryAuther,goToStoryData,goToStoryImagePath,goToStoryimageByte);
+		chapter = new Chapter(goToStory,id);
 	}
-	public void test ChangeAutherAndComment()
-	{
-		String newContext = "Context";
-		String newOption = "option";
-		chapter.setContext(newContext());
-		chapter.setOption(newOption);
-		//assertTRues(res);
-		assertEquals(newContext,chapter.getContext());
-		assertEquals(newOption,chapter.getOption());
-		
-	}
+
 	
 	
     public void testmodifyContext(){
