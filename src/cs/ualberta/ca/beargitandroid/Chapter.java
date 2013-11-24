@@ -144,17 +144,24 @@ public class Chapter {
 	 */
 	public void modifyOption(long id, String context, long nextid){
 	    //remove existed option
-        option.remove((int) id);
+        removeOption(id);
         addOption(context,nextid);
 
 	}
 
+    /**
+     * remove a Option with give id.
+     * @param id the option id that you want to remove.
+     */
+    public void removeOption(long id){
+        option.remove((int) id);
+    }
 
     /**
      * When is done, save this chapter whether change this chapter.
      */
     public void saveChapter(){
-
+        this.story.saveChapters();
     }
 
     /**

@@ -3,12 +3,20 @@ package cs.ualberta.ca.beargitandroid;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+
+import java.io.*;
+import java.lang.reflect.Type;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.sql.Timestamp;
 import java.util.HashMap;
 import java.security.MessageDigest;
+
+import android.util.Log;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 
 public class Story {
 
@@ -26,7 +34,12 @@ public class Story {
     private int status;
     private HashMap<String, Object> dict;
     private int maxChapterID;
+    private Context cxt;
 
+    //this part for gson
+    private GsonBuilder builder;
+    private Gson gson;
+    private Type chapter_json;
 
     /**
      * create a new story object by story id.
@@ -37,12 +50,19 @@ public class Story {
     public Story(Context context, long id) {
 
         this.dbHelper = new DBAdapter(context);
+        this.cxt = context;
+
+        //initizal Gson library.
+        initGson();
 
         //load exist story
         if (id != 0){
             this.id = id;
             //load story
             loadOldStory();
+            //load chapters list
+            loadChapters();
+
         }else{
             this.id = 0;
             this.chapterList = new HashMap<Integer, Chapter>();
@@ -50,6 +70,20 @@ public class Story {
         }
 
     }
+
+    /**
+     * initizal Gson library.
+     */
+    private void initGson(){
+        GsonBuilder builder = new GsonBuilder();
+        Gson gson = builder.enableComplexMapKeySerialization().setPrettyPrinting().create();
+        Type chapter_json = new TypeToken<HashMap<Integer, Chapter>>(){}.getType();
+
+    }
+
+
+
+
 
     /**
      * create a new chapter
@@ -263,7 +297,7 @@ public class Story {
     }
 
     /**
-     * get all chapter list with title and id.
+     * get chapter list with title and id, the result without the chapter which id equal give id.
      * @param id the chapter id that will exclude.
      * @return a chapter list without give chapter id.
      */
@@ -277,7 +311,13 @@ public class Story {
         return l;
     }
 
-
+    /**
+     * Get All ChapterList  with title and id
+     * @return a chapter list
+     */
+    public ArrayList<HashMap< String , String >> getAllChapterList(){
+        return getChapterList(-1);
+    }
 
     /**
      * return a dict of story info
@@ -289,24 +329,104 @@ public class Story {
 
 
 
-
     public long getStoryID(){
         return this.id;
     }
 
+    /**
+     * converse Chapter List to json.
+     * @return a json format Chapter List
+     */
+    public String ChapterstoJson() {
 
-    public void toJson() {
-
+        return gson.toJson(this.chapterList, chapter_json);
     }
 
-    public void getFromJson() {
-
+    /**
+     * Load Chapter List from json
+     * @param data Json formate Chapter List
+     */
+    public void ChaptersFromJson(String data) {
+        this.chapterList = gson.fromJson(data, chapter_json);
     }
 
 
+    /**
+     * load Chapters from json.
+     */
+    private void loadChapters(){
+        ChaptersFromJson(loadChapterFile());
+    }
+
+
+
+    private String loadChapterFile(){
+        String path = "Story_" + this.filename + ".json";
+        String json = "";
+        try{
+            utils.createFolder(this.cxt, "Story");
+
+            File filePath = new File(this.cxt.getFilesDir() + "/Story/" + path);
+
+            //if file not exists create a new file;
+            if (! filePath.exists())
+                filePath.createNewFile();
+
+            BufferedReader fp = new BufferedReader(new FileReader(filePath));
+
+            String c;
+            while( (c = fp.readLine()) != null){
+                json += c;
+            }
+            fp.close();
+
+        } catch (Exception e){
+            Log.v("IO", "CANNOT  READ FILE" + path);
+            e.printStackTrace();
+        }
+
+        return json;
+    }
+
+
+
+    /**
+     * Save Chapters list.
+     */
     public void saveChapters(){
-        GsonBuilder builder = new GsonBuilder();
+
+        saveChapterFile(ChapterstoJson());
     }
+
+
+    /**
+     * Save Chapters json file
+     * @param data json format Chapter list
+     */
+    private void saveChapterFile(String data){
+        String path = "Story_" + this.filename + ".json";
+
+        try{
+            utils.createFolder(this.cxt, "Story");
+
+            File filePath = new File(this.cxt.getFilesDir() + "/Story/" + path);
+
+            //if file not existe create a new file;
+            if (! filePath.exists())
+                filePath.createNewFile();
+
+            BufferedWriter fp = new BufferedWriter(new FileWriter(filePath));
+
+            fp.write(data);
+            fp.close();
+
+        } catch (Exception e){
+            Log.v("IO", "CANNOT SAVE FILE" + path);
+            e.printStackTrace();
+        }
+    }
+
+
 
     /**
      * get Chapter by id.
@@ -324,7 +444,14 @@ public class Story {
 
     }
 
-
-
+    /**
+     * remove a chapter with give id.
+     * @param id the chapter id, which you want to remove.
+     */
+    public void deleteChapter(long id){
+        if (chapterList.containsKey(id)){
+            chapterList.remove(id);
+        }
+    }
 
 }
