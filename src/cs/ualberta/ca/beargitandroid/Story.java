@@ -18,6 +18,11 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
+
+/**
+ * This is a Story Class
+ * @author Tianyi Wu <tywtyw2002@gmail.com>
+ */
 public class Story {
 
     private DBAdapter dbHelper;
