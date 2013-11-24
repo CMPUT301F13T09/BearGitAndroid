@@ -3,7 +3,6 @@ package cs.ualberta.ca.beargitandroid;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -306,7 +305,7 @@ public class Story {
 
 
     public void saveChapters(){
-
+        GsonBuilder builder = new GsonBuilder();
     }
 
     /**
@@ -324,4 +323,8 @@ public class Story {
     public void uploadStory(){
 
     }
+
+
+
+
 }
