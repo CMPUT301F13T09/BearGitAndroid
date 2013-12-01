@@ -8,6 +8,7 @@ import cs.ualberta.ca.beargitandroid.Story;
 import cs.ualberta.ca.beargitandroid.View.R;
 import android.app.Activity;
 import android.content.Context;
+import android.widget.ArrayAdapter;
 import android.widget.SimpleAdapter;
 
 
@@ -23,6 +24,7 @@ public class chapterEditer extends Activity {
 	/** The context. */
 	private String context;
 	
+	private String title;
 	/** The option. */
 	private ArrayList< HashMap<String,String> > option;
 	
@@ -63,21 +65,14 @@ public class chapterEditer extends Activity {
 		
 	}
 	
-	public SimpleAdapter showoption(){
-		
-		HashMap<String,String> map = (HashMap<String,String>) option.get((int) id);
-		
-		if(map == null){
-			
-			return null;
-			
-		}
-		
-		String from = new String[]{title};
-		int[] to = new int[]{R.id.title6};
-		SimpleAdapter op = new SimpleAdapter(this.cxt,map,R.layout.story_list_elem,from,to);
-		
+    public ArrayAdapter showoption(){
+    	
+    	ArrayList<HashMap< String , String >> OptionArray = chapter.getOptionList();
+    	ArrayAdapter OptionAdapter = new ArrayAdapter<String>(this, android.R.layout.edit_chapter,OptionArray);
+    	
+    	return OptionAdapter;
 	}
+	
 	
 	
 	public void editOption( ){
@@ -86,10 +81,18 @@ public class chapterEditer extends Activity {
 	public void addMedia(){
 		
 	}
+	
+	 public void modifyContext(String title, String context){
+	        this.title = title;
+	        this.context = context;
+	 }
     public void save(){
     	
+    	this.chapter.saveChapter();
     }
     public void delete(){
+    	
+    	this.story.deleteChapter(id);
     	
     }
 	

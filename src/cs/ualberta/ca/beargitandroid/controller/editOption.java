@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 import android.content.Context;
 import android.graphics.BitmapFactory.Options;
+import android.widget.ArrayAdapter;
 import android.widget.SimpleAdapter;
 import cs.ualberta.ca.beargitandroid.Chapter;
 import cs.ualberta.ca.beargitandroid.Story;
@@ -15,9 +16,13 @@ public class editOption {
 
     private Chapter chapter;
     
-    private Context cxt;
+    private String context;// change Context to String
+    
+    private Story story;
     
     private static long id;
+    
+    private Context cxt;
     
     private ArrayList< HashMap<String,String> > option;
 	/**
@@ -26,34 +31,40 @@ public class editOption {
 	private void showLink(){
 		
 	}
+	
+	
     public void save(){
-    	
-    }
-    public void delete(){
-    	
-    }
-    public editOption(Context context, long id){
-    	
-    	this.cxt = context;
-        
-    	
+    	modifyoption(context,id);
+    	this.chapter.addOption(context, id);
     }
     
-    public SimpleAdapter showoption(){
+    public void modifyoption(String context, long id){
+    	
+    	this.context = context;
+    	this.id = id;
+    }
+    
+    public void delete(){
+    	this.chapter.removeOption(id);
+    }
+   
+    public SimpleAdapter showchapter(){
 		
-		HashMap<String,String> map = (HashMap<String,String>) option.get((int) id);
+		ArrayList<HashMap< String , String >> map = story.getChapterList(this.id);
 		
 		if(map == null){
-			
 			return null;
-			
 		}
+		String[] from = new String[]{"title"};
+		int[] to = new int[] {R.id.title2};
+		SimpleAdapter ad = new SimpleAdapter(this.cxt,map,R.layout.story_list_elem,from,to);
 		
-		String opt = new String[]{option.get(index)};
-		int[] to = new int[]{R.id.title6};
-		SimpleAdapter op = new SimpleAdapter(this.cxt,map,R.layout.story_list_elem,from,to);
 		
-	}
-	
+		return ad;
 		
+		
+		
+}
+    
+    
 }

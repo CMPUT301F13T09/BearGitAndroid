@@ -1,10 +1,13 @@
 package cs.ualberta.ca.beargitandroid.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import cs.ualberta.ca.beargitandroid.Story;
+import cs.ualberta.ca.beargitandroid.View.R;
 import android.app.Activity;
 import android.content.Context;
+import android.widget.SimpleAdapter;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -45,7 +48,32 @@ public class StoryController {
 		return temp;
 		
 	};
+	// add getchapterList
+	public ArrayList<HashMap<String, String>> getChapterList(){
+		
+		ArrayList<HashMap<String,String>> chapterlist = this.story.getAllChapterList();
+		
+		return chapterlist;
+		
+	}
 	
+	//add show chapter
+    public SimpleAdapter showchapter(){
+		
+		ArrayList<HashMap< String , String >> map = story.getChapterList(this.ID);
+		
+		if(map == null){
+			return null;
+		}
+		String[] from = new String[]{"title"};
+		int[] to = new int[] {R.id.title2};
+		SimpleAdapter ad = new SimpleAdapter(this.cxt,map,R.layout.story_list_elem,from,to);
+		
+		
+		return ad;
+		
+		
+	}
 	/**
 	 * Start game.
 	 *
@@ -53,6 +81,8 @@ public class StoryController {
 	 * @param ID the id
 	 */
 	public void startGame(Story story,long ID){
+		
+		
 		
 	};
 	
@@ -66,7 +96,7 @@ public class StoryController {
 	/**
 	 * Load save.
 	 */
-	private void loadSave(){
+	private void saveCurrent(){
 		
 	}
 	//create a new story.

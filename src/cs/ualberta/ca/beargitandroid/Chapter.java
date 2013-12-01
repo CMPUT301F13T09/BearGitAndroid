@@ -15,7 +15,7 @@ import java.util.HashMap;
 public class Chapter {
 	
 	/** The id. */
-	private static long id;
+	public static long id;
 	
 	/** The title. */
 	private String title;

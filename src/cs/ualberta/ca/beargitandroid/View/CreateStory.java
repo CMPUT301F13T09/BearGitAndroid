@@ -1,6 +1,7 @@
 package cs.ualberta.ca.beargitandroid.View;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 
 
@@ -12,8 +13,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
+import android.widget.AdapterView.OnItemClickListener;
 
 
 public class CreateStory extends Activity {
@@ -26,6 +31,9 @@ public class CreateStory extends Activity {
 	private String text0;
 	private String text1;
 	private String text2;
+	
+	ListView ChapterList = (ListView) findViewById(R.id.listView9);
+	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.create_story);
@@ -66,7 +74,19 @@ public class CreateStory extends Activity {
 			}
 		});
 		
-
+		final SimpleAdapter adp = sct.showchapter();
+		ChapterList.setAdapter(adp);
+		
+//!!!!!!!!!!!!!!!!!!!!!!!!
+		ChapterList.setOnItemClickListener(new OnItemClickListener(){
+			public void onItemClick(AdapterView<?> l,View v, int pos, long id){
+			//The place you add the code that get the story info from the database
+				HashMap <String, String> r = (HashMap<String, String>) adp.getItem(pos);
+			
+				Intent intent = new Intent(CreateStory.this,ChapterView.class);			
+				startActivity(intent);
+			}
+		});
 		
 	};
 };
