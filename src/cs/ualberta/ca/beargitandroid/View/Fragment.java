@@ -52,9 +52,9 @@ public class Fragment extends Activity {
 				
 			
 		});
+	}
 		
 	}
-}
 
 	
 		

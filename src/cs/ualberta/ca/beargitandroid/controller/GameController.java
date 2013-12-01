@@ -3,6 +3,8 @@ package cs.ualberta.ca.beargitandroid.controller;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+
+import android.content.Context;
 import android.widget.ArrayAdapter;
 import android.widget.SimpleAdapter;
 
@@ -25,21 +27,17 @@ public class GameController {
 	
 	/** The story. */
 	private Story story;
+
+	private Context context;
 	private Chapter chapter;
+	private String chapterContext;
+
 	
 	
-	
-	
-	/**
-	 * Show sotry.
-	 */
-	
-	// how to show story?
-	
-	public void showSotry(){
+	public String showStory(){
 		
+		return chapter.getChapterToMap().get(context);
 		 
-		
 	};
 	
 	/**
