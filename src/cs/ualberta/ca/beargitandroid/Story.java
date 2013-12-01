@@ -4,6 +4,8 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 
+import java.io.*;
+import java.lang.reflect.Type;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -11,6 +13,16 @@ import java.sql.Timestamp;
 import java.util.HashMap;
 import java.security.MessageDigest;
 
+import android.util.Log;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
+
+
+/**
+ * This is a Story Class
+ * @author Tianyi Wu <tywtyw2002@gmail.com>
+ */
 public class Story {
 
     private DBAdapter dbHelper;
@@ -27,7 +39,12 @@ public class Story {
     private int status;
     private HashMap<String, Object> dict;
     private int maxChapterID;
+    private Context cxt;
 
+    //this part for gson
+    private GsonBuilder builder;
+    private Gson gson;
+    private Type chapter_json;
 
     /**
      * create a new story object by story id.
@@ -38,12 +55,19 @@ public class Story {
     public Story(Context context, long id) {
 
         this.dbHelper = new DBAdapter(context);
+        this.cxt = context;
+
+        //initizal Gson library.
+        initGson();
 
         //load exist story
         if (id != 0){
             this.id = id;
             //load story
             loadOldStory();
+            //load chapters list
+            loadChapters();
+
         }else{
             this.id = 0;
             this.chapterList = new HashMap<Integer, Chapter>();
@@ -51,6 +75,20 @@ public class Story {
         }
 
     }
+
+    /**
+     * initizal Gson library.
+     */
+    private void initGson(){
+        GsonBuilder builder = new GsonBuilder();
+        Gson gson = builder.enableComplexMapKeySerialization().setPrettyPrinting().create();
+        Type chapter_json = new TypeToken<HashMap<Integer, Chapter>>(){}.getType();
+
+    }
+
+
+
+
 
     /**
      * create a new chapter
@@ -86,9 +124,10 @@ public class Story {
             }
 
             String desc = "Resume "  + To.format(update) + "process";
-            if (c.getInt(0) == 1){
-                desc += " (FINISHED)";
-            }
+            //do not need this.
+//            if (c.getInt(0) == 1){
+//                desc += " (FINISHED)";
+//            }
             h.put("lastread",update);
             h.put("describe", desc);
             h.put("data", c.getString(2));
@@ -100,11 +139,24 @@ public class Story {
     }
 
     /**
+     * save this resume Data
+     */
+    public void saveResumeData(){
+        String s = dataToString(this.gameInfo);
+        dbHelper.createNewResumeLog(s, this.id);
+
+    }
+
+
+
+    /**
      * load resume data of story.
      * @param data resume data.
      */
     public void reloadResumeData(String data){
         this.gameInfo = dataToArray(data);
+        //after get resumedata, we delete this log in database
+        dbHelper.removeResumeLog(data);
     }
 
     /**
@@ -123,7 +175,7 @@ public class Story {
 
 
     /**
-     * converse resume ArrayListtring format data to String format.
+     * converse resume ArrayListing format data to String format.
      * @param data
      * @return
      */
@@ -176,6 +228,22 @@ public class Story {
             this.id = id;
 
     }
+
+    /**
+     * Modify story title, describe and author.
+     * After call this function, story automatic update database.
+     * @param title
+     * @param describe
+     * @param author
+     */
+    public void modifyStory(String title, String describe, String author){
+        this.title = title;
+        this.describe = describe;
+        this.author = author;
+
+        this.dbHelper.modify(this.id, generateCV());
+    }
+
 
 
     /**
@@ -234,6 +302,29 @@ public class Story {
     }
 
     /**
+     * get chapter list with title and id, the result without the chapter which id equal give id.
+     * @param id the chapter id that will exclude.
+     * @return a chapter list without give chapter id.
+     */
+    public ArrayList<HashMap< String , String >> getChapterList(long id){
+        ArrayList<HashMap< String ,String >> l = new ArrayList<HashMap<String, String>>();
+        for (int x : this.chapterList.keySet()){
+            if (x != (int) id){
+                l.add(chapterList.get(x).getSummary());
+            }
+        }
+        return l;
+    }
+
+    /**
+     * Get All ChapterList  with title and id
+     * @return a chapter list
+     */
+    public ArrayList<HashMap< String , String >> getAllChapterList(){
+        return getChapterList(-1);
+    }
+
+    /**
      * return a dict of story info
      * @return ignore
      */
@@ -241,20 +332,112 @@ public class Story {
         return this.dict;
     }
 
+
+
     public long getStoryID(){
         return this.id;
     }
 
+    /**
+     * converse Chapter List to json.
+     * @return a json format Chapter List
+     */
+    public String ChapterstoJson() {
 
-    public void toJson() {
-
+        return gson.toJson(this.chapterList, chapter_json);
     }
 
-    public void getFromJson() {
-
+    /**
+     * Load Chapter List from json
+     * @param data Json formate Chapter List
+     */
+    public void ChaptersFromJson(String data) {
+        this.chapterList = gson.fromJson(data, chapter_json);
     }
 
 
+    /**
+     * load Chapters from json.
+     */
+    private void loadChapters(){
+        ChaptersFromJson(loadChapterFile());
+    }
+
+
+
+    private String loadChapterFile(){
+        String path = "Story_" + this.filename + ".json";
+        String json = "";
+        try{
+            utils.createFolder(this.cxt, "Story");
+
+            File filePath = new File(this.cxt.getFilesDir() + "/Story/" + path);
+
+            //if file not exists create a new file;
+            if (! filePath.exists())
+                filePath.createNewFile();
+
+            BufferedReader fp = new BufferedReader(new FileReader(filePath));
+
+            String c;
+            while( (c = fp.readLine()) != null){
+                json += c;
+            }
+            fp.close();
+
+        } catch (Exception e){
+            Log.v("IO", "CANNOT  READ FILE" + path);
+            e.printStackTrace();
+        }
+
+        return json;
+    }
+
+
+
+    /**
+     * Save Chapters list.
+     */
+    public void saveChapters(){
+
+        saveChapterFile(ChapterstoJson());
+    }
+
+
+    /**
+     * Save Chapters json file
+     * @param data json format Chapter list
+     */
+    private void saveChapterFile(String data){
+        String path = "Story_" + this.filename + ".json";
+
+        try{
+            utils.createFolder(this.cxt, "Story");
+
+            File filePath = new File(this.cxt.getFilesDir() + "/Story/" + path);
+
+            //if file not existe create a new file;
+            if (! filePath.exists())
+                filePath.createNewFile();
+
+            BufferedWriter fp = new BufferedWriter(new FileWriter(filePath));
+
+            fp.write(data);
+            fp.close();
+
+        } catch (Exception e){
+            Log.v("IO", "CANNOT SAVE FILE" + path);
+            e.printStackTrace();
+        }
+    }
+
+
+
+    /**
+     * get Chapter by id.
+     * @param id chapter id
+     * @return chapter object
+     */
     public Chapter getChapter(long id) {
         return chapterList.get((int) id);
     }
@@ -265,4 +448,15 @@ public class Story {
     public void uploadStory(){
 
     }
+
+    /**
+     * remove a chapter with give id.
+     * @param id the chapter id, which you want to remove.
+     */
+    public void deleteChapter(long id){
+        if (chapterList.containsKey(id)){
+            chapterList.remove(id);
+        }
+    }
+
 }

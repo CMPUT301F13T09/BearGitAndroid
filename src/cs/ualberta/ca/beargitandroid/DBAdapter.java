@@ -210,6 +210,21 @@ public class DBAdapter {
     }
 
 
+    public void createNewResumeLog(String data, long id){
+        ContentValues cv = new ContentValues();
+        cv.put("Data", data);
+        cv.put("sid",id);
+        cv.put("Lasttime", date2String(new Date()));
+        localdb.insert(PROCESS_TABLE, cv );
+    }
+
+
+    public void removeResumeLog(String s){
+        localdb.delete(PROCESS_TABLE, "Data = ?", new String [] {s} );
+    }
+
+
+
     /**
      * DELETE a row of story.
      *
@@ -222,7 +237,10 @@ public class DBAdapter {
         localdb.query(sql);
     }
 
-
+    private String date2String(Date date){
+        SimpleDateFormat datetime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return datetime.format(date);
+    }
 
 
 

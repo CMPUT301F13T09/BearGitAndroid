@@ -15,7 +15,7 @@ import java.util.HashMap;
 public class Chapter {
 	
 	/** The id. */
-	private static long id;
+	public static long id;
 	
 	/** The title. */
 	private String title;
@@ -82,8 +82,17 @@ public class Chapter {
         this.title = title;
         this.context = context;
     }
+
+    /**
+     * add or modify media.
+     * @param media
+     */
+    public void modifyMedia(String media){
+        this.media = media;
+    }
+
 	/**
-	 * Gets the chapter to map.
+	 * Get all of the information of the chapter except the option.
 	 *
 	 * @return the chapter to map
 	 */
@@ -98,47 +107,76 @@ public class Chapter {
 		return map;
 		//return null;
 	}
-	
+
+
+
+
 	/**
-	 * Gets the optionby id.
-	 *
-	 * @param id the id
-	 * @return the optionby id
-	 */
-	public HashMap<String,String> getOptionbyId(long id){
-		HashMap<String,String> map = (HashMap<String,String>) option.get((int) id);
-		map.put("id", id+"");
-		return map;
-	}
-	
-	/**
-	 * Gets the option list.
-	 *
+	 * Return all of the options of this chapter.
+	 * the key is (context, nextid) for each hashmap.
 	 * @return the option list
 	 */
 	public ArrayList< HashMap<String,String>> getOptionList(){
 		return this.option;
 	}
-	
+
+
 	/**
 	 * Adds the option.
 	 *
 	 * @param context the context
-	 * @param chapterId the chapter id
+	 * @param nextid the next chapter id
 	 */
-	public void addOption(String context, long chapterId){
+	public void addOption(String context, long nextid){
+        HashMap<String , String > h = new HashMap<String, String>();
+        h.put("context", context);
+        h.put("nextid", nextid + "");
 		
 	}
-	
+
+
 	/**
 	 * Modify option.
 	 *
-	 * @param id the id
+	 * @param id the id which is the order in the arraylist
 	 * @param context the context
-	 * @param chapterId the chapter id
+	 * @param nextid the the id of next chapter
 	 */
-	public void modifyOption(long id, String context, long chapterId){
-		
+	public void modifyOption(long id, String context, long nextid){
+	    //remove existed option
+        removeOption(id);
+        addOption(context,nextid);
+
 	}
-	
+
+    /**
+     * remove a Option with give id.
+     * @param id the option id that you want to remove.
+     */
+    public void removeOption(long id){
+        option.remove((int) id);
+    }
+
+    /**
+     * When is done, save this chapter whether change this chapter.
+     */
+    public void saveChapter(){
+        this.story.saveChapters();
+    }
+
+    /**
+     * show all chapter list as hasmap(id, title), exclude self.
+     * @return a arraylist
+     */
+    public ArrayList<HashMap< String , String >> getChapterList(){
+        return story.getChapterList(this.id);
+
+    }
+
+    public HashMap<String , String > getSummary(){
+        HashMap<String , String > h = new HashMap<String, String>();
+        h.put("id", this.id + "");
+        h.put("title", this.title);
+        return h;
+    }
 }

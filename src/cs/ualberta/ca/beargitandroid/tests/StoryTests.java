@@ -32,9 +32,9 @@ public class StoryTests extends AndroidTestCase {
        try{
     	   this.story = new Story (this.cxt,this.id);
            this.story.createNewStory("title","description","author");
-           asserTrue(story.cxt != null);
+           assertTrue(story.getStoryItem()!=null);
        }catch (Exception e){
-           fail("cannot create a new stroy");
+           fail("cannot create a new story");
        }
    }
   
@@ -52,7 +52,7 @@ public class StoryTests extends AndroidTestCase {
   
    public void testGetter() {
       assertEquals(id,story.getStoryID());
-       assertTrue(story.getStoryID() =! null);
+       assertTrue(story.getStoryItem() != null);
        
    }
 }
