@@ -88,8 +88,6 @@ public class ChapterView extends Activity {
 			}
 		});
 		
-		final ArrayAdapter aa = ce.showoption();
-		OptionList.setAdapter(aa);
 		
 		
 }
