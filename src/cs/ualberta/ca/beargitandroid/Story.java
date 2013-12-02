@@ -28,7 +28,7 @@ public class Story implements Serializable{
 
     //private static final long serialVersionUID = 1L;
 
-    private DBAdapter dbHelper;
+    private transient DBAdapter dbHelper;
     private ArrayList<Integer> gameInfo;
     //private HashMap<Integer, Chapter> chapterList;
     /** The chapter list. */

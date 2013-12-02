@@ -95,7 +95,7 @@ public class GameController {
 	
 	
 	public Chapter getNewgameChapter(){
-		return story.getChapter(0);
+		return story.getChapter(1);
 	}
 	
 	
