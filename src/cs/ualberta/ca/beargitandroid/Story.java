@@ -439,8 +439,20 @@ public class Story {
      * @return chapter object
      */
     public Chapter getChapter(long id) {
+        this.gameInfo.add((int) id );
         return chapterList.get((int) id);
     }
+
+    /**
+     *  get the resume chapter.
+     *  @return chapter object
+     */
+    public Chapter getReloadChapter(){
+        int last = this.gameInfo.get(this.gameInfo.size() - 1);
+        return chapterList.get(last);
+    }
+
+
 
 //    /**
 //     *  upload Story to the internet

@@ -1,7 +1,9 @@
 package cs.ualberta.ca.beargitandroid.controller;
 
 import android.content.Context;
+import android.widget.SimpleAdapter;
 import cs.ualberta.ca.beargitandroid.Chapter;
+import cs.ualberta.ca.beargitandroid.View.R;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -36,5 +38,21 @@ public class ChapterController {
         return chapter.getNextChapter(id);
     }
 
+    public SimpleAdapter clickOption(){
+
+        ArrayList<HashMap< String , String >> l = chapter.getOptionList();
+
+        if( l == null){
+
+            return null;
+        }
+
+        String[] from = new String[] {"context"};
+        int[] to = new int[] {R.id.option};
+
+        return new SimpleAdapter(this.cxt,l, R.layout.chapter_option_row,from,to);
+
+
+    }
 
 }
