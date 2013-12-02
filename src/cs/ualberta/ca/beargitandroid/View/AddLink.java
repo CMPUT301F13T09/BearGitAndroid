@@ -32,7 +32,7 @@ public class AddLink extends Activity {
 		
 		OptionText = (EditText) findViewById(R.id.neirong);
 		
-		ListView Options = (ListView) findViewById(R.id.listView10);
+//		ListView Options = (ListView) findViewById(R.id.listView10);
 		
 		Button saveButton = (Button) findViewById(R.id.save2);
 		//have not done yet.
