@@ -138,7 +138,7 @@ public class homeScreenLocal extends TabActivity implements OnTabChangeListener,
 				long Bid = (Long) r.get("id");
 				Bundle bundle = new Bundle();
 				bundle.putLong("id", Bid);
-				Intent intent = new Intent(homeScreenLocal.this,ViewStory.class);
+				Intent intent = new Intent(homeScreenLocal.this,CreateStory.class);
 				intent.putExtras(bundle);
 				startActivity(intent);
 			}

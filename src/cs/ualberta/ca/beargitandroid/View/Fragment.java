@@ -40,7 +40,7 @@ public class Fragment extends Activity {
 		
 		//Click next
         this.story = (Story) getIntent().getSerializableExtra("Story");
-        long c_id = getIntent().getLongExtra("c_id", 0);
+        long c_id = getIntent().getLongExtra("c_id", 1);
 		gct = new ChapterController(this, story, c_id);
 
 
