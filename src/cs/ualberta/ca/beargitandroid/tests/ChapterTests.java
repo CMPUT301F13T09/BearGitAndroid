@@ -1,5 +1,8 @@
 package cs.ualberta.ca.beargitandroid.tests;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import junit.framework.Assert;
 import android.test.AndroidTestCase;
 import cs.ualberta.ca.beargitandroid.*;
@@ -40,4 +43,3 @@ public class ChapterTests extends AndroidTestCase {
     		assertEquals (option, chapter.modifyOption())	
     }
 }
->>>>>>> 55ec85577e335032adf4073356e64aa015a76668

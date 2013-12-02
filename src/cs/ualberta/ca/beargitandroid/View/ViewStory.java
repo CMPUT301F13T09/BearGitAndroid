@@ -81,6 +81,8 @@ public class ViewStory extends Activity {
 			public void onClick(View v)
 			{
 				Intent intent=new Intent(ViewStory.this,Fragment.class);
+				Chapter next = sct.getNewgameChapter();
+				intent.putExtra("chapter", next);
 				startActivity(intent);
 			}
 		});
