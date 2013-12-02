@@ -38,6 +38,7 @@ public class ChapterController {
         return chapter.getNextChapter(id);
     }
 
+
     public SimpleAdapter clickOption(){
 
         ArrayList<HashMap< String , String >> l = chapter.getOptionList();
@@ -60,4 +61,49 @@ public class ChapterController {
         this.chapter.saveReloadData();
 
     }
+
+    public void modifyChapter(String title, String context){
+        this.chapter.modifyContext(title, context);
+        this.chapter.saveChapter();
+    }
+
+    /**
+     * return chapterList except self
+     * @return
+     */
+    public SimpleAdapter chapterList(){
+        ArrayList<HashMap< String , String >> l = this.chapter.getChapterList();
+
+        if( l == null){
+
+            return null;
+        }
+
+        String[] from = new String[] {"title"};
+        int[] to = new int[] {R.id.option};
+
+        return new SimpleAdapter(this.cxt,l, R.layout.chapter_option_row,from,to);
+
+    }
+
+
+    public void deleteChapter(){
+        this.chapter.getStory().deleteChapter(this.chapter.getid());
+    }
+
+    public void addoption(String title, long id){
+        this.chapter.addOption(title, id);
+
+    }
+
+    public void modifyoption(long id, String context, long nextid){
+        this.chapter.modifyOption( id, context, nextid);
+    }
+
+
+    public void removeiption(long id){
+        this.chapter.removeOption(id);
+
+    }
+
 }
