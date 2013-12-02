@@ -369,7 +369,11 @@ public class Story implements Serializable{
         Gson gson = builder.enableComplexMapKeySerialization().setPrettyPrinting().create();
         Type chapter_json = new TypeToken<HashMap<Integer, Chapter>>(){}.getType();
 
+        if (data.isEmpty()){
+            this.chapterList = null;
+        }else{
         this.chapterList = gson.fromJson(data, chapter_json);
+        }
     }
 
 
@@ -403,7 +407,7 @@ public class Story implements Serializable{
             fp.close();
 
         } catch (Exception e){
-            Log.v("IO", "CANNOT  READ FILE" + path);
+            Log.w("IO", "CANNOT  READ FILE" + path);
             e.printStackTrace();
         }
 
