@@ -50,6 +50,7 @@ public class AddLink extends Activity {
 
 		OptionText = (EditText) findViewById(R.id.neirong);
 		
+
 		ListView OptionList = (ListView) findViewById(R.id.listView10);
 
         OptionText.setText(title);

@@ -18,8 +18,19 @@ import android.widget.SimpleAdapter;
 import android.widget.TabHost;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.TabHost.OnTabChangeListener;
+import android.app.ActionBar;
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup.LayoutParams;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.SearchView;
 
-public class homeScreenLocal extends TabActivity implements OnTabChangeListener {
+public class homeScreenLocal extends TabActivity implements OnTabChangeListener,SearchView.OnQueryTextListener {
 
 	private TabHost myTabhost;
 	protected int myMenuSettingTag=0;
@@ -27,7 +38,10 @@ public class homeScreenLocal extends TabActivity implements OnTabChangeListener 
 	private HomeScreen HSC;
 	private static final int myMenuResources[] = { R.menu.main,
 		R.menu.main, R.menu.main};
-	
+	private ListView StoryList;
+	private ListView CreateList;
+	private SearchView searchView;
+	ArrayAdapter<String> adapter;
 	/* (non-Javadoc)
 	 * @see android.app.ActivityGroup#onCreate(android.os.Bundle)
 	 */
@@ -40,10 +54,25 @@ public class homeScreenLocal extends TabActivity implements OnTabChangeListener 
 		myTabhost=this.getTabHost();
 		//get Tabhost
 		LayoutInflater.from(this).inflate(R.layout.home_screen_local, myTabhost.getTabContentView(), true);
+		SearchView searchView = (SearchView) findViewById(R.id.searchView1);
 		Button createButton = (Button) findViewById(R.id.create);
 		ListView StoryList = (ListView) findViewById(R.id.listView1);
 		ListView CreateList = (ListView) findViewById(R.id.listView3);
-		
+		  getActionBar().setDisplayShowHomeEnabled(false);
+		  getActionBar().setDisplayShowTitleEnabled(false);
+		  getActionBar().setDisplayShowCustomEnabled(true);
+		  LayoutInflater mInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		  View mTitleView = mInflater.inflate(R.layout.home_screen_local,
+		    null);
+		  getActionBar().setCustomView(
+		    mTitleView,
+		    new ActionBar.LayoutParams(LayoutParams.MATCH_PARENT,
+		      LayoutParams.WRAP_CONTENT));
+		  searchView = (SearchView) mTitleView.findViewById(R.id.searchView1);
+		StoryList.setTextFilterEnabled(true);
+		CreateList.setTextFilterEnabled(true);
+		searchView.setOnQueryTextListener(this);
+		searchView.setSubmitButtonEnabled(false);
 		myTabhost
 				.addTab(myTabhost.newTabSpec("One")// make a new Tab
 						.setIndicator("Local")
@@ -114,6 +143,7 @@ public class homeScreenLocal extends TabActivity implements OnTabChangeListener 
 				startActivity(intent);
 			}
 		});
+
 		
 	}
 	@Override
@@ -156,6 +186,25 @@ public class homeScreenLocal extends TabActivity implements OnTabChangeListener 
 		if (myMenu != null) {
 			onCreateOptionsMenu(myMenu);
 		}
+	}
+	@Override
+	public boolean onQueryTextChange(String newText) {
+		// TODO Auto-generated method stub
+		if (TextUtils.isEmpty(newText)) {
+			   // Clear the text filter.
+				StoryList.clearTextFilter();
+				CreateList.clearTextFilter();
+			  } else {
+			   // Sets the initial value for the text filter.
+			   StoryList.setFilterText(newText.toString());
+			   CreateList.setFilterText(newText.toString());
+			  }
+			  return false;
+	}
+	@Override
+	public boolean onQueryTextSubmit(String query) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }
