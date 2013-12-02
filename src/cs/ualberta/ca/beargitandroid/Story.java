@@ -442,12 +442,12 @@ public class Story {
         return chapterList.get((int) id);
     }
 
-    /**
-     *  upload Story to the internet
-     */
-    public void uploadStory(){
-
-    }
+//    /**
+//     *  upload Story to the internet
+//     */
+//    public void uploadStory(){
+//
+//    }
 
     /**
      * remove a chapter with give id.
@@ -458,5 +458,6 @@ public class Story {
             chapterList.remove(id);
         }
     }
+
 
 }

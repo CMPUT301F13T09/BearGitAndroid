@@ -180,4 +180,15 @@ public class Chapter implements Serializable {
         h.put("title", this.title);
         return h;
     }
+
+
+    /**
+     * Get the next chapter from chapter id
+     * @param id chapter id
+     * @return  new chapter
+     */
+    public Chapter getNextChapter(long id){
+        return this.story.getChapter(id);
+    }
+
 }
