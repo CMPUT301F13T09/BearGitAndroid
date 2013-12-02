@@ -39,7 +39,7 @@ public class ChapterView extends Activity {
 		
 		setContentView(R.layout.edit_chapter);
 
-        this.story = (Story) getIntent().getSerializableExtra("Story");
+        this.story = (Story) getIntent().getExtras().get("Story");
         this.c_id = getIntent().getLongExtra("c_id", -1);
 
 

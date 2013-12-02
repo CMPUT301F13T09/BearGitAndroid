@@ -65,7 +65,7 @@ public class CreateStory extends Activity {
 			{
 				Intent intent=new Intent(CreateStory.this,ChapterView.class);
 
-				intent.putExtra("Story", (Serializable) sct.Story());
+				intent.putExtra("Story",  sct.Story());
                 intent.putExtra("C_id", -1);
 				startActivity(intent);
 			}
