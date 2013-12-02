@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 
 
+import cs.ualberta.ca.beargitandroid.Chapter;
 import cs.ualberta.ca.beargitandroid.Story;
 import cs.ualberta.ca.beargitandroid.controller.StoryController;
 
@@ -47,6 +48,7 @@ public class CreateStory extends Activity {
 		TitleText = (EditText) findViewById(R.id.title6);
 		AuthorText = (EditText) findViewById(R.id.author6);
 		DescripText = (EditText) findViewById(R.id.descrip6);
+		ListView Chapters = (ListView) findViewById(R.id.listView5);
 		//click ADDCHAPTER button then go to the add_link.xml
 		addButton.setOnClickListener(new View.OnClickListener()
 		{
@@ -54,15 +56,18 @@ public class CreateStory extends Activity {
 			@Override		
 			public void onClick(View v)
 			{
-				Intent intent=new Intent(CreateStory.this,AddLink.class);
-				
+				Intent intent=new Intent(CreateStory.this,ChapterView.class);
+				Chapter chapter = sct.newChapter();
 				intent.putExtra("chapter", chapter);
-				
 				startActivity(intent);
 			}
 		});
 		
-		
+		Chapters.setOnItemClickListener(new OnItemClickListener(){
+			public void onItemClick(AdapterView<?> l,View v, int pos, long id){
+			//The place you add the code that get the story info from the database
+			}
+		});
 		saveButton.setOnClickListener(new View.OnClickListener()
 		{
 			
