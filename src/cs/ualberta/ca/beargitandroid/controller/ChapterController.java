@@ -117,4 +117,11 @@ public class ChapterController {
 
     }
 
+    public void randompick(){
+
+
+
+
+    }
+
 }

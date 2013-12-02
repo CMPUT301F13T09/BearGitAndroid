@@ -57,19 +57,18 @@ public class CreateStory extends Activity {
 		DescripText = (EditText) findViewById(R.id.descrip6);
 		ListView Chapters = (ListView) findViewById(R.id.listView5);
 		//click ADDCHAPTER button then go to the add_link.xml
-		addButton.setOnClickListener(new View.OnClickListener()
-		{
-			
-			@Override		
-			public void onClick(View v)
-			{
-				Intent intent=new Intent(CreateStory.this,ChapterView.class);
+		addButton.setOnClickListener(new View.OnClickListener() {
 
-				intent.putExtra("Story", (Serializable) sct.Story());
-                intent.putExtra("C_id", -1);
-				startActivity(intent);
-			}
-		});
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CreateStory.this, ChapterView.class);
+                Bundle sbundle = new Bundle();
+                sbundle.putSerializable("Story", sct.Story());
+                sbundle.putLong("c_id", -1);
+                intent.putExtras(sbundle);
+                startActivity(intent);
+            }
+        });
 
 
         final SimpleAdapter radp = sct.showchapter();
@@ -91,18 +90,16 @@ public class CreateStory extends Activity {
             });
         }
 
-		saveButton.setOnClickListener(new View.OnClickListener()
-		{
-			
-			@Override
-			public void onClick(View v)
-			{
-				//The place you add the code that save the story to the database
-				//setResult(RESULT_OK);
-				text0 = TitleText.getText().toString();
-				text1 = AuthorText.getText().toString();
-				text2 = DescripText.getText().toString();
-                if (text0.equals("") || text1.equals("")){
+		saveButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                //The place you add the code that save the story to the database
+                //setResult(RESULT_OK);
+                text0 = TitleText.getText().toString();
+                text1 = AuthorText.getText().toString();
+                text2 = DescripText.getText().toString();
+                if (text0.equals("") || text1.equals("")) {
                     new AlertDialog.Builder(CreateStory.this)
                             .setTitle("Warnning")
                             .setMessage("Tilte cannot be empty!")
@@ -111,14 +108,14 @@ public class CreateStory extends Activity {
                                 public void onClick(DialogInterface dialogInterface, int i) {
                                 }
                             }).show();
-                }else{
-				long x = sct.CreateStory(text0, text1, text2);
-				Log.v("kk", x+"");
-				Intent intent = new Intent(CreateStory.this,homeScreenLocal.class);
-				startActivity(intent);
+                } else {
+                    long x = sct.CreateStory(text0, text1, text2);
+                    Log.v("kk", x + "");
+                    Intent intent = new Intent(CreateStory.this, homeScreenLocal.class);
+                    startActivity(intent);
                 }
-			}
-		});
+            }
+        });
 		
 
 

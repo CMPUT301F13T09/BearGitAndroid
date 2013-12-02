@@ -35,7 +35,7 @@ public class DBAdapter implements Serializable{
     private remoteDBAdapter remotedb;
     
     /** The cxt. */
-    private Context cxt;
+    private transient Context cxt;
 
     /**
      * create DB Adapter.

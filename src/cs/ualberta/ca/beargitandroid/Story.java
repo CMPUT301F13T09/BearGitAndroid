@@ -26,7 +26,7 @@ import com.google.gson.reflect.TypeToken;
  */
 public class Story implements Serializable{
 
-    private static final long serialVersionUID = 1L;
+    //private static final long serialVersionUID = 1L;
 
     private DBAdapter dbHelper;
     private ArrayList<Integer> gameInfo;
@@ -42,12 +42,12 @@ public class Story implements Serializable{
     private int status;
     private HashMap<String, Object> dict;
     private int maxChapterID;
-    private Context cxt;
+    private transient Context cxt;
 
     //this part for gson
-    private GsonBuilder builder;
-    private Gson gson;
-    private Type chapter_json;
+    //private GsonBuilder builder;
+    //private Gson gson;
+    //private Type chapter_json;
 
     /**
      * create a new story object by story id.
@@ -61,7 +61,7 @@ public class Story implements Serializable{
         this.cxt = context;
 
         //initizal Gson library.
-        initGson();
+        //initGson();
 
         //load exist story
         if (id != 0){
@@ -79,15 +79,15 @@ public class Story implements Serializable{
 
     }
 
-    /**
-     * initizal Gson library.
-     */
-    private void initGson(){
-        GsonBuilder builder = new GsonBuilder();
-        Gson gson = builder.enableComplexMapKeySerialization().setPrettyPrinting().create();
-        Type chapter_json = new TypeToken<HashMap<Integer, Chapter>>(){}.getType();
-
-    }
+//    /**
+//     * initizal Gson library.
+//     */
+//    private void initGson(){
+//        GsonBuilder builder = new GsonBuilder();
+//        Gson gson = builder.enableComplexMapKeySerialization().setPrettyPrinting().create();
+//        Type chapter_json = new TypeToken<HashMap<Integer, Chapter>>(){}.getType();
+//
+//    }
 
 
 
@@ -348,6 +348,10 @@ public class Story implements Serializable{
      */
     public String ChapterstoJson() {
 
+        GsonBuilder builder = new GsonBuilder();
+        Gson gson = builder.enableComplexMapKeySerialization().setPrettyPrinting().create();
+        Type chapter_json = new TypeToken<HashMap<Integer, Chapter>>(){}.getType();
+
         return gson.toJson(this.chapterList, chapter_json);
     }
 
@@ -356,6 +360,10 @@ public class Story implements Serializable{
      * @param data Json formate Chapter List
      */
     public void ChaptersFromJson(String data) {
+        GsonBuilder builder = new GsonBuilder();
+        Gson gson = builder.enableComplexMapKeySerialization().setPrettyPrinting().create();
+        Type chapter_json = new TypeToken<HashMap<Integer, Chapter>>(){}.getType();
+
         this.chapterList = gson.fromJson(data, chapter_json);
     }
 

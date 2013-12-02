@@ -111,6 +111,10 @@ public class StoryController {
         this.story.modifyStory(title, describe, author);
     }
 
+    public void randompickstory(){
+
+
+    }
 
 
 
