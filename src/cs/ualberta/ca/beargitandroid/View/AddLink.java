@@ -30,7 +30,9 @@ public class AddLink extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.add_link);
 		
-		OptionText = (EditText) findViewById(R.id.editText1);
+		OptionText = (EditText) findViewById(R.id.neirong);
+		
+		ListView Options = (ListView) findViewById(R.id.listView10);
 		
 		Button saveButton = (Button) findViewById(R.id.save2);
 		//have not done yet.
@@ -42,7 +44,7 @@ public class AddLink extends Activity {
 				
 				OptContent = OptionText.getText().toString();
 			   
-				edc.modifyoption(OptContent,chapter.id );
+				edc.modifyoption(OptContent,chapter.id);
 				edc.save();
 				Intent intent = new Intent(AddLink.this,ChapterView.class);
 				startActivity(intent);

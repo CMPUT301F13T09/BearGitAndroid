@@ -80,6 +80,9 @@ public class homeScreenLocal extends TabActivity implements OnTabChangeListener 
 			public void onClick(View v)
 			{
 				Intent intent=new Intent(homeScreenLocal.this,CreateStory.class);
+				Bundle bundle = new Bundle();
+				bundle.putLong("id", 0);
+				intent.putExtras(bundle);
 				startActivity(intent);
 			}
 		});

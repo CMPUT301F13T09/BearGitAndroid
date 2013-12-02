@@ -32,12 +32,16 @@ public class CreateStory extends Activity {
 	private String text1;
 	private String text2;
 	
-	ListView ChapterList = (ListView) findViewById(R.id.listView5);
+
 	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.create_story);
-		this.sct = new StoryController(this,0);
+		ListView ChapterList = (ListView) findViewById(R.id.listView5);
+		Intent intent  = getIntent();
+		Bundle bundle = intent.getExtras();
+		long id = bundle.getLong("id");
+		this.sct = new StoryController(this,id);
 		Button addButton = (Button) findViewById(R.id.addchapter);
 		Button saveButton = (Button) findViewById(R.id.save);
 		TitleText = (EditText) findViewById(R.id.title6);
@@ -51,6 +55,9 @@ public class CreateStory extends Activity {
 			public void onClick(View v)
 			{
 				Intent intent=new Intent(CreateStory.this,AddLink.class);
+				
+				intent.putExtra("chapter", chapter);
+				
 				startActivity(intent);
 			}
 		});

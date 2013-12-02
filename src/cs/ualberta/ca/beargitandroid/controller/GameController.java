@@ -70,16 +70,21 @@ public class GameController {
 		
 	};
 	
+	// wait for deleteStroy
+	public void deleteStory(){
+		
 	
-	
+		
+		
+	}
 	/**
 	 * Save progress.
 	 */
 	public Chapter reloadProgress(String data){
 		
-		story.reloadResumeData(data);
+		story.getReloadChapter();
 		//need modify
-		return story.getChapter(0);
+		return story.getReloadChapter();
 	}
 	
 	
