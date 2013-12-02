@@ -100,6 +100,8 @@ public class Story implements Serializable{
     public Chapter createNewChapter(){
         //Chapter c = new Chapter(this, this.maxChapterID);
         Chapter c = new Chapter(this.maxChapterID);
+
+        this.chapterList.put(this.maxChapterID, c);
         this.maxChapterID ++;
         return c;
     }
@@ -312,6 +314,9 @@ public class Story implements Serializable{
      */
     public ArrayList<HashMap< String , String >> getChapterList(long id){
         ArrayList<HashMap< String ,String >> l = new ArrayList<HashMap<String, String>>();
+        if (this.chapterList.isEmpty()){
+            return null;
+        }
         for (int x : this.chapterList.keySet()){
             if (x != (int) id){
                 l.add(chapterList.get(x).getSummary());

@@ -73,10 +73,10 @@ public class CreateStory extends Activity {
         });
 
 
-        final SimpleAdapter radp = sct.showchapter();
+        final SimpleAdapter radp = sct.showallchapter();
         if (radp != null){
             Chapters.setAdapter(radp);
-
+            radp.notifyDataSetChanged();
             Chapters.setOnItemClickListener(new OnItemClickListener() {
                 public void onItemClick(AdapterView<?> parent, View arg1, int pos, long id) {
                     //The place you add the code that get the story info from the database
