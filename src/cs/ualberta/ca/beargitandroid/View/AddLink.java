@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.util.Log;
 import android.widget.*;
 import cs.ualberta.ca.beargitandroid.Chapter;
 import cs.ualberta.ca.beargitandroid.Story;
@@ -45,7 +46,7 @@ public class AddLink extends Activity {
 
         this.id = getIntent().getLongExtra("opt_id", -1);
         String title = getIntent().getStringExtra("context");
-
+        Log.v("c_id", c_id+"");
         this.ce = new ChapterController(this, story, c_id);
 
 		OptionText = (EditText) findViewById(R.id.neirong);

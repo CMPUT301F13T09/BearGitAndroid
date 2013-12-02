@@ -27,7 +27,6 @@ public class DBAdapter implements Serializable{
     /** The Constant STORY_TABLE. */
     private static final String STORY_TABLE = "STORY_INFO";
     private static final String PROCESS_TABLE = "READ_PROCESS";
-    
     /** The localdb. */
     private localDBAdapter localdb;
     

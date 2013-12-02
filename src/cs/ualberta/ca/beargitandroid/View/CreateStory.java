@@ -62,10 +62,12 @@ public class CreateStory extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(CreateStory.this, ChapterView.class);
-                Bundle sbundle = new Bundle();
-                sbundle.putSerializable("Story", sct.Story());
-                sbundle.putLong("c_id", -1);
-                intent.putExtras(sbundle);
+//                Bundle sbundle = new Bundle();
+//                sbundle.putSerializable("Story", sct.Story());
+//                sbundle.putLong("c_id", -1);
+//                intent.putExtras(sbundle);
+                intent.putExtra("c_id", -1);
+                intent.putExtra("Story", sct.Story());
                 startActivity(intent);
             }
         });
@@ -83,7 +85,7 @@ public class CreateStory extends Activity {
 
                     Intent intent = new Intent(CreateStory.this, ChapterView.class);
                     intent.putExtra("Story", sct.Story());
-                    intent.putExtra("C_id", local_id);
+                    intent.putExtra("c_id", local_id);
 
                     startActivity(intent);
                 }

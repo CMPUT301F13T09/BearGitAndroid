@@ -58,7 +58,8 @@ public class localDBAdapter extends SQLiteOpenHelper implements Serializable{
                 "    Status      INT( 1 )     NOT NULL \n" +
                 ");";
 
-        sql += "CREATE TABLE READ_PROCESS ( \n" +
+        db.execSQL(sql);
+        sql = "CREATE TABLE READ_PROCESS ( \n" +
                 "    sid      integer       NOT NULL\n" +
                 "                       REFERENCES STORY_INFO ( ID ),\n" +
                 "    Lasttime DATETIME  NOT NULL,\n" +
@@ -67,8 +68,8 @@ public class localDBAdapter extends SQLiteOpenHelper implements Serializable{
                 "                       DEFAULT ( 0 ) \n" +
                 ");";
 
-        db.execSQL(sql);
 
+        db.execSQL(sql);
     }
 
     /**

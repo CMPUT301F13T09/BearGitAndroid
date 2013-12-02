@@ -39,11 +39,9 @@ public class ChapterView extends Activity {
 		
 		setContentView(R.layout.edit_chapter);
 
-        Intent intent=this.getIntent();
-        Bundle bundle=intent.getExtras();
 
-        this.story = (Story) bundle.getSerializable("Story");
-        this.c_id = bundle.getLong("c_id", -1);
+        this.story = (Story) getIntent().getSerializableExtra("Story");
+        this.c_id = getIntent().getLongExtra("c_id", -1);
 
 
         this.ce = new ChapterController(this, this.story, c_id);
@@ -73,6 +71,10 @@ public class ChapterView extends Activity {
                     //long opt_id =  Long.parseLong(r.get("nextid"));
                     long opt_id = (long) pos;
                     String context = r.get("context");
+
+                    titletext = TitleText.getText().toString();
+                    chaptertext = TextText.getText().toString();
+                    ce.modifyChapter(titletext, chaptertext);
 
                     Intent intent = new Intent(ChapterView.this,AddLink.class);
                     intent.putExtra("Story", story);
@@ -117,7 +119,11 @@ public class ChapterView extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				
+                titletext = TitleText.getText().toString();
+                chaptertext = TextText.getText().toString();
+                ce.modifyChapter(titletext, chaptertext);
+
+
 				Intent intent=new Intent(ChapterView.this,AddLink.class);
                 intent.putExtra("Story", story);
                 intent.putExtra("c_id", c_id);
