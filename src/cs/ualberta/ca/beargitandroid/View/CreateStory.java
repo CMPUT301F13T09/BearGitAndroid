@@ -32,7 +32,7 @@ public class CreateStory extends Activity {
 	private String text1;
 	private String text2;
 	
-	ListView ChapterList = (ListView) findViewById(R.id.listView9);
+	ListView ChapterList = (ListView) findViewById(R.id.listView5);
 	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
