@@ -191,4 +191,7 @@ public class Chapter implements Serializable {
         return this.story.getChapter(id);
     }
 
+    public void saveReloadData(){
+        this.story.saveResumeData();
+    }
 }
