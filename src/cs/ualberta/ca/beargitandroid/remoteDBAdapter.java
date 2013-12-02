@@ -2,10 +2,13 @@ package cs.ualberta.ca.beargitandroid;
 
 
 // TODO: Auto-generated Javadoc
+
+import java.io.Serializable;
+
 /**
  * The Class remoteDBAdapter.
  */
-public class remoteDBAdapter {
+public class remoteDBAdapter implements Serializable {
 	
 		/** The Constant BSAR_URL. */
 		private final static String BSAR_URL = "http://cmput301.softwareprocess.es:8080/cmput301f13t09/";

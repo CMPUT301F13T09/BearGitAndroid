@@ -43,6 +43,8 @@ public class ViewStory extends Activity {
 		Intent intent=getIntent();
 		Bundle bundle = intent.getExtras();
 		ID = bundle.getLong("id");
+
+        //set contronller
 		sct = new GameController (this, ID);
 		
 		
@@ -61,10 +63,11 @@ public class ViewStory extends Activity {
 				//The place you add the code that get the story info from the database
 					HashMap <String, Object> r = (HashMap<String, Object>) radp.getItem(pos);
 					String data = (String) r.get("data");
-					Chapter next = sct.reloadProgress(data);
+					long cid = sct.reloadProgress(data);
 					
 					Intent intent = new Intent(ViewStory.this,Fragment.class);
-					intent.putExtra("chapter", next);
+					intent.putExtra("Story", sct.story());
+                    intent.putExtra("c_id", cid);
 					startActivity(intent);
 				}
 			});
@@ -81,11 +84,13 @@ public class ViewStory extends Activity {
 			public void onClick(View v)
 			{
 				Intent intent=new Intent(ViewStory.this,Fragment.class);
-				Chapter next = sct.getNewgameChapter();
-				intent.putExtra("chapter", next);
+
+                intent.putExtra("Story", sct.story());
 				startActivity(intent);
 			}
 		});
+
+
 		loadGameList.setOnItemClickListener(new OnItemClickListener(){
 			public void onItemClick(AdapterView<?> parent,View arg1, int pos, long id){
 			//The place you add the code that get the story info from the database

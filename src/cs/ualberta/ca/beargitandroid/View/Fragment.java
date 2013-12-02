@@ -7,7 +7,7 @@ import cs.ualberta.ca.beargitandroid.Chapter;
 import cs.ualberta.ca.beargitandroid.Story;
 import cs.ualberta.ca.beargitandroid.controller.ChapterController;
 import cs.ualberta.ca.beargitandroid.controller.GameController;
-import cs.ualberta.ca.beargitandroid.controller.chapterEditer;
+
 
 import android.app.Activity;
 import android.content.Intent;
@@ -26,6 +26,7 @@ public class Fragment extends Activity {
 	
 	private ChapterController gct;
 	private String data;
+    private Story story;
 	
 	/* (non-Javadoc)
 	 * @see android.app.Activity#onCreate(android.os.Bundle)
@@ -38,8 +39,12 @@ public class Fragment extends Activity {
 		ListView next = (ListView) findViewById(R.id.options123);
 		
 		//Click next
-		Chapter chapter = (Chapter) getIntent().getSerializableExtra("chapter");
-		gct = new ChapterController(this,chapter);
+        this.story = (Story) getIntent().getSerializableExtra("Story");
+        long c_id = getIntent().getLongExtra("c_id", 0);
+		gct = new ChapterController(this, story, c_id);
+
+
+
 		TextView fragment = (TextView)findViewById(R.id.fragment);
 		TextView Title = (TextView)findViewById(R.id.title091);
 		ListView Option = (ListView)findViewById(R.id.options123);
@@ -57,9 +62,10 @@ public class Fragment extends Activity {
 				//The place you add the code that get the story info from the database
 					HashMap <String, String> r = (HashMap<String, String>) radp.getItem(pos);
 					long data = Long.parseLong(r.get("nextid"));
-					Chapter next = gct.getNextChapter(data);
+
 					Intent intent = new Intent(Fragment.this,Fragment.class);
-					intent.putExtra("chapter", next);
+                    intent.putExtra("c_id", data);
+					intent.putExtra("Story", story);
 					startActivity(intent);
 				}
 			});

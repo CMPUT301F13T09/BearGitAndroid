@@ -1,6 +1,7 @@
 package cs.ualberta.ca.beargitandroid;
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -21,7 +22,7 @@ import android.util.Log;
  *
  */
 
-public class DBAdapter {
+public class DBAdapter implements Serializable{
 
     /** The Constant STORY_TABLE. */
     private static final String STORY_TABLE = "STORY_INFO";

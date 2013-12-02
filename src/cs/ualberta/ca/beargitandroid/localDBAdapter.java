@@ -7,6 +7,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.io.Serializable;
+
 
 // TODO: Auto-generated Javadoc
 /**
@@ -14,7 +16,7 @@ import android.database.sqlite.SQLiteOpenHelper;
  * @author Tianyi Wu < tywtyw2002@gmail.com >
  * @version 1.0
  */
-public class localDBAdapter extends SQLiteOpenHelper {
+public class localDBAdapter extends SQLiteOpenHelper implements Serializable{
 
     //private Context cxt;
     /** The Constant DATABASE_NAME. */

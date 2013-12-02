@@ -77,14 +77,20 @@ public class GameController {
 		
 		
 	}
+
+    public Story story(){
+        return this.story;
+    }
+
+
 	/**
 	 * Save progress.
 	 */
-	public Chapter reloadProgress(String data){
+	public long reloadProgress(String data){
 		
-		story.getReloadChapter();
+		story.reloadResumeData(data);
 		//need modify
-		return story.getReloadChapter();
+		return story.getReloadChapterid();
 	}
 	
 	

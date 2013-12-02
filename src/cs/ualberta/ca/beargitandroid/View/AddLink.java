@@ -28,16 +28,25 @@ public class AddLink extends Activity {
 	private EditText OptionText;
 	private String OptContent;
 	private Chapter chapter;
+    private Story story;
+    private long c_id;
 	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.add_link);
 
-        chapter = (Chapter) getIntent().getSerializableExtra("chapter");
+
+        this.story = (Story) getIntent().getSerializableExtra("Stroy");
+        this.c_id = getIntent().getLongExtra("c_id", -1);
+
+        if (c_id == -1){
+            finish();
+        }
+
         this.id = getIntent().getLongExtra("opt_id", -1);
         String title = getIntent().getStringExtra("context");
 
-        this.ce = new ChapterController(this, chapter);
+        this.ce = new ChapterController(this, story, c_id);
 
 		OptionText = (EditText) findViewById(R.id.neirong);
 		
@@ -62,7 +71,6 @@ public class AddLink extends Activity {
                             .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
-                                    //To change body of implemented methods use File | Settings | File Templates.
                                 }
                             }).show();
 

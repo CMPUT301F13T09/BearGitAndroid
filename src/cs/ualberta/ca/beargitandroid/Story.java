@@ -13,6 +13,7 @@ import java.sql.Timestamp;
 import java.util.HashMap;
 import java.security.MessageDigest;
 
+import android.os.Parcelable;
 import android.util.Log;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -23,7 +24,9 @@ import com.google.gson.reflect.TypeToken;
  * This is a Story Class
  * @author Tianyi Wu <tywtyw2002@gmail.com>
  */
-public class Story {
+public class Story implements Serializable{
+
+    private static final long serialVersionUID = 1L;
 
     private DBAdapter dbHelper;
     private ArrayList<Integer> gameInfo;
@@ -95,7 +98,8 @@ public class Story {
      * @return a empty new chapter object.
      */
     public Chapter createNewChapter(){
-        Chapter c = new Chapter(this, this.maxChapterID);
+        //Chapter c = new Chapter(this, this.maxChapterID);
+        Chapter c = new Chapter(this.maxChapterID);
         this.maxChapterID ++;
         return c;
     }
@@ -447,9 +451,9 @@ public class Story {
      *  get the resume chapter.
      *  @return chapter object
      */
-    public Chapter getReloadChapter(){
+    public long getReloadChapterid(){
         int last = this.gameInfo.get(this.gameInfo.size() - 1);
-        return chapterList.get(last);
+        return (long) last;
     }
 
 

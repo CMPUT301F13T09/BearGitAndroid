@@ -6,7 +6,7 @@ import cs.ualberta.ca.beargitandroid.Chapter;
 import cs.ualberta.ca.beargitandroid.Story;
 import cs.ualberta.ca.beargitandroid.controller.ChapterController;
 import cs.ualberta.ca.beargitandroid.controller.StoryController;
-import cs.ualberta.ca.beargitandroid.controller.chapterEditer;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -29,6 +29,8 @@ public class ChapterView extends Activity {
 	private String titletext;
 	private String chaptertext;
     private Chapter chapter;
+    private Story story;
+    private long c_id;
 
 	
 	public void onCreate(Bundle savedInstanceState){
@@ -37,8 +39,11 @@ public class ChapterView extends Activity {
 		
 		setContentView(R.layout.edit_chapter);
 
-        this.chapter = (Chapter) getIntent().getSerializableExtra("chapter");
-        this.ce = new ChapterController(this, chapter);
+        this.story = (Story) getIntent().getSerializableExtra("Story");
+        this.c_id = getIntent().getLongExtra("c_id", -1);
+
+
+        this.ce = new ChapterController(this, this.story, c_id);
 
 
 		Button deleteButton = (Button) findViewById(R.id.delete09);
@@ -67,17 +72,14 @@ public class ChapterView extends Activity {
                     String context = r.get("context");
 
                     Intent intent = new Intent(ChapterView.this,AddLink.class);
-                    intent.putExtra("chapter", chapter);
+                    intent.putExtra("Story", story);
+                    intent.putExtra("c_id", c_id);
                     intent.putExtra("opt_id", opt_id);
                     intent.putExtra("context", context);
                     startActivity(intent);
                 }
             });
         }
-
-
-
-
 
         saveButton.setOnClickListener(new View.OnClickListener(){
 
@@ -114,7 +116,9 @@ public class ChapterView extends Activity {
 				// TODO Auto-generated method stub
 				
 				Intent intent=new Intent(ChapterView.this,AddLink.class);
-                intent.putExtra("chapter", chapter);
+                intent.putExtra("Story", story);
+                intent.putExtra("c_id", c_id);
+
 				startActivity(intent);
 				
 			}

@@ -3,6 +3,7 @@ package cs.ualberta.ca.beargitandroid.controller;
 import android.content.Context;
 import android.widget.SimpleAdapter;
 import cs.ualberta.ca.beargitandroid.Chapter;
+import cs.ualberta.ca.beargitandroid.Story;
 import cs.ualberta.ca.beargitandroid.View.R;
 
 import java.util.ArrayList;
@@ -17,11 +18,19 @@ public class ChapterController {
 
     private Chapter chapter;
     private Context cxt;
+    private Story story;
+    private long id;
 
-    public ChapterController(Context cxt, Chapter chapter){
+    public ChapterController(Context cxt, Story story, long id){
 
         this.cxt = cxt;
-        this.chapter = chapter;
+        this.story = story;
+        if (id == -1){
+            this.chapter = story.createNewChapter();
+        }else{
+            this.chapter = story.getChapter(id);
+        }
+
 
     }
 
@@ -35,7 +44,8 @@ public class ChapterController {
     }
 
     public Chapter getNextChapter(long id){
-        return chapter.getNextChapter(id);
+
+        return story.getChapter(id);
     }
 
 
@@ -57,14 +67,15 @@ public class ChapterController {
     }
 
     public void saveProcess(){
-
-        this.chapter.saveReloadData();
+        this.story.saveResumeData();
+        //this.chapter.saveReloadData();
 
     }
 
     public void modifyChapter(String title, String context){
         this.chapter.modifyContext(title, context);
-        this.chapter.saveChapter();
+        this.story.saveChapters();
+        //this.chapter.saveChapter();
     }
 
     /**
@@ -72,7 +83,7 @@ public class ChapterController {
      * @return
      */
     public SimpleAdapter chapterList(){
-        ArrayList<HashMap< String , String >> l = this.chapter.getChapterList();
+        ArrayList<HashMap< String , String >> l = this.story.getChapterList(this.id);
 
         if( l == null){
 
@@ -88,7 +99,7 @@ public class ChapterController {
 
 
     public void deleteChapter(){
-        this.chapter.getStory().deleteChapter(this.chapter.getid());
+        this.story.deleteChapter(this.id);
     }
 
     public void addoption(String title, long id){

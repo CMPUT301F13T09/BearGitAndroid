@@ -37,7 +37,9 @@ public class StoryController {
 		this.story = new Story(this.cxt,this.ID);
 	};
 	
-	
+    public Story Story(){
+        return this.story;
+    }
 	/**
 	 * Gets the story.
 	 *

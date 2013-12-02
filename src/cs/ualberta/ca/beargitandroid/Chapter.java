@@ -1,5 +1,6 @@
 package cs.ualberta.ca.beargitandroid;
 
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -7,14 +8,16 @@ import java.util.HashMap;
 
 // TODO: Auto-generated Javadoc
 /**
- * Chapter class.
+// * Chapter class.
  * @author Tianyi Wu <tywtyw2002@gmail.com>
  *
  */
 
 
-public class Chapter implements Serializable {
-	
+public class Chapter implements Serializable{
+
+
+
 	/** The id. */
 	public static long id;
 	
@@ -31,38 +34,19 @@ public class Chapter implements Serializable {
 	private String media;
 	
 	/** The story. */
-	private Story story;
+	//private Story story;
 
 
     /**
      * Create a new chapter.
-     * @param story story
      * @param id  the new chapter id
      */
-	public Chapter(Story story, long id){
+	public Chapter(long id){
 		this.id = id;
-        this.story = story;
+        //this.story = story;
 	}
 
-    /**
-     * Create Chapter object with old data.
-     *
-     * @param story the story
-     * @param id the id
-     * @param title the name
-     * @param context the context
-     * @param option the option
-     * @param media the media
-     */
-	public Chapter(Story story, long id, String title, String context,
-			ArrayList< HashMap<String,String>> option, String media){
-		this.id = id;
-		this.title = title;
-		this.context = context;
-		this.option = option;
-		this.media = media;
-		
-	}
+
 
     /**
      * set a title and context to a new story
@@ -161,18 +145,18 @@ public class Chapter implements Serializable {
     /**
      * When is done, save this chapter whether change this chapter.
      */
-    public void saveChapter(){
-        this.story.saveChapters();
-    }
+//    public void saveChapter(){
+//        this.story.saveChapters();
+//    }
 
-    /**
-     * show all chapter list as hasmap(id, title), exclude self.
-     * @return a arraylist
-     */
-    public ArrayList<HashMap< String , String >> getChapterList(){
-        return story.getChapterList(this.id);
-
-    }
+//    /**
+//     * show all chapter list as hasmap(id, title), exclude self.
+//     * @return a arraylist
+//     */
+//    public ArrayList<HashMap< String , String >> getChapterList(){
+//        return story.getChapterList(this.id);
+//
+//    }
 
     public HashMap<String , String > getSummary(){
         HashMap<String , String > h = new HashMap<String, String>();
@@ -182,22 +166,22 @@ public class Chapter implements Serializable {
     }
 
 
-    /**
-     * Get the next chapter from chapter id
-     * @param id chapter id
-     * @return  new chapter
-     */
-    public Chapter getNextChapter(long id){
-        return this.story.getChapter(id);
-    }
+//    /**
+//     * Get the next chapter from chapter id
+//     * @param id chapter id
+//     * @return  new chapter
+//     */
+//    public Chapter getNextChapter(long id){
+//        return this.story.getChapter(id);
+//    }
+//
+//    public void saveReloadData(){
+//        this.story.saveResumeData();
+//    }
 
-    public void saveReloadData(){
-        this.story.saveResumeData();
-    }
-
-    public Story getStory(){
-        return this.story;
-    }
+//    public Story getStory(){
+//        return this.story;
+//    }
 
     public long getid(){
         return this.id;
