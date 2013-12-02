@@ -65,7 +65,7 @@ public class chapterEditer extends Activity {
 		
 	}
 	
-    public ArrayAdapter showoption(){
+   /** public ArrayAdapter showoption(){
     	
     	ArrayList<HashMap< String , String >> OptionArray = chapter.getOptionList();
     	ArrayAdapter OptionAdapter = new ArrayAdapter<String>(this, android.R.layout.edit_chapter,OptionArray);
@@ -73,7 +73,7 @@ public class chapterEditer extends Activity {
     	return OptionAdapter;
 	}
 	
-	
+	**/
 	
 	public void editOption( ){
 		
@@ -96,5 +96,6 @@ public class chapterEditer extends Activity {
     	
     }
 	
+    public 
     
 }

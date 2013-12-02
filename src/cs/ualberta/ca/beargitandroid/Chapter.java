@@ -1,5 +1,6 @@
 package cs.ualberta.ca.beargitandroid;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -12,7 +13,7 @@ import java.util.HashMap;
  */
 
 
-public class Chapter {
+public class Chapter implements Serializable {
 	
 	/** The id. */
 	public static long id;

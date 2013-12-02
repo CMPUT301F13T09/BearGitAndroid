@@ -3,7 +3,6 @@ package cs.ualberta.ca.beargitandroid.controller;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-
 import android.content.Context;
 import android.widget.ArrayAdapter;
 import android.widget.SimpleAdapter;
@@ -27,66 +26,67 @@ public class GameController {
 	
 	/** The story. */
 	private Story story;
-
 	private Context context;
-	private Chapter chapter;
-	private String chapterContext;
 
 	
+	/**
+	 * Show sotry.
+	 */
 	
-	public String showStory(){
+	public GameController(Context context, long id) {
 		
-		return chapter.getChapterToMap().get(context);
+		this.context = context;
+		this.story = new Story(context, id); 
+		
+	}
+	
+	public  HashMap<String, Object> showSotry(){
+		
+		
+		return  story.getStoryItem();
 		 
 	};
 	
-	/**
-	 * Next.
-	 */
-	
-	//think need optionid
-	public void next(){
-		
-     story.getChapter(id);	
-	this.id = chapter.id;
-		
-	};
-	
+
 	/**
 	 * Read progress.
 	 */
 	// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	public void readProgress(){
+	public SimpleAdapter readProgress(){
 		
-		story.reloadResumeData(data);
+		ArrayList<HashMap<String, Object>> ProgressList = story.getResumeList();
+		
+		if(ProgressList==null){
+			return null;
+		}
+		
+		String[] from = new String[]{"description"};
+		int[] to = new int[] {R.id.ti7};
+		
+		SimpleAdapter resumead = new SimpleAdapter(this.context,ProgressList,R.layout.story_resumerow,from,to);
+		
+		
+		return resumead;
 		
 	};
+	
+	
 	
 	/**
 	 * Save progress.
 	 */
-	public void saveProgress(){
+	public Chapter reloadProgress(String data){
 		
-		
-		story.saveResumeData();
-		
+		story.reloadResumeData(data);
+		//need modify
+		return story.getChapter(0);
 	}
-	// !!!!!!!!!!!! the option can click......................
-	 public SimpleAdapter clickOption(){
-	    	
-	    	ArrayList<HashMap< String , String >> OptionArray = chapter.getOptionList();
-	    	
-	    	if(OptionArray==null){
-	    		
-	    		return null;
-	    	}
-	    	//sha yi si
-	    	String[] from = new String[] {"context"};
-	    	int[] to = new int[] {R.id.};
-	    	
-	    	SimpleAdapter Optionad = new SimpleAdapter(this.cxt,l,R.layout.story_list_elem,from,to);
-			return Optionad;
-
-}
+	
+	
+	public Chapter getNewgameChapter(){
+		return story.getChapter(0);
+	}
+	
+	
 }
 

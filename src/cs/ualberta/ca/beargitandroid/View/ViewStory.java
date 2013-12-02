@@ -2,7 +2,9 @@ package cs.ualberta.ca.beargitandroid.View;
 
 import java.util.HashMap;
 
+import cs.ualberta.ca.beargitandroid.Chapter;
 import cs.ualberta.ca.beargitandroid.Story;
+import cs.ualberta.ca.beargitandroid.controller.GameController;
 import cs.ualberta.ca.beargitandroid.controller.StoryController;
 
 
@@ -14,11 +16,12 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.TextView;
 
 public class ViewStory extends Activity {	
-	private StoryController sct;
+	private GameController sct;
 	private long ID;
 	private TextView TITLE;
 	private TextView Descrip;
@@ -35,13 +38,41 @@ public class ViewStory extends Activity {
 		ListView loadGameList = (ListView) findViewById(R.id.listView8);
 		TITLE = (TextView) findViewById(R.id.title3);
 		Descrip = (TextView) findViewById(R.id.descriptionContent);
+		//add resumelist
+
 		Intent intent=getIntent();
 		Bundle bundle = intent.getExtras();
 		ID = bundle.getLong("id");
-		sct = new StoryController (this, ID);
-		HashMap <String,Object> current = sct.getStory();
+		sct = new GameController (this, ID);
+		
+		
+		//show story information
+		HashMap <String,Object> current = sct.showSotry();
 		TITLE.setText((String) current.get("title"));
 		Descrip.setText((String) current.get("description"));
+		
+		//show resume list
+		final SimpleAdapter radp = sct.readProgress();
+		if (radp != null){
+			loadGameList.setAdapter(radp);
+			
+			loadGameList.setOnItemClickListener(new OnItemClickListener(){
+				public void onItemClick(AdapterView<?> parent,View arg1, int pos, long id){
+				//The place you add the code that get the story info from the database
+					HashMap <String, Object> r = (HashMap<String, Object>) radp.getItem(pos);
+					String data = (String) r.get("data");
+					Chapter next = sct.reloadProgress(data);
+					
+					Intent intent = new Intent(ViewStory.this,Fragment.class);
+					intent.putExtra("chapter", next);
+					startActivity(intent);
+				}
+			});
+		}
+		
+		
+		
+		
 		//click NEWGAME button then go to the start of the story
 		newgameButton.setOnClickListener(new View.OnClickListener()
 		{
