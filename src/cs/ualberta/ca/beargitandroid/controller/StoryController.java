@@ -3,9 +3,9 @@ package cs.ualberta.ca.beargitandroid.controller;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import cs.ualberta.ca.beargitandroid.Chapter;
 import cs.ualberta.ca.beargitandroid.Story;
 import cs.ualberta.ca.beargitandroid.View.R;
-import android.app.Activity;
 import android.content.Context;
 import android.widget.SimpleAdapter;
 
@@ -48,6 +48,8 @@ public class StoryController {
 		return temp;
 		
 	};
+
+
 	// add getchapterList
 	public ArrayList<HashMap<String, String>> getChapterList(){
 		
@@ -74,31 +76,7 @@ public class StoryController {
 		
 		
 	}
-	/**
-	 * Start game.
-	 *
-	 * @param story the story
-	 * @param ID the id
-	 */
-	public void startGame(Story story,long ID){
-		
-		
-		
-	};
-	
-	/**
-	 * Load exist game.
-	 */
-	private void loadExistGame(){
-		
-	};
-	
-	/**
-	 * Load save.
-	 */
-	private void saveCurrent(){
-		
-	}
+
 	//create a new story.
 	/**
 	 * Creates the story.
@@ -113,5 +91,25 @@ public class StoryController {
 		return story.getStoryID();
 		
 	}
+
+    /**
+     * get a new chapter
+     * @return a story
+     */
+    public Chapter newChapter(){
+        return this.story.createNewChapter();
+    }
+
+
+    public Chapter getChapter(long id){
+        return this.story.getChapter(id);
+    }
+
+    public void modifyStory(String title, String describe, String author){
+        this.story.modifyStory(title, describe, author);
+    }
+
+
+
 
 }
