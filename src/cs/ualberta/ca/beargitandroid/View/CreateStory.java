@@ -32,11 +32,11 @@ public class CreateStory extends Activity {
 	private String text1;
 	private String text2;
 	
-	ListView ChapterList = (ListView) findViewById(R.id.listView9);
 	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.create_story);
+		ListView ChapterList = (ListView) findViewById(R.id.listView5);
 		this.sct = new StoryController(this,0);
 		Button addButton = (Button) findViewById(R.id.addchapter);
 		Button saveButton = (Button) findViewById(R.id.save);
