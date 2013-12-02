@@ -41,8 +41,13 @@ public class CreateStory extends Activity {
 		ListView ChapterList = (ListView) findViewById(R.id.listView5);
 		Intent intent  = getIntent();
 		Bundle bundle = intent.getExtras();
+
+
 		long id = bundle.getLong("id");
+        //set controller
 		this.sct = new StoryController(this,id);
+
+
 		Button addButton = (Button) findViewById(R.id.addchapter);
 		Button saveButton = (Button) findViewById(R.id.save);
 		TitleText = (EditText) findViewById(R.id.title6);
@@ -62,12 +67,25 @@ public class CreateStory extends Activity {
 				startActivity(intent);
 			}
 		});
-		
-		Chapters.setOnItemClickListener(new OnItemClickListener(){
-			public void onItemClick(AdapterView<?> l,View v, int pos, long id){
-			//The place you add the code that get the story info from the database
-			}
-		});
+
+
+        final SimpleAdapter radp = sct.showchapter();
+        if (radp != null){
+            Chapters.setAdapter(radp);
+
+            Chapters.setOnItemClickListener(new OnItemClickListener(){
+                public void onItemClick(AdapterView<?> parent,View arg1, int pos, long id){
+                    //The place you add the code that get the story info from the database
+                    HashMap <String, String> r = (HashMap<String, String>) radp.getItem(pos);
+                    long local_id = Long.parseLong(r.get("id"));
+                    Chapter next = sct.getChapter(local_id);
+                    Intent intent=new Intent(CreateStory.this,ChapterView.class);
+                    intent.putExtra("chapter", next);
+                    startActivity(intent);
+                }
+            });
+        }
+
 		saveButton.setOnClickListener(new View.OnClickListener()
 		{
 			
@@ -86,20 +104,9 @@ public class CreateStory extends Activity {
 			}
 		});
 		
-		final SimpleAdapter adp = sct.showchapter();
-		ChapterList.setAdapter(adp);
+
+
 		
-//!!!!!!!!!!!!!!!!!!!!!!!!
-		ChapterList.setOnItemClickListener(new OnItemClickListener(){
-			public void onItemClick(AdapterView<?> l,View v, int pos, long id){
-			//The place you add the code that get the story info from the database
-				HashMap <String, String> r = (HashMap<String, String>) adp.getItem(pos);
-			
-				Intent intent = new Intent(CreateStory.this,ChapterView.class);			
-				startActivity(intent);
-			}
-		});
-		
-	};
-};
+	}
+}
 
