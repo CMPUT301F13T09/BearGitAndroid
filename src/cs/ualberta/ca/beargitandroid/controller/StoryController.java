@@ -113,22 +113,5 @@ public class StoryController {
 		return story.getStoryID();
 		
 	}
-	// !!!!!!!!!!!! the option can click......................
-	 public SimpleAdapter clickOption(){
-	    	
-	    	ArrayList<HashMap< String , String >> OptionArray = chapter.getOptionList();
-	    	
-	    	if(OptionArray==null){
-	    		
-	    		return null;
-	    	}
 
-	    	String[] from = new String[] {"context"};
-	    	int[] to = new int[] {R.id.};
-	    	
-	    	SimpleAdapter Optionad = new SimpleAdapter(this.cxt,l,R.layout.story_list_elem,from,to);
-			return Optionad;
-
-}
-	
 }
