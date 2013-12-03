@@ -53,18 +53,21 @@ public class ViewStory extends Activity {
 		TITLE.setText((String) current.get("title"));
 		Descrip.setText((String) current.get("description"));
 
+        //final SimpleAdapter xadp = sct.showallchapter();
+
+
 
 		//show resume list
-		final SimpleAdapter radp = sct.readProgress();
+		final SimpleAdapter radp = sct.showallchapter();
 		if (radp != null){
 			loadGameList.setAdapter(radp);
 			
 			loadGameList.setOnItemClickListener(new OnItemClickListener(){
 				public void onItemClick(AdapterView<?> parent,View arg1, int pos, long id){
 				//The place you add the code that get the story info from the database
-					HashMap <String, Object> r = (HashMap<String, Object>) radp.getItem(pos);
-					String data = (String) r.get("data");
-					long cid = sct.reloadProgress(data);
+					HashMap <String, String> r = (HashMap<String, String>) radp.getItem(pos);
+					long cid  = Long.parseLong(r.get("id"));
+					//long cid = sct.reloadProgress(data);
 					
 					Intent intent = new Intent(ViewStory.this,Fragment.class);
 					intent.putExtra("Story", sct.story());
@@ -92,13 +95,7 @@ public class ViewStory extends Activity {
 		});
 
 
-		loadGameList.setOnItemClickListener(new OnItemClickListener(){
-			public void onItemClick(AdapterView<?> parent,View arg1, int pos, long id){
-			//The place you add the code that get the story info from the database
-				Intent intent = new Intent(ViewStory.this,Fragment.class);
-				startActivity(intent);
-			}
-		});
+
 		
 	}
 }

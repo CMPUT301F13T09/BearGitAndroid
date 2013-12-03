@@ -97,7 +97,20 @@ public class GameController {
 	public Chapter getNewgameChapter(){
 		return story.getChapter(1);
 	}
-	
+
+    public  SimpleAdapter showallchapter(){
+        ArrayList<HashMap< String , String >> map = story.getAllChapterList();
+
+        if(map == null){
+            return null;
+        }
+        String[] from = new String[]{"title"};
+        int[] to = new int[] {R.id.title2};
+        SimpleAdapter ad = new SimpleAdapter(this.context ,map,R.layout.story_list_elem,from,to);
+
+
+        return ad;
+    }
 	
 }
 
