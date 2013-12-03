@@ -56,6 +56,14 @@ public class CreateStory extends Activity {
 		AuthorText = (EditText) findViewById(R.id.author6);
 		DescripText = (EditText) findViewById(R.id.descrip6);
 		ListView Chapters = (ListView) findViewById(R.id.listView5);
+
+        if (id != 0){
+            TitleText.setText((String) sct.getStory().get("title"));
+            AuthorText.setText((String) sct.getStory().get("author"));
+            DescripText.setText((String) sct.getStory().get("description"));
+        }
+
+
 		//click ADDCHAPTER button then go to the add_link.xml
 		addButton.setOnClickListener(new View.OnClickListener() {
 
@@ -92,6 +100,7 @@ public class CreateStory extends Activity {
             });
         }
 
+        //save
 		saveButton.setOnClickListener(new View.OnClickListener() {
 
             @Override

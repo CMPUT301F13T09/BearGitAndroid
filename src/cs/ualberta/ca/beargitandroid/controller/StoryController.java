@@ -105,10 +105,17 @@ public class StoryController {
 	 * @return the long
 	 */
 	public long CreateStory(String title,String author,String descript){
-		story.createNewStory(title, descript, author);
-		return story.getStoryID();
+        if (this.ID == 0 ) {
+		    story.createNewStory(title, descript, author);
+        }else{
+            story.modifyStory(title, descript, author);
+        }
+
+        return story.getStoryID();
 		
 	}
+
+
 
     /**
      * get a new chapter

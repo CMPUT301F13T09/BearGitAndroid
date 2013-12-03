@@ -206,7 +206,7 @@ public class Story implements Serializable{
         this.describe = (String) dict.get("describe");
         this.date = (Date) dict.get("date");
         this.status = (Integer) dict.get("status");
-
+        this.author = (String) dict.get("author");
     }
 
 
@@ -370,9 +370,9 @@ public class Story implements Serializable{
         Type chapter_json = new TypeToken<HashMap<Integer, Chapter>>(){}.getType();
 
         if (data.isEmpty()){
-            this.chapterList = null;
+            this.chapterList = new HashMap<Integer, Chapter> ();
         }else{
-        this.chapterList = gson.fromJson(data, chapter_json);
+            this.chapterList = gson.fromJson(data, chapter_json);
         }
     }
 
