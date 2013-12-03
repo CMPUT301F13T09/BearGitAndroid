@@ -29,8 +29,9 @@ public class CreateStory extends Activity {
 	private EditText TitleText;
 	private EditText AuthorText;
 	private EditText DescripText; 
-	
-	/** The text0. */
+
+    private ListView Chapters;
+    /** The text0. */
 	private String text0;
 	private String text1;
 	private String text2;
@@ -40,7 +41,7 @@ public class CreateStory extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.create_story);
-		ListView ChapterList = (ListView) findViewById(R.id.listView5);
+		//ListView ChapterList = (ListView) findViewById(R.id.listView5);
 		Intent intent  = getIntent();
 		Bundle bundle = intent.getExtras();
 
@@ -55,13 +56,16 @@ public class CreateStory extends Activity {
 		TitleText = (EditText) findViewById(R.id.title6);
 		AuthorText = (EditText) findViewById(R.id.author6);
 		DescripText = (EditText) findViewById(R.id.descrip6);
-		ListView Chapters = (ListView) findViewById(R.id.listView5);
+		Chapters = (ListView) findViewById(R.id.listView5);
 
         if (id != 0){
             TitleText.setText((String) sct.getStory().get("title"));
             AuthorText.setText((String) sct.getStory().get("author"));
             DescripText.setText((String) sct.getStory().get("description"));
         }
+
+
+
 
 
 		//click ADDCHAPTER button then go to the add_link.xml
@@ -76,15 +80,18 @@ public class CreateStory extends Activity {
 //                intent.putExtras(sbundle);
                 intent.putExtra("c_id", -1);
                 intent.putExtra("Story", sct.Story());
+                startActivityForResult(intent, 0);
                 startActivity(intent);
             }
         });
 
 
         final SimpleAdapter radp = sct.showallchapter();
+
         if (radp != null){
-            Chapters.setAdapter(radp);
             radp.notifyDataSetChanged();
+            Chapters.setAdapter(radp);
+            //radp.notifyDataSetChanged();
             Chapters.setOnItemClickListener(new OnItemClickListener() {
                 public void onItemClick(AdapterView<?> parent, View arg1, int pos, long id) {
                     //The place you add the code that get the story info from the database
@@ -95,10 +102,14 @@ public class CreateStory extends Activity {
                     intent.putExtra("Story", sct.Story());
                     intent.putExtra("c_id", local_id);
 
-                    startActivity(intent);
+                    startActivityForResult(intent, 0);
+                   //startActivity(intent);
                 }
             });
         }
+
+
+
 
         //save
 		saveButton.setOnClickListener(new View.OnClickListener() {
@@ -121,16 +132,22 @@ public class CreateStory extends Activity {
                             }).show();
                 } else {
                     long x = sct.CreateStory(text0, text1, text2);
-                    Log.v("kk", x + "");
-                    Intent intent = new Intent(CreateStory.this, homeScreenLocal.class);
-                    startActivity(intent);
+                    //Log.v("kk", x + "");
+                    //Intent intent = new Intent(CreateStory.this, homeScreenLocal.class);
+                    //startActivity(intent);
+                    finish();
                 }
             }
         });
-		
-
 
 		
 	}
+
+//
+//    public void onResume(){
+//        super.onResume();
+//        final SimpleAdapter radp = sct.showallchapter();
+//        Chapters.setAdapter(radp);
+//    }
 }
 

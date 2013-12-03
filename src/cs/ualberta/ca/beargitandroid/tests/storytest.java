@@ -49,9 +49,24 @@ public class storytest extends ActivityInstrumentationTestCase2<homeScreenLocal>
         this.story = new Story(cxt, 0);
 
 
+
     }
 
-    public void test1() {
+//    public void test1() {
+//
+//
+//    }
+
+
+
+    public void test2(){
+
+
+//        story.modifyStory("title2", "author2", "realAuthor2");
+//
+//        assertEquals("title2", (String) story.getStoryItem().get("title") );
+//        assertEquals("realAuthor2", (String) story.getStoryItem().get("author") );
+//        assertEquals("author2", (String) story.getStoryItem().get("description") );
 
         story.createNewStory("title", "author", "realAuthor");
         Log.e("TEST", story.getStoryID() + "");
@@ -61,21 +76,7 @@ public class storytest extends ActivityInstrumentationTestCase2<homeScreenLocal>
         assertEquals(story.getStoryItem().get("description"),"author" );
 
         Log.e("TEST", story.getStoryID() + "");
-
-    }
-
-
-
-    public void test2(){
-
-
-        story.modifyStory("title2", "author2", "realAuthor2");
-
-        assertEquals("title2", (String) story.getStoryItem().get("title") );
-        assertEquals("realAuthor2", (String) story.getStoryItem().get("author") );
-        assertEquals("author2", (String) story.getStoryItem().get("description") );
-
-
+        id = story.getStoryID();
 
         Chapter c = story.createNewChapter();
         //test chapter
@@ -90,7 +91,24 @@ public class storytest extends ActivityInstrumentationTestCase2<homeScreenLocal>
         Log.e("TEST",story.ChapterstoJson());
 
         assertEquals(3, story.getMaxChapterID());
+
+        Log.e("TEST", this.id + "");
+        story = new Story(cxt, this.id);
+        Log.e("TEST", story.loadChapterFile());
+        c = story.getChapter(1);
+        Log.e("TEST", c.getid()+"");
+        assertEquals(1, c.getid());
+        assertEquals("test1", c.getChapterToMap().get("title"));
+        assertEquals("test2", c.getChapterToMap().get("context"));
+
+
+        c = story.getChapter(2);
+        assertEquals(2, c.getid());
+        assertEquals("btest1", c.getChapterToMap().get("title"));
+        assertEquals("btest2", c.getChapterToMap().get("context"));
     }
+
+
 
 //    public void testModifStory() {
 //        story.modifyStory("NewTitle", "author", "realAuthor");

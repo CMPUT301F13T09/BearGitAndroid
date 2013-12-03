@@ -19,7 +19,7 @@ public class Chapter implements Serializable{
 
 
 	/** The id. */
-	public static long id;
+	private long id;
 	
 	/** The title. */
 	private String title;

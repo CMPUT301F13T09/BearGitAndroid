@@ -66,6 +66,7 @@ public class ChapterView extends Activity {
         final SimpleAdapter radp = ce.clickOption();
 
         if (radp != null){
+            radp.notifyDataSetChanged();
             OptionList.setAdapter(radp);
 
             OptionList.setOnItemClickListener(new OnItemClickListener(){
@@ -76,14 +77,15 @@ public class ChapterView extends Activity {
                     long opt_id = (long) pos;
                     String context = r.get("context");
 
-                    save();
+                    //if (save()){
 
-                    Intent intent = new Intent(ChapterView.this,AddLink.class);
-                    intent.putExtra("Story", story);
-                    intent.putExtra("c_id", c_id);
-                    intent.putExtra("opt_id", opt_id);
-                    intent.putExtra("context", context);
-                    startActivity(intent);
+                        Intent intent = new Intent(ChapterView.this,AddLink.class);
+                        intent.putExtra("Story", story);
+                        intent.putExtra("c_id", c_id);
+                        intent.putExtra("opt_id", opt_id);
+                        intent.putExtra("context", context);
+                        startActivity(intent);
+                //    }
                 }
             });
         }
@@ -97,8 +99,9 @@ public class ChapterView extends Activity {
 				//titletext = TitleText.getText().toString();
 				//chaptertext = TextText.getText().toString();
 				//ce.modifyChapter(titletext, chaptertext);
-                save();
-                finish();
+                if (save()){
+                    finish();
+                }
 	    	}
 		
 	    });
@@ -125,14 +128,15 @@ public class ChapterView extends Activity {
 //                titletext = TitleText.getText().toString();
 //                chaptertext = TextText.getText().toString();
     //                ce.modifyChapter(titletext, chaptertext);
-                save();
 
-				Intent intent=new Intent(ChapterView.this,AddLink.class);
-                intent.putExtra("Story", story);
-                intent.putExtra("c_id", c_id);
+                if (save()){
 
-				startActivity(intent);
-				
+                    Intent intent=new Intent(ChapterView.this,AddLink.class);
+                    intent.putExtra("Story", story);
+                    intent.putExtra("c_id", c_id);
+
+                    startActivity(intent);
+                }
 			}
 		});
 		
@@ -145,7 +149,7 @@ public class ChapterView extends Activity {
 
 
 
-    private void save(){
+    private boolean save(){
         titletext = TitleText.getText().toString();
         chaptertext = TextText.getText().toString();
         if (titletext.equals("") || chaptertext.equals("")) {
@@ -157,9 +161,11 @@ public class ChapterView extends Activity {
                         public void onClick(DialogInterface dialogInterface, int i) {
                         }
                     }).show();
+            return false;
         } else {
 
             ce.modifyChapter(titletext, chaptertext);
+            return true;
         }
 
     }

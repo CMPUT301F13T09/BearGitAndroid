@@ -70,6 +70,13 @@ public class Story implements Serializable{
             loadOldStory();
             //load chapters list
             loadChapters();
+            int max = 0;
+            for (int x : chapterList.keySet()){
+                if (x > max){
+                    max = x;
+                }
+            }
+            this.maxChapterID = max;
 
         }else{
             this.id = 0;
@@ -102,7 +109,7 @@ public class Story implements Serializable{
     public Chapter createNewChapter(){
         //Chapter c = new Chapter(this, this.maxChapterID);
         Chapter c = new Chapter(this.maxChapterID);
-
+        Log.e("MAX_ID", maxChapterID + "");
         this.chapterList.put(this.maxChapterID, c);
         this.maxChapterID ++;
         return c;
@@ -385,9 +392,10 @@ public class Story implements Serializable{
         Type chapter_json = new TypeToken<HashMap<Integer, Chapter>>(){}.getType();
 
         if (data.isEmpty()){
+            Log.e("IO", "chapter date is empty@@@@@@@");
             this.chapterList = new HashMap<Integer, Chapter> ();
         }else{
-            this.chapterList = gson.fromJson(data, chapter_json);
+            this.chapterList = (HashMap<Integer, Chapter>) gson.fromJson(data, chapter_json);
         }
     }
 
@@ -401,7 +409,7 @@ public class Story implements Serializable{
 
 
 
-    private String loadChapterFile(){
+    public String loadChapterFile(){
         String path = "Story_" + this.filename + ".json";
         String json = "";
         try{
