@@ -80,11 +80,11 @@ public class AddLink extends Activity {
 
                         long c_id = Long.parseLong(r.get("id"));
 
-                        if (id == -1){
-                            ce.addoption( OptionText.getText().toString(), c_id);
-                        }else{
-                            ce.modifyoption((long) pos, OptionText.getText().toString(), c_id);
-                        }
+//                        if (id == -1){
+//                            ce.addoption( OptionText.getText().toString(), c_id);
+//                        }else{
+//                            ce.modifyoption((long) pos, OptionText.getText().toString(), c_id);
+//                        }
 
                         Intent i = new Intent(AddLink.this, ChapterView.class);
                         i.putExtra("id", id);

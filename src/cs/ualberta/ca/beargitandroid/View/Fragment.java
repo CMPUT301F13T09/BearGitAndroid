@@ -55,22 +55,30 @@ public class Fragment extends Activity {
 		
 		final SimpleAdapter radp = gct.clickOption();
 		if (radp != null){
+            radp.notifyDataSetChanged();
 			Option.setAdapter(radp);
 			
-			Option.setOnItemClickListener(new OnItemClickListener(){
-				public void onItemClick(AdapterView<?> parent,View arg1, int pos, long id){
-				//The place you add the code that get the story info from the database
-					HashMap <String, String> r = (HashMap<String, String>) radp.getItem(pos);
-					long data = Long.parseLong(r.get("nextid"));
 
-					Intent intent = new Intent(Fragment.this,Fragment.class);
-                    intent.putExtra("c_id", data);
-					intent.putExtra("Story", story);
-					startActivity(intent);
-				}
-			});
 		}
-		
+
+        Option.setOnItemClickListener(new OnItemClickListener(){
+            public void onItemClick(AdapterView<?> parent,View arg1, int pos, long id){
+                //The place you add the code that get the story info from the database
+                HashMap <String, String> r = (HashMap<String, String>) radp.getItem(pos);
+                long data = Long.parseLong(r.get("nextid"));
+
+                gct =  new ChapterController(Fragment.this, story, data);
+                TextView fragment = (TextView)findViewById(R.id.fragment);
+                TextView Title = (TextView)findViewById(R.id.title091);
+                ListView Option = (ListView)findViewById(R.id.options123);
+                fragment.setText(gct.getChapterInfo().get("context"));
+                Title.setText(gct.getChapterInfo().get("title"));
+
+
+                final SimpleAdapter radp = gct.clickOption();
+                Option.setAdapter(radp);
+            }
+        });
 		
 		
 		exitButton.setOnClickListener(new View.OnClickListener()
@@ -79,9 +87,10 @@ public class Fragment extends Activity {
 			@Override
 			public void onClick(View v)
 			{
-				gct.saveProcess();
-				Intent intent = new Intent(Fragment.this,homeScreenLocal.class);
-				startActivity(intent);
+				//gct.saveProcess();
+				//Intent intent = new Intent(Fragment.this,homeScreenLocal.class);
+				//startActivity(intent);
+                finish();
 			}
 		});
 

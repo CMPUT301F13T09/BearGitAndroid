@@ -43,6 +43,7 @@ public class Chapter implements Serializable{
      */
 	public Chapter(long id){
 		this.id = id;
+        this.option = new ArrayList<HashMap<String, String>>();
         //this.story = story;
 	}
 
@@ -116,7 +117,8 @@ public class Chapter implements Serializable{
         HashMap<String , String > h = new HashMap<String, String>();
         h.put("context", context);
         h.put("nextid", nextid + "");
-		
+
+        this.option.add(h);
 	}
 
 
