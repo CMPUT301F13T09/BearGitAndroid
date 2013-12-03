@@ -59,7 +59,7 @@ public class Story implements Serializable{
 
         this.dbHelper = new DBAdapter(context);
         this.cxt = context;
-
+        this.gameInfo = new ArrayList<Integer>();
         //initizal Gson library.
         //initGson();
 
@@ -91,7 +91,9 @@ public class Story implements Serializable{
 
 
 
-
+    public void setContext(Context cxt){
+        this.cxt = cxt;
+    }
 
     /**
      * create a new chapter
@@ -407,7 +409,7 @@ public class Story implements Serializable{
             fp.close();
 
         } catch (Exception e){
-            Log.w("IO", "CANNOT  READ FILE" + path);
+            Log.e("IO", "CANNOT  READ FILE:" + path);
             e.printStackTrace();
         }
 
@@ -432,11 +434,13 @@ public class Story implements Serializable{
     private void saveChapterFile(String data){
         String path = "Story_" + this.filename + ".json";
 
+        Log.e("IO", data);
+
         try{
             utils.createFolder(this.cxt, "Story");
 
             File filePath = new File(this.cxt.getFilesDir() + "/Story/" + path);
-
+            Log.e("IO", filePath.getAbsolutePath());
             //if file not existe create a new file;
             if (! filePath.exists())
                 filePath.createNewFile();
@@ -447,7 +451,7 @@ public class Story implements Serializable{
             fp.close();
 
         } catch (Exception e){
-            Log.v("IO", "CANNOT SAVE FILE" + path);
+            Log.e("IO", "CANNOT SAVE FILE:" + path);
             e.printStackTrace();
         }
     }

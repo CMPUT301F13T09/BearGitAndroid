@@ -2,6 +2,8 @@ package cs.ualberta.ca.beargitandroid.View;
 
 import java.util.HashMap;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import cs.ualberta.ca.beargitandroid.Chapter;
 import cs.ualberta.ca.beargitandroid.Story;
 import cs.ualberta.ca.beargitandroid.controller.ChapterController;
@@ -55,7 +57,9 @@ public class ChapterView extends Activity {
 		TextText = (EditText) findViewById(R.id.editText2);
 		
 		ListView OptionList = (ListView) findViewById(R.id.listView9);
-		
+
+        TitleText.setText(ce.getChapterInfo().get("title"));
+        TextText.setText(ce.getChapterInfo().get("context"));
 
         //show option list
 
@@ -72,9 +76,7 @@ public class ChapterView extends Activity {
                     long opt_id = (long) pos;
                     String context = r.get("context");
 
-                    titletext = TitleText.getText().toString();
-                    chaptertext = TextText.getText().toString();
-                    ce.modifyChapter(titletext, chaptertext);
+                    save();
 
                     Intent intent = new Intent(ChapterView.this,AddLink.class);
                     intent.putExtra("Story", story);
@@ -92,9 +94,10 @@ public class ChapterView extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				
-				titletext = TitleText.getText().toString();
-				chaptertext = TextText.getText().toString();
-				ce.modifyChapter(titletext, chaptertext);
+				//titletext = TitleText.getText().toString();
+				//chaptertext = TextText.getText().toString();
+				//ce.modifyChapter(titletext, chaptertext);
+                save();
                 finish();
 	    	}
 		
@@ -119,10 +122,10 @@ public class ChapterView extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-                titletext = TitleText.getText().toString();
-                chaptertext = TextText.getText().toString();
-                ce.modifyChapter(titletext, chaptertext);
-
+//                titletext = TitleText.getText().toString();
+//                chaptertext = TextText.getText().toString();
+    //                ce.modifyChapter(titletext, chaptertext);
+                save();
 
 				Intent intent=new Intent(ChapterView.this,AddLink.class);
                 intent.putExtra("Story", story);
@@ -133,7 +136,31 @@ public class ChapterView extends Activity {
 			}
 		});
 		
+
+
+
+
 		
-		
+    }
+
+
+
+    private void save(){
+        titletext = TitleText.getText().toString();
+        chaptertext = TextText.getText().toString();
+        if (titletext.equals("") || chaptertext.equals("")) {
+            new AlertDialog.Builder(ChapterView.this)
+                    .setTitle("Warnning")
+                    .setMessage("Tilte cannot be empty!")
+                    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                        }
+                    }).show();
+        } else {
+
+            ce.modifyChapter(titletext, chaptertext);
+        }
+
     }
 }

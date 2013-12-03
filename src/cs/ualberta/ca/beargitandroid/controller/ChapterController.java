@@ -25,6 +25,7 @@ public class ChapterController {
 
         this.cxt = cxt;
         this.story = story;
+        this.story.setContext(this.cxt);
         if (id == -1){
             this.chapter = story.createNewChapter();
         }else{
