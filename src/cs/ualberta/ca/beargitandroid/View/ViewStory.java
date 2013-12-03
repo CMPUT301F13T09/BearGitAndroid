@@ -52,7 +52,8 @@ public class ViewStory extends Activity {
 		HashMap <String,Object> current = sct.showSotry();
 		TITLE.setText((String) current.get("title"));
 		Descrip.setText((String) current.get("description"));
-		
+
+
 		//show resume list
 		final SimpleAdapter radp = sct.readProgress();
 		if (radp != null){

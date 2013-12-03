@@ -56,7 +56,7 @@ public class ChapterController {
 
         if( l == null){
 
-            return null;
+            l = new ArrayList<HashMap< String , String >> ();
         }
 
         String[] from = new String[] {"context"};

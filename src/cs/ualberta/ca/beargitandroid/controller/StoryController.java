@@ -83,7 +83,7 @@ public class StoryController {
 		ArrayList<HashMap< String , String >> map = story.getChapterList(this.ID);
 		
 		if(map == null){
-			return null;
+		    map = new ArrayList<HashMap< String , String >> ();
 		}
 		String[] from = new String[]{"title"};
 		int[] to = new int[] {R.id.title2};

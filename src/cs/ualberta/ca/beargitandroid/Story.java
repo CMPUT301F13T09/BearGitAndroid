@@ -37,7 +37,7 @@ public class Story implements Serializable{
     private String title;
     private String filename;
     private String describe;
-    private Date date;
+    private Date mdate;
     private String author;
     private int status;
     private HashMap<String, Object> dict;
@@ -205,8 +205,9 @@ public class Story implements Serializable{
         this.dict = this.dbHelper.loadStoryInfo(this.id);
         this.title = (String) dict.get("title");
         this.filename = (String) dict.get("filename");
-        this.describe = (String) dict.get("describe");
-        this.date = (Date) dict.get("date");
+        this.describe = (String) dict.get("description");
+
+        this.mdate = (Date) dict.get("date");
         this.status = (Integer) dict.get("status");
         this.author = (String) dict.get("author");
     }
@@ -224,7 +225,7 @@ public class Story implements Serializable{
         this.title = title;
         this.describe = describe;
         this.author = author;
-        this.date = new Timestamp(date.getTime());
+        this.mdate = new Timestamp(date.getTime());
         this.filename = generateFilename();
         this.status = 3;
 
@@ -232,8 +233,13 @@ public class Story implements Serializable{
         long id = this.dbHelper.create(generateCV());
 
         //get item id from insert, and set it to this.id
-        if (id != -1)
+        if (id != -1){
             this.id = id;
+            this.dict = this.dbHelper.loadStoryInfo(this.id);
+            this.mdate = (Date) dict.get("date");
+        }
+
+
 
     }
 
@@ -250,6 +256,7 @@ public class Story implements Serializable{
         this.author = author;
 
         this.dbHelper.modify(this.id, generateCV());
+        this.dict = this.dbHelper.loadStoryInfo(this.id);
     }
 
 
@@ -261,10 +268,12 @@ public class Story implements Serializable{
     private ContentValues generateCV(){
         SimpleDateFormat datetime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         ContentValues cv = new ContentValues();
+        Date date = new Date();
         cv.put("Title", this.title);
         cv.put("Description", this.describe);
         cv.put("Author", this.author);
-        cv.put("Date", datetime.format(this.date));
+//        cv.put("Date", datetime.format(this.mdate));
+        cv.put("Date", datetime.format( new Timestamp(date.getTime())));
         cv.put("Filename",this.filename);
         cv.put("Status",this.status);
 
@@ -289,7 +298,7 @@ public class Story implements Serializable{
         }
 
 
-        String inStr = this.author + this.title + this.describe + this.date.toString();
+        String inStr = this.author + this.title + this.describe + this.mdate.toString();
 
         char[] charArray = inStr.toCharArray();
         byte[] byteArray = new byte[charArray.length];
@@ -360,6 +369,10 @@ public class Story implements Serializable{
         Type chapter_json = new TypeToken<HashMap<Integer, Chapter>>(){}.getType();
 
         return gson.toJson(this.chapterList, chapter_json);
+    }
+
+    public int getMaxChapterID(){
+        return this.maxChapterID;
     }
 
     /**
@@ -434,13 +447,13 @@ public class Story implements Serializable{
     private void saveChapterFile(String data){
         String path = "Story_" + this.filename + ".json";
 
-        Log.e("IO", data);
+        //Log.e("IO", data);
 
         try{
             utils.createFolder(this.cxt, "Story");
 
             File filePath = new File(this.cxt.getFilesDir() + "/Story/" + path);
-            Log.e("IO", filePath.getAbsolutePath());
+            //Log.e("IO", filePath.getAbsolutePath());
             //if file not existe create a new file;
             if (! filePath.exists())
                 filePath.createNewFile();

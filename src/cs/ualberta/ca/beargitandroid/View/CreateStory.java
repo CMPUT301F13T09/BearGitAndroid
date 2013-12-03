@@ -45,7 +45,7 @@ public class CreateStory extends Activity {
 		Bundle bundle = intent.getExtras();
 
 
-		long id = bundle.getLong("id");
+		long id = bundle.getLong("id" , 0);
         //set controller
 		this.sct = new StoryController(this,id);
 
