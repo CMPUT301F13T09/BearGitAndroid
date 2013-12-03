@@ -76,7 +76,8 @@ public class Story implements Serializable{
                     max = x;
                 }
             }
-            this.maxChapterID = max;
+            this.maxChapterID = max + 1;
+            Log.e("MAX_ID:", max+"");
 
         }else{
             this.id = 0;

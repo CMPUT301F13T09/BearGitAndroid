@@ -33,7 +33,7 @@ public class ChapterView extends Activity {
     private Chapter chapter;
     private Story story;
     private long c_id;
-
+    private ListView OptionList;
 	
 	public void onCreate(Bundle savedInstanceState){
 		
@@ -56,7 +56,7 @@ public class ChapterView extends Activity {
 		TitleText = (EditText) findViewById(R.id.editText1);
 		TextText = (EditText) findViewById(R.id.editText2);
 		
-		ListView OptionList = (ListView) findViewById(R.id.listView9);
+		OptionList = (ListView) findViewById(R.id.listView9);
 
         TitleText.setText(ce.getChapterInfo().get("title"));
         TextText.setText(ce.getChapterInfo().get("context"));
@@ -69,26 +69,32 @@ public class ChapterView extends Activity {
             radp.notifyDataSetChanged();
             OptionList.setAdapter(radp);
 
-            OptionList.setOnItemClickListener(new OnItemClickListener(){
-                public void onItemClick(AdapterView<?> parent,View arg1, int pos, long id){
-                    //The place you add the code that get the story info from the database
-                    HashMap <String, String> r = (HashMap<String, String>) radp.getItem(pos);
-                    //long opt_id =  Long.parseLong(r.get("nextid"));
-                    long opt_id = (long) pos;
-                    String context = r.get("context");
-
-                    //if (save()){
-
-                        Intent intent = new Intent(ChapterView.this,AddLink.class);
-                        intent.putExtra("Story", story);
-                        intent.putExtra("c_id", c_id);
-                        intent.putExtra("opt_id", opt_id);
-                        intent.putExtra("context", context);
-                        startActivity(intent);
-                //    }
-                }
-            });
         }
+
+
+
+        OptionList.setOnItemClickListener(new OnItemClickListener(){
+            public void onItemClick(AdapterView<?> parent,View arg1, int pos, long id){
+                //The place you add the code that get the story info from the database
+                HashMap <String, String> r = (HashMap<String, String>) radp.getItem(pos);
+                //long opt_id =  Long.parseLong(r.get("nextid"));
+                long opt_id = (long) pos;
+                String context = r.get("context");
+
+                //if (save()){
+
+                Intent intent = new Intent(ChapterView.this,AddLink.class);
+                intent.putExtra("Story", story);
+                intent.putExtra("c_id", c_id);
+                intent.putExtra("opt_id", opt_id);
+                intent.putExtra("context", context);
+                startActivityForResult(intent, 0);
+
+                //    }
+            }
+        });
+
+
 
         saveButton.setOnClickListener(new View.OnClickListener(){
 
@@ -100,6 +106,10 @@ public class ChapterView extends Activity {
 				//chaptertext = TextText.getText().toString();
 				//ce.modifyChapter(titletext, chaptertext);
                 if (save()){
+                    //Intent i = new Intent(ChapterView.this, CreateStory.class);
+                    //i.putExtra("Story", story);
+                    //setResult(0, i);
+                    setResult(0);
                     finish();
                 }
 	    	}
@@ -113,6 +123,7 @@ public class ChapterView extends Activity {
 				// TODO Auto-generated method stub
 				
 				ce.deleteChapter();
+                setResult(0);
 			    finish();
 				
 			}
@@ -135,7 +146,9 @@ public class ChapterView extends Activity {
                     intent.putExtra("Story", story);
                     intent.putExtra("c_id", c_id);
 
-                    startActivity(intent);
+                    startActivityForResult(intent, 0);
+
+                   // startActivity(intent);
                 }
 			}
 		});
@@ -147,7 +160,33 @@ public class ChapterView extends Activity {
 		
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // TODO Auto-generated method stub
+        super.onActivityResult(requestCode, resultCode, data);
 
+        if (requestCode == 0){
+
+
+            long m_id = data.getLongExtra("id", -1);
+            long pos = data.getLongExtra("pos", 0);
+            long c_id = data.getLongExtra("c_id", 0);
+            String mtxt = data.getStringExtra("option_name");
+
+
+            if (m_id == -1){
+                ce.addoption(mtxt, c_id);
+            }else{
+                ce.modifyoption(pos, mtxt, c_id);
+            }
+
+            final SimpleAdapter radp = ce.clickOption();
+            OptionList.setAdapter(radp);
+
+
+        }
+
+    }
 
     private boolean save(){
         titletext = TitleText.getText().toString();

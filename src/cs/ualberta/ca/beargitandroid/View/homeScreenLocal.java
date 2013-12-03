@@ -98,7 +98,7 @@ public class homeScreenLocal extends TabActivity implements OnTabChangeListener,
 		
 		
 		final SimpleAdapter adp = HSC.showLocal();
-		adp.notifyDataSetChanged();
+//		adp.notifyDataSetChanged();
         StoryList.setAdapter(adp);
 		CreateList.setAdapter(adp);
 		

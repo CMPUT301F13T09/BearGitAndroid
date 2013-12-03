@@ -35,7 +35,7 @@ public class CreateStory extends Activity {
 	private String text0;
 	private String text1;
 	private String text2;
-	
+	private long x;
 
 	
 	public void onCreate(Bundle savedInstanceState) {
@@ -64,6 +64,7 @@ public class CreateStory extends Activity {
             DescripText.setText((String) sct.getStory().get("description"));
         }
 
+        x = id;
 
 
 
@@ -73,6 +74,8 @@ public class CreateStory extends Activity {
 
             @Override
             public void onClick(View v) {
+
+                if (save()){
                 Intent intent = new Intent(CreateStory.this, ChapterView.class);
 //                Bundle sbundle = new Bundle();
 //                sbundle.putSerializable("Story", sct.Story());
@@ -81,7 +84,8 @@ public class CreateStory extends Activity {
                 intent.putExtra("c_id", -1);
                 intent.putExtra("Story", sct.Story());
                 startActivityForResult(intent, 0);
-                startActivity(intent);
+                //startActivity(intent);
+                }
             }
         });
 
@@ -92,23 +96,26 @@ public class CreateStory extends Activity {
             radp.notifyDataSetChanged();
             Chapters.setAdapter(radp);
             //radp.notifyDataSetChanged();
-            Chapters.setOnItemClickListener(new OnItemClickListener() {
-                public void onItemClick(AdapterView<?> parent, View arg1, int pos, long id) {
-                    //The place you add the code that get the story info from the database
-                    HashMap<String, String> r = (HashMap<String, String>) radp.getItem(pos);
-                    long local_id = Long.parseLong(r.get("id"));
 
-                    Intent intent = new Intent(CreateStory.this, ChapterView.class);
-                    intent.putExtra("Story", sct.Story());
-                    intent.putExtra("c_id", local_id);
-
-                    startActivityForResult(intent, 0);
-                   //startActivity(intent);
-                }
-            });
         }
 
+        Chapters.setOnItemClickListener(new OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View arg1, int pos, long id) {
+                //The place you add the code that get the story info from the database
 
+//                x = sct.CreateStory(text0, text1, text2);
+                HashMap<String, String> r = (HashMap<String, String>) radp.getItem(pos);
+                long local_id = Long.parseLong(r.get("id"));
+                if (save()){
+                Intent intent = new Intent(CreateStory.this, ChapterView.class);
+                intent.putExtra("Story", sct.Story());
+                intent.putExtra("c_id", local_id);
+
+                startActivityForResult(intent, 0);
+                //startActivity(intent);
+                }
+            }
+        });
 
 
         //save
@@ -118,23 +125,7 @@ public class CreateStory extends Activity {
             public void onClick(View v) {
                 //The place you add the code that save the story to the database
                 //setResult(RESULT_OK);
-                text0 = TitleText.getText().toString();
-                text1 = AuthorText.getText().toString();
-                text2 = DescripText.getText().toString();
-                if (text0.equals("") || text1.equals("")) {
-                    new AlertDialog.Builder(CreateStory.this)
-                            .setTitle("Warnning")
-                            .setMessage("Tilte cannot be empty!")
-                            .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialogInterface, int i) {
-                                }
-                            }).show();
-                } else {
-                    long x = sct.CreateStory(text0, text1, text2);
-                    //Log.v("kk", x + "");
-                    //Intent intent = new Intent(CreateStory.this, homeScreenLocal.class);
-                    //startActivity(intent);
+                if(save()){
                     finish();
                 }
             }
@@ -143,6 +134,44 @@ public class CreateStory extends Activity {
 		
 	}
 
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // TODO Auto-generated method stub
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 0){
+            this.sct = new StoryController(this, x);
+            final SimpleAdapter radp = sct.showallchapter();
+
+            Chapters.setAdapter(radp);
+
+        }
+
+    }
+
+    public boolean save(){
+        text0 = TitleText.getText().toString();
+        text1 = AuthorText.getText().toString();
+        text2 = DescripText.getText().toString();
+        if (text0.equals("") || text1.equals("")) {
+            new AlertDialog.Builder(CreateStory.this)
+                    .setTitle("Warnning")
+                    .setMessage("Tilte cannot be empty!")
+                    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                        }
+                    }).show();
+            return false;
+        } else {
+            x = sct.CreateStory(text0, text1, text2);
+            //Log.v("kk", x + "");
+            //Intent intent = new Intent(CreateStory.this, homeScreenLocal.class);
+            //startActivity(intent);
+            return true;
+        }
+    }
 //
 //    public void onResume(){
 //        super.onResume();

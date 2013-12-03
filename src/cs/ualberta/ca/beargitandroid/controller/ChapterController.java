@@ -101,6 +101,7 @@ public class ChapterController {
 
     public void deleteChapter(){
         this.story.deleteChapter(this.id);
+        this.story.saveChapters();
     }
 
     public void addoption(String title, long id){

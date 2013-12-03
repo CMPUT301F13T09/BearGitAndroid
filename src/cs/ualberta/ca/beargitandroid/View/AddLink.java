@@ -37,7 +37,7 @@ public class AddLink extends Activity {
 		setContentView(R.layout.add_link);
 
 
-        this.story = (Story) getIntent().getSerializableExtra("Stroy");
+        this.story = (Story) getIntent().getSerializableExtra("Story");
         this.c_id = getIntent().getLongExtra("c_id", -1);
 
         if (c_id == -1){
@@ -46,7 +46,7 @@ public class AddLink extends Activity {
 
         this.id = getIntent().getLongExtra("opt_id", -1);
         String title = getIntent().getStringExtra("context");
-        Log.v("c_id", c_id+"");
+        Log.e("c_id", c_id+"");
         this.ce = new ChapterController(this, story, c_id);
 
 		OptionText = (EditText) findViewById(R.id.neirong);
@@ -78,13 +78,20 @@ public class AddLink extends Activity {
 
                     }else{
 
-                        long c_id = Long.parseLong(r.get("nextid"));
+                        long c_id = Long.parseLong(r.get("id"));
 
                         if (id == -1){
                             ce.addoption( OptionText.getText().toString(), c_id);
                         }else{
                             ce.modifyoption((long) pos, OptionText.getText().toString(), c_id);
                         }
+
+                        Intent i = new Intent(AddLink.this, ChapterView.class);
+                        i.putExtra("id", id);
+                        i.putExtra("pos", (long) pos);
+                        i.putExtra("option_name", OptionText.getText().toString());
+                        i.putExtra("c_id", c_id);
+                        setResult(0, i);
 
                         finish();
                     }
